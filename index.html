@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Fireworks Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* General styling for the page */
+        body {
+            background-color: #0d0d1a; /* Dark night sky */
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            height: 100vh;
+        }
+
+        /* Canvas styling - it will fill the available space */
+        canvas {
+            display: block;
+            background-color: transparent; /* Actual background is on the body */
+        }
+
+        /* Message box styling */
+        .message-box {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            font-size: 0.9rem;
+            text-align: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Tailwind configuration for custom font */
+        .inter-font {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .llm-button {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .llm-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .llm-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="inter-font">
+
+    <!-- Message Box / Instructions -->
+    <div id="messageBox" class="message-box">Click or tap anywhere to launch fireworks!</div>
+
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Theme Control Panel -->
+    <div id="controls" class="fixed bottom-0 w-full p-4 bg-gray-900 bg-opacity-90 flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-4 z-50 rounded-t-xl shadow-2xl">
+        
+        <!-- Input & Button -->
+        <div class="flex space-x-2 w-full md:w-auto max-w-lg">
+            <input type="text" id="themeInput" placeholder="Enter a theme (e.g., 'deep space' or 'joy')" class="p-3 w-full bg-gray-700 text-white border-none rounded-lg focus:ring-2 focus:ring-purple-400 focus:outline-none placeholder-gray-400">
+            <button id="generateButton" class="llm-button bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-5 rounded-lg shadow-lg whitespace-nowrap">
+                Generate Theme ✨
+            </button>
+        </div>
+
+        <!-- Theme Output -->
+        <div id="themeOutput" class="text-sm text-center md:text-left text-gray-300 transition duration-300 w-full md:w-auto">
+            No custom theme loaded. Using standard cycling colors.
+        </div>
+    </div>
+
+
+    <script>
+        // --- Gemini API Configuration ---
+        const apiKey = ""; // If you want to use models other than gemini-2.5-flash-preview-09-2025, provide an API key here. Otherwise, leave this as-is.
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+        
+        // Set up the canvas and context
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        const messageBox = document.getElementById('messageBox');
+        const themeInput = document.getElementById('themeInput');
+        const generateButton = document.getElementById('generateButton');
+        const themeOutput = document.getElementById('themeOutput');
+        
+        let fireworks = [];
+        let particles = [];
+        let hue = 120; // Starting color hue for cycling fallback
+        let themeHues = []; // Array to store LLM-generated hues
+
+        // Utility function for exponential backoff retry logic
+        async function fetchWithRetry(url, options, maxRetries = 3) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        console.error(`Attempt ${i + 1} failed with status: ${response.status}`);
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    if (i < maxRetries - 1) {
+                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+        }
+
+        // --- Core Functions ---
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // ------------------
+        // Particle Class
+        // ------------------
+        class Particle {
+            constructor(x, y, hue, isFirework) {
+                this.x = x;
+                this.y = y;
+                this.hue = hue;
+                this.isFirework = isFirework;
+                this.opacity = 1;
+                this.friction = 0.99;
+                this.gravity = 0;
+
+                if (this.isFirework) {
+                    // Initial trajectory for the rocket trail
+                    this.angle = Math.PI * 1.5;
+                    this.speed = Math.random() * 2 + 5;
+                    this.velocity = {
+                        x: Math.cos(this.angle) * this.speed,
+                        y: Math.sin(this.angle) * this.speed
+                    };
+                    this.brightness = Math.random() * 20 + 70;
+                    this.size = 2;
+                } else {
+                    // Explosion sparks
+                    this.angle = Math.random() * Math.PI * 2;
+                    this.speed = Math.random() * 10 + 1;
+                    this.velocity = {
+                        x: Math.cos(this.angle) * this.speed,
+                        y: Math.sin(this.angle) * this.speed
+                    };
+                    this.brightness = Math.random() * 40 + 50;
+                    this.decay = Math.random() * 0.01 + 0.015;
+                    this.gravity = 0.8;
+                    this.size = 2;
+                }
+            }
+
+            update() {
+                this.velocity.x *= this.friction;
+                this.velocity.y *= this.friction;
+                this.velocity.y += this.gravity;
+
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+
+                if (!this.isFirework) {
+                    this.opacity -= this.decay;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                // Use the particle's specific hue
+                ctx.fillStyle = `hsla(${this.hue}, 100%, ${this.brightness}%, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        // ------------------
+        // Firework Class (Rocket)
+        // Note: customHue is now required in the constructor
+        // ------------------
+        class Firework {
+            constructor(startX, startY, targetX, targetY, customHue) {
+                this.x = startX;
+                this.y = startY;
+                this.startX = startX;
+                this.startY = startY;
+                this.targetX = targetX;
+                this.targetY = targetY;
+
+                const dx = targetX - startX;
+                const dy = targetY - startY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const velocity = 3.5;
+
+                this.velocity = {
+                    x: (dx / distance) * velocity,
+                    y: (dy / distance) * velocity
+                };
+
+                this.distance = distance;
+                this.hue = customHue; // Use the provided custom hue
+                this.maxParticles = 80; // Increased for a better effect
+                this.trail = [];
+            }
+
+            update() {
+                const distanceCovered = Math.sqrt(
+                    (this.x - this.startX) ** 2 + (this.y - this.startY) ** 2
+                );
+
+                if (distanceCovered >= this.distance) {
+                    this.createParticles(this.targetX, this.targetY);
+                    return true;
+                } else {
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+                    this.trail.push(new Particle(this.x, this.y, this.hue, true));
+                    if (this.trail.length > 5) {
+                        this.trail.shift();
+                    }
+                }
+            }
+
+            draw() {
+                this.trail.forEach(p => p.draw());
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 3, 0, Math.PI * 2, false);
+                ctx.fillStyle = `hsl(${this.hue}, 100%, 80%)`;
+                ctx.fill();
+            }
+
+            createParticles(x, y) {
+                for (let i = 0; i < this.maxParticles; i++) {
+                    particles.push(new Particle(x, y, this.hue, false));
+                }
+            }
+        }
+
+        // ------------------
+        // Main Animation Loop
+        // ------------------
+        function loop() {
+            ctx.fillStyle = 'rgba(13, 13, 26, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Only cycle the hue if no custom theme is loaded
+            if (themeHues.length === 0) {
+                 hue = (hue + 1) % 360;
+            }
+
+            fireworks = fireworks.filter(firework => !firework.update());
+            fireworks.forEach(firework => firework.draw());
+
+            particles = particles.filter(particle => {
+                particle.update();
+                return particle.opacity > particle.decay;
+            });
+            particles.forEach(particle => particle.draw());
+
+            requestAnimationFrame(loop);
+        }
+
+        // ------------------
+        // Input Handling
+        // ------------------
+        function launchFirework(e) {
+            // Hide the initial message box after the first interaction
+            if (messageBox.style.opacity !== '0') {
+                messageBox.style.opacity = '0';
+                setTimeout(() => messageBox.style.display = 'none', 500);
+            }
+
+            let x, y;
+            if (e.clientX !== undefined) {
+                x = e.clientX;
+                y = e.clientY;
+            } else if (e.touches && e.touches[0]) {
+                x = e.touches[0].clientX;
+                y = e.touches[0].clientY;
+            } else {
+                return;
+            }
+
+            const targetX = x;
+            const targetY = y;
+            const startX = canvas.width / 2;
+            const startY = canvas.height;
+            
+            // Determine the hue: use a random theme hue, or fall back to the cycling hue
+            const selectedHue = themeHues.length > 0 ? themeHues[Math.floor(Math.random() * themeHues.length)] : hue;
+
+            fireworks.push(new Firework(startX, startY, targetX, targetY, selectedHue));
+        }
+
+        canvas.addEventListener('mousedown', launchFirework);
+        canvas.addEventListener('touchstart', launchFirework);
+
+        // ------------------
+        // Gemini API Integration
+        // ------------------
+        async function generateFireworkTheme() {
+            const prompt = themeInput.value.trim();
+            if (!prompt) {
+                alert("Please enter a theme or mood first!");
+                return;
+            }
+
+            generateButton.disabled = true;
+            generateButton.textContent = 'Generating...';
+            themeOutput.innerHTML = `<span class="text-yellow-400">Thinking up a dazzling color scheme for "${prompt}"...</span>`;
+            themeHues = []; // Clear existing theme colors
+
+            const systemPrompt = "You are a Firework Theme Designer. Based on the user's input (a mood, theme, or event), generate a creative name, a short celebratory description, and a list of 3-5 distinct color HUE values (0-360) that best represent that theme.";
+
+            const payload = {
+                contents: [{ parts: [{ text: `Generate a firework theme for: "${prompt}"` }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            "themeName": { "type": "STRING", "description": "A creative, short name for the firework theme, e.g., 'Midnight Serenade'." },
+                            "description": { "type": "STRING", "description": "A short, two-sentence celebratory description or poem for the theme." },
+                            "colorHues": {
+                                "type": "ARRAY",
+                                "description": "A list of 3 to 5 distinct base HUE values (0-360) that match the theme.",
+                                "items": { "type": "NUMBER" }
+                            }
+                        },
+                        "required": ["themeName", "colorHues", "description"]
+                    }
+                }
+            };
+
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (jsonText) {
+                    const themeData = JSON.parse(jsonText);
+                    themeHues = themeData.colorHues.map(h => Math.max(0, Math.min(360, Math.round(h)))); // Clamp to 0-360
+                    
+                    const colorSwatches = themeHues.map(h => 
+                        `<span style="background-color: hsl(${h}, 100%, 50%);" class="inline-block w-4 h-4 rounded-full shadow-md"></span>`
+                    ).join('');
+
+                    themeOutput.innerHTML = `
+                        <p class="font-bold text-lg text-purple-300">${themeData.themeName}</p>
+                        <p class="text-sm italic mb-1">${themeData.description}</p>
+                        <p class="flex items-center space-x-2 justify-center md:justify-start">
+                            <span class="text-gray-400">Colors:</span> ${colorSwatches}
+                        </p>
+                    `;
+                } else {
+                    themeOutput.innerHTML = `<span class="text-red-400">Error: Could not parse theme data from LLM.</span>`;
+                }
+
+            } catch (error) {
+                console.error('Gemini API call failed:', error);
+                themeOutput.innerHTML = `<span class="text-red-400">API Error: Failed to generate theme. See console for details.</span>`;
+            } finally {
+                generateButton.disabled = false;
+                generateButton.textContent = 'Generate Theme ✨';
+            }
+        }
+
+        generateButton.addEventListener('click', generateFireworkTheme);
+
+        // Start the animation
+        window.onload = function() {
+            loop();
+        }
+    </script>
+</body>
+</html>
