@@ -1,149 +1,119 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LCP Repo Explorer - Quán Net Chat</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        .container { display: flex; height: 100vh; }
-        .sidebar { width: 30%; background: white; border-right: 1px solid #ddd; overflow-y: auto; padding: 10px; }
-        .content { width: 70%; padding: 10px; overflow-y: auto; background: white; }
-        .search { width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box; }
-        .tree ul { list-style: none; padding-left: 20px; }
-        .tree li { cursor: pointer; padding: 2px 0; }
-        .tree li:hover { background: #e9e9e9; }
-        .tree .folder::before { content: "📁 "; }
-        .tree .file::before { content: "📄 "; }
-        .tree .expanded { display: block; }
-        .tree .collapsed { display: none; }
-        .content pre { white-space: pre-wrap; word-wrap: break-word; }
-        .loading { text-align: center; color: #666; }
-        #file-content { border: 1px solid #ddd; padding: 10px; min-height: 200px; background: #fafafa; }
-        .header { background: #007bff; color: white; padding: 10px; text-align: center; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LCP - Quán Net Chat Lan</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/lapgia57-netizen/LCP/main/favicon.ico" type="image/x-icon">
+  <style>
+    body { margin:0; font-family: system-ui; background:#0d1117; color:#c9d1d9; }
+    .header { background:#010409; padding:20px; text-align:center; border-bottom:3px solid #f85149; }
+    h1 { margin:0; color:#f85149; }
+    .container { display:flex; height:calc(100vh - 100px); }
+    .sidebar { width:35%; background:#161b22; border-right:1px solid #30363d; overflow:auto; }
+    .content { width:65%; padding:20px; overflow:auto; }
+    .tree ul { padding-left:20px; margin:5px 0; list-style:none; }
+    .tree li { padding:6px; cursor:pointer; border-radius:6px; }
+    .tree li:hover { background:#30363d; }
+    .tree .folder::before { content:"📁 "; }
+    .tree .file::before { content:"📄 "; }
+    .search { width:100%; padding:12px; background:#0d1117; border:1px solid #30363d; color:white; box-sizing:border-box; }
+    #file-content { background:#0d1117; padding:20px; border-radius:8px; min-height:100%; }
+    .online-count { position:fixed; bottom:10px; right:10px; background:#238636; color:white; padding:10px 15px; border-radius:50px; font-weight:bold; }
+    .refresh { font-size:12px; color:#8b949e; text-align:center; margin-top:10px; }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>LCP - Chờ tại quán net :(</h1>
-        <p>Explorer repo: <a href="https://github.com/lapgia57-netizen/LCP" style="color: white;" target="_blank">github.com/lapgia57-netizen/LCP</a></p>
+  <div class="header">
+    <h1>LCP – Chờ tại quán net</h1>
+    <p>Đang có <span id="online">0</span> anh em trong quán • Auto cập nhật mỗi 2 phút</p>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <input type="text" class="search" id="search" placeholder="Tìm file, nick, tin nhắn..."/>
+      <div class="tree" id="tree">Đang load repo...</div>
     </div>
-    <div class="container">
-        <div class="sidebar">
-            <input type="text" id="search" class="search" placeholder="Tìm file/thư mục...">
-            <div id="tree" class="tree">
-                <div class="loading">Đang load repo...</div>
-            </div>
-        </div>
-        <div class="content">
-            <h2>Nội dung file</h2>
-            <div id="file-content">Chọn file từ cây bên trái để xem nội dung.</div>
-        </div>
     </div>
+    <div class="content">
+      <div id="file-content">
+        <h2>Chào mừng đến với bảng điện tử quán net</h2>
+        <p>Click vào file bên trái để xem nội dung nhé!</p>
+        <p><strong>Mẹo:</strong> Tạo file trong thư mục <code>online/</code> để hiện tên lên bảng đếm người!</p>
+      </div>
+    </div>
+  </div>
 
-    <!-- Markdown renderer (tùy chọn, dùng marked.js từ CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <div class="online-count">Online: <span id="online2">0</span></div>
+  <div class="refresh">Cập nhật lần cuối: <span id="time"></span></div>
 
-    <script>
-        const REPO_OWNER = 'lapgia57-netizen';
-        const REPO_NAME = 'LCP';
-        const API_BASE = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`;
-        let treeData = [];
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    const owner = "lapgia57-netizen";
+    const repo = "LCP";
+    const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
 
-        // Load cây thư mục từ GitHub API
-        async function loadTree(path = '') {
-            try {
-                const response = await fetch(`${API_BASE}/git/trees/main?recursive=1`);
-                const data = await response.json();
-                treeData = data.tree || [];
-                renderTree(treeData);
-                document.querySelector('.loading').style.display = 'none';
-            } catch (error) {
-                document.querySelector('.loading').innerHTML = 'Lỗi load repo: ' + error.message;
-            }
+    async function loadRepo() {
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+        const files = data.tree.filter(f => f.type === "blob");
+        document.getElementById("online").textContent = files.filter(f => f.path.startsWith("online/")).length;
+        document.getElementById("online2").textContent = document.getElementById("online").textContent;
+
+        renderTree(data.tree);
+        updateTime();
+      } catch (e) {
+        document.getElementById("tree").innerHTML = "Lỗi kết nối GitHub API :(";
+      }
+    }
+
+    function renderTree(items) {
+      const ul = document.createElement("ul");
+      items.forEach(item => {
+        if (item.type === "tree") return; // bỏ qua folder thuần (chỉ hiện file)
+        else {
+          const li = document.createElement("li");
+          li.className = "file";
+          li.textContent = item.path;
+          li.onclick = () => loadFile(item.path);
+          ul.appendChild(li);
         }
+      });
+      const container = document.getElementById("tree");
+      container.innerHTML = "";
+      container.appendChild(ul);
+    }
 
-        // Render cây thư mục
-        function renderTree(items, parentUl = null) {
-            const ul = parentUl || document.getElementById('tree').appendChild(document.createElement('ul'));
-            ul.innerHTML = ''; // Clear
+    async function loadFile(path) {
+      const raw = `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
+      const res = await fetch(raw);
+      const text = await res.text();
 
-            items.filter(item => {
-                const search = document.getElementById('search').value.toLowerCase();
-                return !search || item.path.toLowerCase().includes(search);
-            }).forEach(item => {
-                const li = document.createElement('li');
-                li.className = item.type === 'tree' ? 'folder' : 'file';
-                li.textContent = item.path.split('/').pop(); // Chỉ tên file/thư mục
-                li.dataset.path = item.path;
-                li.onclick = (e) => {
-                    e.stopPropagation();
-                    if (item.type === 'tree') {
-                        toggleFolder(li);
-                    } else {
-                        loadFileContent(item.path);
-                    }
-                };
-                ul.appendChild(li);
+      const div = document.getElementById("file-content");
+      div.innerHTML = `<h3>${path}</h3>`;
+      if (path.endsWith(".md")) {
+        div.innerHTML += marked.parse(text);
+      } else {
+        div.innerHTML += `<pre>${text}</pre>`;
+      }
+    }
 
-                if (item.type === 'tree') {
-                    const subUl = document.createElement('ul');
-                    subUl.className = 'collapsed';
-                    li.appendChild(subUl);
-                    // Load sub-tree khi expand
-                    li.addEventListener('click', async (e) => {
-                        if (subUl.children.length === 0) {
-                            const subResponse = await fetch(`${API_BASE}/git/trees/${item.sha}`);
-                            const subData = await subResponse.json();
-                            renderTree(subData.tree, subUl);
-                        }
-                    });
-                }
-            });
-        }
+    function updateTime() {
+      document.getElementById("time").textContent = new Date().toLocaleString("vi-VN");
+    }
 
-        // Toggle folder expand/collapse
-        function toggleFolder(li) {
-            const subUl = li.querySelector('ul');
-            subUl.classList.toggle('collapsed');
-            subUl.classList.toggle('expanded');
-        }
+    // Tự động refresh mỗi 2 phút
+    loadRepo();
+    setInterval(loadRepo, 120000);
 
-        // Load nội dung file
-        async function loadFileContent(path) {
-            try {
-                const response = await fetch(`${API_BASE}/contents/${path}`);
-                const data = await response.json();
-                const content = atob(data.content); // Decode base64
-                const contentDiv = document.getElementById('file-content');
-                
-                if (path.endsWith('.md')) {
-                    // Render Markdown
-                    contentDiv.innerHTML = marked.parse(content);
-                } else {
-                    // Plain text
-                    contentDiv.innerHTML = `<pre>${escapeHtml(content)}</pre>`;
-                }
-                contentDiv.insertAdjacentHTML('beforebegin', `<h3>${path}</h3>`);
-            } catch (error) {
-                document.getElementById('file-content').innerHTML = 'Lỗi đọc file: ' + error.message;
-            }
-        }
-
-        // Escape HTML để tránh XSS
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // Search real-time
-        document.getElementById('search').addEventListener('input', (e) => {
-            renderTree(treeData);
-        });
-
-        // Load khi trang mở
-        loadTree();
-    </script>
+    // Tìm kiếm realtime
+    document.getElementById("search").addEventListener("input", (e) => {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll(".file").forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(term) ? "" : "none";
+      });
+    });
+  </script>
 </body>
 </html>
