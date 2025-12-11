@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Panel - Đẩy dữ liệu lên Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f1620, #1a2332);
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(30, 42, 58, 0.8);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    h1 {
+      text-align: center;
+      color: #00ff88;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ff88;
+    }
+    .section {
+      background: #1e2a3a;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #334466;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #00ddff;
+      border-bottom: 1px solid #334466;
+      padding-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin: 15px 0 8px;
+      font-weight: bold;
+      color: #88ccff;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: none;
+      background: #2a374d;
+      color: white;
+      font-size: 16px;
+    }
+    input[type="checkbox"] {
+      width: auto;
+      transform: scale(1.5);
+      margin-right: 10px;
+    }
+    button {
+      background: #00aa44;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #00ff66;
+      color: black;
+    }
+    .status {
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    .online { background: #003300; color: #00ff88; }
+    .offline { background: #330000; color: #ff4444; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Test Panel - UnityVina SIS</h1>
+  <div class="status offline" id="status">Đang kết nối Firebase...</div>
+
+  <!-- Cảm biến chuyển động & cửa -->
+  <div class="section">
+    <h2>Cảm biến An ninh</h2>
+    <label>
+      <input type="checkbox" id="motion_cua_chinh"> Phát hiện chuyển động - Cửa chính
+    </label>
+    <label>
+      <input type="checkbox" id="door_window_tang2"> Cửa sổ tầng 2 đang mở
+    </label>
+    <label>
+      <input type="checkbox" id="smoke_detector"> Phát hiện khói (báo cháy)
+    </label>
+    <label>
+      <input type="checkbox" id="gas_leak"> Rò rỉ khí gas
+    </label>
+  </div>
+
+  <!-- Môi trường -->
+  <div class="section">
+    <h2>Môi trường</h2>
+    <label>Nhiệt độ (°C)</label>
+    <input type="number" id="temperature" value="28" step="0.1">
+
+    <label>Độ ẩm (%)</label>
+    <input type="number" id="humidity" value="65" step="1">
+  </div>
+
+  <!-- Pin thiết bị -->
+  <div class="section">
+    <h2>Trạng thái thiết bị</h2>
+    <label>Mức pin (%)</label>
+    <input type="range" id="battery" min="0" max="100" value="85">
+    <span style="float:right; font-size:20px;"> <span id="batteryValue">85</span>% </span>
+  </div>
+
+  <!-- AI Detection -->
+  <div class="section">
+    <h2>AI Phát hiện bất thường</h2>
+    <label>Chọn camera</label>
+    <select id="ai_camera">
+      <option value="cam1">Cam 01 - Cổng chính</option>
+      <option value="cam2">Cam 02 - Kho hàng</option>
+      <option value="cam3">Cam 03 - Văn phòng</option>
+      <option value="cam4">Cam 04 - Sân sau</option>
+    </select>
+
+    <label>Loại phát hiện</label>
+    <select id="ai_threat">
+      <option value="Bình thường">Bình thường</option>
+      <option value="Người lạ mặt">Người lạ mặt</option>
+      <option value="Vật thể khả nghi">Vật thể khả nghi</option>
+      <option value="Xe lạ đỗ lâu">Xe lạ đỗ lâu</option>
+      <option value="Động vật lớn">Động vật lớn (chó, mèo hoang)</option>
+      <option value="Phá hoại tài sản">Phá hoại tài sản</option>
+    </select>
+
+    <button onclick="sendAIDetection()">Gửi cảnh báo AI ngay</button>
+  </div>
+
+  <!-- Nút gửi tất cả -->
+  <button style="background:#cc0000; font-size:18px;" onclick="sendAllData()">
+    GỬI TOÀN BỘ DỮ LIỆU LÊN FIREBASE
+  </button>
+  <button style="background:#0066cc;" onclick="resetAll()">Reset về trạng thái an toàn</button>
+</div>
+
+<script>
+// === CẤU HÌNH FIREBASE CỦA BẠN ===
+const firebaseConfig = {
+  databaseURL: "https://unityvina-1fc51-default-rtdb.asia-southeast1.firebasedatabase.app/"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// Kiểm tra kết nối
+const connectedRef = db.ref(".info/connected");
+connectedRef.on("value", (snap) => {
+  const statusEl = document.getElementById("status");
+  if (snap.val() === true) {
+    statusEl.textContent = "ONLINE - Đã kết nối Firebase thành công!";
+    statusEl.className = "status online";
+  } else {
+    statusEl.textContent = "OFFLINE - Không có mạng!";
+    statusEl.className = "status offline";
+  }
+});
+
+// Cập nhật % pin realtime trên slider
+document.getElementById("battery").addEventListener("input", function() {
+  document.getElementById("batteryValue").textContent = this.value;
+});
+
+// Hàm gửi toàn bộ dữ liệu
+function sendAllData() {
+  const updates = {
+    // Cảm biến
+    "/sensors/motion_cua_chinh": document.getElementById("motion_cua_chinh").checked,
+    "/sensors/door_window_tang2": document.getElementById("door_window_tang2").checked,
+    "/sensors/smoke_detector": document.getElementById("smoke_detector").checked,
+    "/sensors/gas_leak": document.getElementById("gas_leak").checked,
+
+    // Môi trường
+    "/environment/temperature": parseFloat(document.getElementById("temperature").value),
+    "/environment/humidity": parseInt(document.getElementById("humidity").value),
+
+    // Pin
+    "/device_status/battery": parseInt(document.getElementById("battery").value),
+  };
+
+  db.ref().update(updates)
+    .then(() => {
+      alert("Đã đẩy toàn bộ dữ liệu lên Firebase thành công!");
+    })
+    .catch((err) => {
+      alert("Lỗi: " + err.message);
+    });
+}
+
+// Gửi cảnh báo AI
+function sendAIDetection() {
+  const cam = document.getElementById("ai_camera").value;
+  const threat = document.getElementById("ai_threat").value;
+
+  if (threat === "Bình thường") {
+    db.ref("ai_detection/" + cam).remove();
+    alert("Đã xóa cảnh báo AI cho " + cam);
+    return;
+  }
+
+  const data = {
+    threat: threat,
+    timestamp: Date.now(),
+    time: new Date().toLocaleString('vi-VN')
+  };
+
+  db.ref("ai_detection/" + cam).set(data)
+    .then(() => {
+      alert(`Đã gửi cảnh báo: "${threat}" từ ${document.getElementById("ai_camera").options[document.getElementById("ai_camera").selectedIndex].text}`);
+    });
+}
+
+// Reset tất cả về an toàn
+function resetAll() {
+  if (confirm("Bạn có chắc muốn reset toàn bộ về trạng thái an toàn?")) {
+    document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+    document.getElementById("temperature").value = 28;
+    document.getElementById("humidity").value = 65;
+    document.getElementById("battery").value = 95;
+    document.getElementById("batteryValue").textContent = 95;
+    document.getElementById("ai_threat").value = "Bình thường";
+
+    db.ref("ai_detection").remove();
+    sendAllData();
+  }
+}
+
+// Tự động cập nhật pin khi kéo thanh trượt
+document.getElementById("battery").addEventListener("change", sendAllData);
+</script>
+
+</body>
+</html>

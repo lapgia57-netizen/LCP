@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIS - Hệ thống Giám sát An ninh UnityVina</title>
+  
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #0f1620; color: #e0e0e0; margin: 0; padding: 0; }
+    .header {
+      background: #1a2332; padding: 15px 20px; text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5); position: relative;
+    }
+    .header h1 { margin: 0; color: #00ff88; font-size: 28px; }
+    .status { padding: 10px; font-size: 18px; font-weight: bold; }
+    .online { color: #00ff88; }
+    .offline { color: #ff4444; animation: pulse 2s infinite; }
+    .reconnecting { color: #ffaa00; }
+
+    .time { font-size: 16px; color: #88aaff; margin-top: 5px; }
+
+    .container {
+      max-width: 1200px; margin: 20px auto; padding: 0 20px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+    }
+    .card {
+      background: #1e2a3a; border-radius: 10px; padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid #334466;
+      transition: all 0.3s;
+    }
+    .card h3 { margin-top: 0; color: #00ddff; border-bottom: 1px solid #334466; padding-bottom: 10px; }
+    .alarm {
+      background: #440000 !important; border: 2px solid #ff0000;
+      animation: blink 1s infinite, shake 0.5s infinite;
+      transform: scale(1.02);
+    }
+    @keyframes blink { 50% { opacity: 0.6; } }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 10px; text-align: left; border-bottom: 1px solid #334466; }
+    th { background: #2a374d; }
+    .value { text-align: right; font-weight: bold; }
+    .danger { color: #ff4444; font-weight: bold; }
+    .warning { color: #ffaa00; }
+    .safe { color: #00ff88; }
+    .low-battery { color: #ff6600; animation: pulse 3s infinite; }
+
+    .log {
+      max-height: 300px; overflow-y: auto; background: #111a26;
+      padding: 10px; border-radius: 5px; font-size: 14px;
+    }
+    .log div { padding: 5px 0; border-bottom: 1px dashed #334466; }
+    .log .alarm { color: #ff6666; font-weight: bold; background: rgba(255,0,0,0.1); }
+    .log .system { color: #88aaff; }
+
+    .controls {
+      text-align: center; margin: 20px;
+    }
+    button {
+      padding: 12px 24px; margin: 0 10px; background: #0066cc; color: white;
+      border: none; border-radius: 6px; cursor: pointer; font-size: 16px;
+    }
+    button:hover { background: #0088ff; }
+    button.danger { background: #cc0000; }
+    button.danger:hover { background: #ff0000; }
+    button:disabled { background: #555; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>SIS - Hệ thống Giám sát An ninh UnityVina</h1>
+    <div class="status" id="connectionStatus">Đang kết nối...</div>
+    <div class="time" id="currentTime"></div>
+  </div>
+
+  <div class="controls">
+    <button id="muteBtn">🔇 Tắt chuông</button>
+    <button id="refreshBtn" class="danger">🔄 Làm mới trang</button>
+  </div>
+
+  <div class="container">
+    <!-- Tổng quan -->
+    <div class="card" id="overviewCard">
+      <h3>Tổng quan hệ thống</h3>
+      <p>Số camera hoạt động: <span id="camCount">0</span>/8</p>
+      <p>Cảnh báo đang hoạt động: <span id="activeAlarms">0</span></p>
+      <p>Trạng thái hệ thống: <span id="systemStatus" class="safe">BÌNH THƯỜNG</span></p>
+      <p>Pin thiết bị: <span id="batteryStatus" class="safe">Đang tải...</span></p>
+    </div>
+
+    <!-- Cảm biến chuyển động + mở cửa + khói -->
+    <div class="card" id="motionCard">
+      <h3>Cảm biến An ninh</h3>
+      <table>
+        <tr><th>Vị trí</th><th class="value">Trạng thái</th></tr>
+        <tr><td>Cửa chính</td><td id="motion1" class="safe">An toàn</td></tr>
+        <tr><td>Kho hàng</td><td id="motion2" class="safe">An toàn</td></tr>
+        <tr><td>Sân sau</td><td id="motion3" class="safe">An toàn</td></tr>
+        <tr><td>Cửa sổ tầng 2</td><td id="door1" class="safe">Đóng</td></tr>
+        <tr><td>Cảm biến khói</td><td id="smoke1" class="safe">Bình thường</td></tr>
+        <tr><td>Cảnh báo gas</td><td id="gas1" class="safe">An toàn</td></tr>
+      </table>
+    </div>
+
+    <!-- AI Detection -->
+    <div class="card">
+      <h3>AI Phát hiện bất thường</h3>
+      <table>
+        <tr><th>Camera</th><th class="value">Phát hiện</th></tr>
+        <tr><td>Cam 01 - Cổng</td><td id="ai1">-</td></tr>
+        <tr><td>Cam 02 - Kho</td><td id="ai2">-</td></tr>
+        <tr><td>Cam 03 - Văn phòng</td><td id="ai3">-</td></tr>
+        <tr><td>Cam 04 - Sân</td><td id="ai4">-</td></tr>
+      </table>
+    </div>
+
+    <!-- Môi trường (nếu có) -->
+    <div class="card">
+      <h3>Môi trường</h3>
+      <table>
+        <tr><td>Nhiệt độ</td><td id="temp" class="value safe">-</td></tr>
+        <tr><td>Độ ẩm</td><td id="humi" class="value safe">-</td></tr>
+        <tr><td>Áp suất khí quyển</td><td id="pressure" class="value">-</td></tr>
+      </table>
+    </div>
+
+    <!-- Nhật ký -->
+    <div class="card">
+      <h3>Nhật ký sự kiện (Realtime)</h3>
+      <div class="log" id="eventLog">
+        <div class="system">→ Hệ thống đang khởi động...</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// === CẤU HÌNH FIREBASE ===
+const firebaseConfig = {
+  databaseURL: "https://unityvina-1fc51-default-rtdb.asia-southeast1.firebasedatabase.app/"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// Biến toàn cục
+let isMuted = false;
+let alarmAudio = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_9033d9f97a.mp3?filename=alarm-siren-6045.mp3&g_recaptcha_token=&g_recaptcha_token=&g_recaptcha_token='); // âm thanh cảnh báo
+alarmAudio.loop = true;
+
+let offlineStartTime = null;
+let reconnectAttempts = 0;
+
+// Cập nhật đồng hồ realtime
+function updateClock() {
+  const now = new Date();
+  document.getElementById("currentTime").textContent = 
+    now.toLocaleDateString('vi-VN') + " " + now.toLocaleTimeString('vi-VN');
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Kiểm tra kết nối Firebase
+const connectedRef = db.ref(".info/connected");
+connectedRef.on("value", (snap) => {
+  const statusEl = document.getElementById("connectionStatus");
+  if (snap.val() === true) {
+    statusEl.textContent = "ONLINE - Đã kết nối";
+    statusEl.className = "status online";
+    reconnectAttempts = 0;
+    if (offlineStartTime) {
+      const offlineDuration = Math.round((Date.now() - offlineStartTime) / 1000);
+      addLog(`Đã khôi phục kết nối sau ${offlineDuration} giây mất kết nối`, "system");
+      offlineStartTime = null;
+    }
+  } else {
+    statusEl.textContent = "OFFLINE - Đang thử kết nối lại...";
+    statusEl.className = "status reconnecting";
+    if (!offlineStartTime) offlineStartTime = Date.now();
+    reconnectAttempts++;
+    if (reconnectAttempts > 10) {
+      addLog(`Mất kết nối quá lâu (>60s) - Tự động làm mới trang...`, "system");
+      setTimeout(() => location.reload(), 3000);
+    }
+  }
+});
+
+// Tham chiếu dữ liệu
+const alarmsRef = db.ref("alarms");
+const sensorsRef = db.ref("sensors");
+const aiRef = db.ref("ai_detection");
+const envRef = db.ref("environment");
+const deviceRef = db.ref("device_status");
+const logsRef = db.ref("logs");
+
+let activeAlarmCount = 0;
+
+// Tắt/Mở chuông
+document.getElementById("muteBtn").addEventListener("click", () => {
+  isMuted = !isMuted;
+  document.getElementById("muteBtn").textContent = isMuted ? "🔊 Bật chuông" : "🔇 Tắt chuông";
+  if (isMuted) alarmAudio.pause();
+});
+
+// Làm mới trang
+document.getElementById("refreshBtn").addEventListener("click", () => location.reload());
+
+// Phát âm thanh + rung thẻ
+function triggerAlarm() {
+  if (!isMuted) {
+    alarmAudio.play().catch(() => {});
+  }
+  document.querySelectorAll(".card").forEach(card => {
+    card.classList.add("alarm");
+    setTimeout(() => card.classList.remove("alarm"), 3000);
+  });
+}
+
+// Thêm log
+function addLog(message, type = "") {
+  const logEl = document.getElementById("eventLog");
+  const now = new Date().toLocaleTimeString();
+  const div = document.createElement("div");
+  div.innerHTML = `<strong>[${now}]</strong> ${message}`;
+  if (type) div.className = type;
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+// === CẬP NHẬT DỮ LIỆU TỪ ĐẦU ===
+window.addEventListener("load", () => {
+  addLog("Hệ thống SIS đang tải toàn bộ dữ liệu từ Firebase...", "system");
+
+  // Cảm biến chuyển động + cửa + khói + gas
+  sensorsRef.once("value").then(snapshot => {
+    const data = snapshot.val() || {};
+    Object.keys(data).forEach((key, idx) => {
+      const value = data[key];
+      let el, text, cls;
+      if (key.includes("motion")) {
+        el = document.getElementById("motion" + (idx + 1));
+        text = value ? "PHÁT HIỆN CHUYỂN ĐỘNG!" : "An toàn";
+        cls = value ? "danger" : "safe";
+      } else if (key.includes("door")) {
+        el = document.getElementById("door1");
+        text = value ? "ĐANG MỞ!" : "Đóng";
+        cls = value ? "danger" : "safe";
+      } else if (key.includes("smoke")) {
+        el = document.getElementById("smoke1");
+        text = value ? "PHÁT HIỆN KHÓI!" : "Bình thường";
+        cls = value ? "danger" : "safe";
+      } else if (key.includes("gas")) {
+        el = document.getElementById("gas1");
+        text = value ? "RÒ RỈ GAS!" : "An toàn";
+        cls = value ? "danger" : "safe";
+      }
+      if (el) {
+        el.textContent = text;
+        el.className = cls;
+        if (value) triggerAlarm();
+      }
+    });
+  });
+
+  // AI Detection
+  aiRef.once("value").then(snapshot => {
+    const data = snapshot.val() || {};
+    Object.keys(data).forEach((key, idx) => {
+      const item = data[key];
+      if (item && item.threat && item.threat !== "Bình thường") {
+        const el = document.getElementById("ai" + (idx + 1));
+        if (el) {
+          el.textContent = item.threat;
+          el.className = "danger";
+          triggerAlarm();
+        }
+      }
+    });
+  });
+
+  // Môi trường
+  envRef.once("value").then(snapshot => {
+    const e = snapshot.val();
+    if (e) {
+      document.getElementById("temp").textContent = e.temperature + "°C";
+      document.getElementById("humi").textContent = e.humidity + "%";
+      document.getElementById("pressure").textContent = e.pressure + " hPa";
+
+      if (e.temperature > 50) {
+        document.getElementById("temp").className = "value danger";
+        addLog(`CẢNH BÁO NHIỆT ĐỘ CAO: ${e.temperature}°C`, "alarm");
+        triggerAlarm();
+      }
+    }
+  });
+
+  // Pin thiết bị
+  deviceRef.child("battery").on("value", snap => {
+    const battery = snap.val();
+    const el = document.getElementById("batteryStatus");
+    if (battery !== null) {
+      el.textContent = battery + "%";
+      if (battery < 20) {
+        el.className = "low-battery";
+        addLog(`PIN YẾU: Chỉ còn ${battery}% - Vui lòng sạc ngay!`, "alarm");
+      } else {
+        el.className = "safe";
+      }
+    }
+  });
+});
+
+// Theo dõi realtime (sau khi tải ban đầu)
+sensorsRef.on("child_changed", (snap) => {
+  const key = snap.key;
+  const value = snap.val();
+  // Logic giống phần load ban đầu, nhưng chỉ cập nhật thay đổi
+  // (đã xử lý ở trên bằng .once, giờ chỉ cần cảnh báo)
+  if (value === true || value === 1) {
+    addLog(`CẢNH BÁO: ${key.toUpperCase().replace("_", " ")} bị kích hoạt!`, "alarm");
+    triggerAlarm();
+  }
+});
+
+addLog("Hệ thống SIS đã kết nối thành công & tải dữ liệu xong!", "system");
+</script>
+
+</body>
+</html>
