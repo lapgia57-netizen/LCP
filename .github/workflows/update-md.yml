@@ -1,0 +1,36 @@
+name: Update Markdown File
+on:
+  push:  # Chạy khi push code
+    paths: ['data/**']  # Chỉ chạy nếu file trong thư mục data thay đổi
+  schedule:
+    - cron: '0 */6 * * *'  # Chạy mỗi 6 giờ (tùy chỉnh theo nhu cầu)
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4  # Checkout repo
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    - name: Install dependencies
+      run: pip install pyyaml  # Nếu cần thư viện
+    - name: Update MD
+      run: |
+        # Script Python ví dụ: Đọc file data.json và cập nhật README.md
+        import json
+        with open('data.json', 'r') as f:
+            data = json.load(f)
+        md_content = "# Cập nhật dữ liệu\n"
+        for item in data:
+            md_content += f"- {item['name']}: {item['value']}\n"
+        with open('README.md', 'w') as f:
+            f.write(md_content)
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git add README.md
+        git commit -m "Auto update MD from data files"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Tự động có sẵn
