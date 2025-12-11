@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lapcoin (LOP) - Thông tin Token</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2em;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      word-break: break-all;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 25px 0;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      table-layout: fixed; /* Quan trọng: cố định chiều rộng cột */
+    }
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      word-wrap: break-word; /* Cho phép xuống dòng trong ô */
+      overflow-wrap: break-word;
+    }
+    th {
+      background: rgba(255,255,255,0.2);
+      width: 38%;
+      font-weight: 600;
+    }
+    td {
+      width: 62%;
+    }
+    /* Đảm bảo nội dung dài không làm vỡ layout */
+    .long-text {
+      word-break: break-all;
+    }
+    a {
+      color: #a0e7ff;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .warning {
+      background: rgba(255, 193, 7, 0.3);
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 25px;
+      font-size: 0.95em;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      opacity: 0.8;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+
+    /* Responsive cho mobile */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+        margin: 20px auto;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      th, td {
+        padding: 12px 10px;
+        font-size: 0.95em;
+      }
+      th {
+        width: 40%;
+      }
+      td {
+        width: 60%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lapcoin (LOP)</h1>
+  <p class="subtitle">
+    ERC-20 Token trên mạng Polygon<br/>
+    Contract: <a href="https://polygonscan.com/address/0x9d475bd4f8d1b462ee4eda5aa6fa238bdd252103" target="_blank">
+      0x9d475bd4f8d1b462ee4eda5aa6fa238bdd252103
+    </a>
+  </p>
+
+  <table>
+    <tr><th>Tên Token</th><td>Lapcoin</td></tr>
+    <tr><th>Ký hiệu</th><td>LOP</td></tr>
+    <tr><th>Mạng lưới</th><td>Polygon (PolygonScan)</td></tr>
+    <tr><th>Loai Token</th><td>ERC-20</td></tr>
+    <tr><th>Tổng cung</th><td>27,777,777,777 LOP</td></tr>
+    <tr><th>Số thập phân</th><td>18</td></tr>
+    <tr><th>Ngày verify</th><td>19/11/2025</td></tr>
+    <tr><th>Compiler</th><td>Solidity v0.8.30 + OpenZeppelin</td></tr>
+    <tr><th>Trạng thái xác minh</th><td>Verified - Exact Match</td></tr>
+    <tr>
+      <th>Tính năng nổi bật</th>
+      <td>
+        • enableTrading() để bật giao dịch<br/>
+        • Chống bot: khóa trading trong 12 block đầu<br/>
+        • Ownable (có thể renounce ownership)<br/>
+        • Hỗ trợ burn token<br/>
+        • License: MIT
+      </td>
+    </tr>
+  </table>
+
+  <div class="warning">
+    <strong>Lưu ý quan trọng:</strong><br/>
+    - Token được mint 100% cho address deployer ngay khi triển khai.<br/>
+    - Đây là token mới (verify ngày 19/11/2025).<br/>
+    - Hiện tại chưa có thông tin về phân phối công bằng, liquidity hay listing sàn.<br/>
+    → Hãy tự nghiên cứu kỹ (DYOR) trước khi tham gia giao dịch.
+  </div>
+
+  <footer>
+    Dữ liệu được tổng hợp từ PolygonScan • Cập nhật: 26/11/2025<br/>
+    Xem chi tiết hợp đồng: 
+    <a href="https://polygonscan.com/address/0x9d475bd4f8d1b462ee4eda5aa6fa238bdd252103" target="_blank">
+      PolygonScan → 0x9d47...2103
+    </a>
+  </footer>
+</div>
+
+</body>
+</html>
