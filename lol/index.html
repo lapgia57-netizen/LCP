@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCS - Vietnam Championship Series League of Legends</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff4500;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        section {
+            background: white;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #ff4500;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            main {
+                padding: 0.5rem;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                border: 1px solid #ccc;
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VCS - Vietnam Championship Series</h1>
+        <p>Giải đấu Liên Minh Huyền Thoại hàng đầu Việt Nam</p>
+    </header>
+    <main>
+        <section id="gioi-thieu">
+            <h2>Giới thiệu về VCS</h2>
+            <p>Vietnam Championship Series (VCS) là giải đấu chuyên nghiệp Liên Minh Huyền Thoại (LoL) tại Việt Nam, được tổ chức bởi Riot Games và VNG Games. VCS đã phát triển mạnh mẽ từ năm 2013 và là một phần quan trọng của cộng đồng esports Việt Nam. Năm 2025, VCS trở lại vị thế Tier 2, nằm dưới League of Legends Championship Pacific (LCP), với sự hợp nhất từ các giải đấu PCS, LJL và LCO để tạo nên khu vực APAC mới.</p>
+        </section>
+
+        <section id="tin-moi-nhat">
+            <h2>Thông tin mới nhất (Tháng 12/2025)</h2>
+            <ul>
+                <li><strong>Mùa Xuân 2025:</strong> Mùa giải bắt đầu từ 28/02/2025 đến 30/03/2025. Đây là mùa đầu tiên sau khi VCS hợp nhất vào LCP và được công nhận là môn thi đấu thể thao quốc gia bởi Ủy ban Olympic Việt Nam (VOC). Tất cả 8 đội tham gia sẽ nhận chứng nhận từ Bộ Văn hóa, Thể thao và Du lịch. Đội vô địch nhận cúp vàng VCS.</li>
+                <li><strong>Bảng xếp hạng Mùa Xuân (tính đến 12/2025):</strong> CyberCore Esports dẫn đầu với 2-0 series, theo sau là Hyper Vortex Esports (2-0). Các đội khác: Saigon Secret (2-1), Team Flash (2-1).</li>
+                <li><strong>APAC League 2025:</strong> VCS hợp nhất với PCS, LJL, LCO thành giải đấu mới sử dụng mô hình lai (đối tác và thăng hạng). 4 slot đối tác, 4 slot khách mời dựa trên thành tích (bao gồm 2 slot từ VCS/PCS 2024 playoffs).</li>
+                <li><strong>Tin nổi bật:</strong> Huyền thoại jungler Levi (GAM Esports) chính thức giải nghệ vào tháng 11/2025 sau 10 năm sự nghiệp, với 10 chức vô địch VCS và thành tích quốc tế ấn tượng. Ông bày tỏ tiếc nuối vì chưa đưa VCS vào top 8 Worlds.</li>
+                <li><strong>Patch LoL mới nhất (25.24):</strong> Patch cuối năm 2025, cập nhật skin mùa đông (Reindeer Smolder, Winter Wonder Milio, v.v.), cải tiến WASD di chuyển (hạn chế ở queue không rank), và kết thúc mùa ranked 3/2025. Ranked reset vào 08/01/2026.</li>
+            </ul>
+        </section>
+
+        <section id="lich-thi-dau">
+            <h2>Bảng xếp hạng Mùa Xuân 2025</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Xếp hạng</th>
+                        <th>Đội</th>
+                        <th>Series</th>
+                        <th>Tỷ lệ Series</th>
+                        <th>Games</th>
+                        <th>Tỷ lệ Games</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Xếp hạng">1</td>
+                        <td data-label="Đội">CyberCore Esports</td>
+                        <td data-label="Series">2 - 0</td>
+                        <td data-label="Tỷ lệ Series">100%</td>
+                        <td data-label="Games">3 - 1</td>
+                        <td data-label="Tỷ lệ Games">75%</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Xếp hạng">2</td>
+                        <td data-label="Đội">Hyper Vortex Esports</td>
+                        <td data-label="Series">2 - 0</td>
+                        <td data-label="Tỷ lệ Series">100%</td>
+                        <td data-label="Games">3 - 1</td>
+                        <td data-label="Tỷ lệ Games">75%</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Xếp hạng">3</td>
+                        <td data-label="Đội">Saigon Secret</td>
+                        <td data-label="Series">2 - 1</td>
+                        <td data-label="Tỷ lệ Series">67%</td>
+                        <td data-label="Games">4 - 2</td>
+                        <td data-label="Tỷ lệ Games">67%</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Xếp hạng">4</td>
+                        <td data-label="Đội">Team Flash</td>
+                        <td data-label="Series">2 - 1</td>
+                        <td data-label="Tỷ lệ Series">67%</td>
+                        <td data-label="Games">4 - 3</td>
+                        <td data-label="Tỷ lệ Games">57%</td>
+                    </tr>
+                    <!-- Thêm các hàng khác nếu cần -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
