@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File .lck trong Ảo hóa VMware</title>
+    <meta name="description" content="Giải thích chi tiết về file .lck (lock file) trong VMware ESXi, Workstation, cách xử lý khi bị kẹt (stale lock).">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --danger: #d32f2f;
+            --success: #388e3c;
+            --warning: #f9a825;
+            --dark: #263238;
+            --light: #f5f5f5;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), #004a99);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.35rem;
+        }
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        pre {
+            background: #263238;
+            color: #eceff1;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+        code {
+            background: #e0e0e0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 5px solid;
+        }
+        .alert-info { background:#e3f2fd; border-color:#2196f3; }
+        .alert-warning { background:#fff8e1; border-color:#ffb300; }
+        .alert-danger { background:#ffebee; border-color:#f44336; }
+        .alert-success { background:#e8f5e8; border-color:#4caf50; }
+
+        .highlight {
+            background: #fff8e1;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--warning);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: #ccc;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .card { padding: 1.2rem; }
+            pre { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-lock"></i> File .lck trong Ảo hóa VMware</h1>
+    <p>Hiểu rõ cơ chế khóa file và cách xử lý khi bị kẹt (stale lock)</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>1. File .lck là gì?</h2>
+        <p>File <strong>.lck</strong> (lock file) là file khóa được VMware tạo ra để <strong>ngăn nhiều process truy cập đồng thời</strong> vào cùng một file đĩa ảo (VMDK) hoặc tài nguyên khác, nhằm tránh <strong>data corruption</strong>.</p>
+
+        <div class="highlight">
+            <strong>Chủ yếu xuất hiện trên:</strong><br>
+            VMware ESXi / vSphere • VMware Workstation • VMware Fusion • VMware Player
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Khi nào file .lck xuất hiện?</h2>
+        <ul>
+            <li>Khi máy ảo (VM) đang chạy hoặc đang được mở</li>
+            <li>Khi tạo hoặc xóa snapshot</li>
+            <li>Khi backup bằng công cụ thứ 3 (Veeam, Nakivo, vSphere Data Protection…)</li>
+            <li>Khi mount đĩa VMDK vào một VM khác</li>
+            <li>Khi suspend VM (tạo file .vmss)</li>
+        </ul>
+
+        <h3>Cấu trúc thư mục điển hình</h3>
+        <pre>
+MyVM.vmx
+MyVM.vmdk
+MyVM-flat.vmdk
+MyVM-000001.vmdk
+MyVM-000001-delta.vmdk
+<span style="color:#ff9800;">lck-12345678-abcdef/</span>      ← Thư mục khóa
+    M12345678.lck
+    Mabcdef.lck
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>3. Bình thường hay có vấn đề?</h2>
+
+        <div class="alert alert-success">
+            <strong>Bình thường:</strong> Máy ảo đang chạy → luôn có file .lck<br>
+            → Khi tắt VM đúng cách, file .lck sẽ <strong>tự động bị xóa</strong>
+        </div>
+
+        <div class="alert alert-danger">
+            <strong>Có vấn đề (stale/orphaned lock):</strong>
+            <ul>
+                <li>VM đã tắt hoặc crash</li>
+                <li>Host ESXi bị crash/reboot đột ngột</li>
+                <li>vSphere Client bị đóng đột ngột</li>
+                <li>Backup tool treo, không release lock</li>
+                <li>Storage mất kết nối tạm thời</li>
+            </ul>
+        </div>
+
+        <p><strong>Hậu quả:</strong> Không power on được VM, báo lỗi:</p>
+        <ul>
+            <li>“File is locked by another process”</li>
+            <li>“Cannot open the disk … or one of the snapshot disks it depends on”</li>
+            <li>“The file is in use by another running virtual machine”</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>4. Cách xử lý file .lck bị kẹt (Stale Lock)</h2>
+
+        <h3>Cách 1: Khởi động lại host (an toàn nhất)</h3>
+        <div class="alert alert-info">
+            ESXi: Restart management agents hoặc reboot host<br>
+            Workstation/Fusion: Đóng hoàn toàn VMware → mở lại
+        </div>
+
+        <h3>Cách 2: Kill process trên Windows (Workstation/Fusion)</h3>
+        <ol>
+            <li>Mở <strong>Resource Monitor</strong> → tab CPU → Associated Handles</li>
+            <li>Tìm process <code>vmware-vmx.exe</code> hoặc <code>vmware.exe</code></li>
+            <li>Tìm handle chứa đường dẫn thư mục <code>lck-...</code></li>
+            <li>Right-click → End Process</li>
+        </ol>
+
+        <h3>Cách 3: Xử lý trên ESXi qua SSH (phổ biến nhất)</h3>
+        <pre># Đăng nhập SSH vào host ESXi
+
+# Xem danh sách VM
+vim-cmd vmsvc/getallvms
+
+# Tìm process đang giữ file (nếu có)
+lsof /vmfs/volumes/.../TenVM/TenVM.vmdk
+
+# Tìm tất cả file .lck
+find /vmfs/volumes/ -name "*.lck" -ls
+
+# Nếu không có process nào dùng → xóa thủ công
+rm -rf /vmfs/volumes/.../TenVM/lck-*</pre>
+
+        <h3>Cách 4: Storage vMotion hoặc Unregister/Register</h3>
+        <ul>
+            <li>Storage vMotion → tự động giải phóng lock cũ</li>
+            <li>Unregister VM → Browse Datastore → Right-click .vmx → Register lại</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>5. Mẹo tránh file .lck bị kẹt</h2>
+        <ul>
+            <li>Luôn <strong>shutdown guest</strong> thay vì power off cứng</li>
+            <li>Không đóng đột ngột vSphere Client/Web Client khi đang thao tác</li>
+            <li>Sử dụng backup tool hỗ trợ VMware tốt (Veeam, Nakivo…)</li>
+            <li>Tránh dùng NFS latency cao → dễ mất lock tạm thời</li>
+            <li>Cấu hình timeout hợp lý cho storage</li>
+        </ul>
+    </div>
+
+    <div class="card alert alert-warning">
+        <h3>Tóm lại</h3>
+        <p><strong>File .lck là cơ chế bảo vệ bình thường của VMware.</strong><br>
+        Chỉ trở thành vấn đề khi nó còn tồn tại mà không có process nào đang sử dụng → lúc đó mới cần can thiệp thủ công như trên.</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2025 - Tài liệu hướng dẫn xử lý file .lck trong môi trường ảo hóa VMware</p>
+</footer>
+
+</body>
+              </html>
