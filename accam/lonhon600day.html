@@ -38,68 +38,142 @@
             font-size: 0.9em;
             color: #777;
         }
+        #connect-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+        #connect-btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #connect-btn:hover {
+            background-color: #45a049;
+        }
+        #wallet-info {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        #gated-content {
+            display: none; /* Ẩn nội dung ban đầu */
+        }
     </style>
+    <!-- Thư viện ethers.js v6 từ CDN -->
+    <script src="https://cdn.ethers.io/lib/ethers-6.13.2.umd.min.js" type="text/javascript"></script>
 </head>
 <body>
 
     <h1>Làm ca đêm hơn 600 ngày – Bạn nghĩ sao?</h1>
 
-    <p><strong>600 ngày làm ca đêm, và thậm chí còn hơn thế nữa</strong> – chỉ nghe thôi đã thấy “nặng đô” rồi. Đây là một sự hy sinh lớn về sức khỏe, dù vì lý do công việc, tiền bạc hay hoàn cảnh bắt buộc.</p>
-
-    <div class="warning">
-        <p>Thực tế, làm ca đêm lâu dài (đặc biệt nếu thường xuyên, không luân phiên hợp lý) sẽ <strong>rối loạn nhịp sinh học (circadian rhythm)</strong> một cách nghiêm trọng. Cơ thể con người được thiết kế để hoạt động ban ngày và nghỉ ngơi ban đêm, nên việc đảo ngược liên tục này giống như “đi ngược tự nhiên”.</p>
+    <div id="connect-section">
+        <p><strong>Nội dung bài viết chỉ hiển thị sau khi bạn kết nối ví Web3.</strong></p>
+        <button id="connect-btn">Kết nối ví Web3</button>
+        <div id="wallet-info"></div>
     </div>
 
-    <p>Các nghiên cứu từ WHO, các tổ chức y tế lớn và nhiều báo cáo khoa học đều chỉ ra rằng:</p>
+    <div id="gated-content">
+        <p><strong>600 ngày làm ca đêm, và thậm chí còn hơn thế nữa</strong> – chỉ nghe thôi đã thấy “nặng đô” rồi. Đây là một sự hy sinh lớn về sức khỏe, dù vì lý do công việc, tiền bạc hay hoàn cảnh bắt buộc.</p>
 
-    <h2>Tác hại ngắn hạn</h2>
-    <ul>
-        <li>Mệt mỏi kinh niên</li>
-        <li>Buồn ngủ khi làm việc</li>
-        <li>Khó tập trung</li>
-        <li>Rối loạn tiêu hóa (ợ nóng, táo bón, tiêu chảy)</li>
-        <li>Cáu kỉnh, dễ stress</li>
-        <li>Giảm hiệu suất làm việc</li>
-    </ul>
+        <div class="warning">
+            <p>Thực tế, làm ca đêm lâu dài (đặc biệt nếu thường xuyên, không luân phiên hợp lý) sẽ <strong>rối loạn nhịp sinh học (circadian rhythm)</strong> một cách nghiêm trọng. Cơ thể con người được thiết kế để hoạt động ban ngày và nghỉ ngơi ban đêm, nên việc đảo ngược liên tục này giống như “đi ngược tự nhiên”.</p>
+        </div>
 
-    <h2>Tác hại dài hạn</h2>
-    <ul>
-        <li>Tăng nguy cơ béo phì</li>
-        <li>Tiểu đường type 2</li>
-        <li>Bệnh tim mạch, huyết áp cao</li>
-        <li>Một số loại ung thư (ung thư vú ở nữ, tuyến tiền liệt ở nam, đại trực tràng)</li>
-        <li>Trầm cảm</li>
-        <li>Suy giảm miễn dịch</li>
-        <li>Lão hóa não nhanh hơn</li>
-    </ul>
+        <p>Các nghiên cứu từ WHO, các tổ chức y tế lớn và nhiều báo cáo khoa học đều chỉ ra rằng:</p>
 
-    <div class="highlight">
-        <p><strong>Lưu ý quan trọng:</strong> Tổ chức Y tế Thế giới (WHO) từng phân loại <em>làm ca đêm</em> là <strong>“yếu tố gây ung thư có thể”</strong> cho con người.</p>
-    </div>
-
-    <p>600 ngày nghĩa là hơn 1 năm rưỡi (khoảng 20 tháng). Nếu tính cả ngày nghỉ thì có thể là vài năm kinh nghiệm tích lũy. Nếu bạn làm ca đêm cố định hoặc thường xuyên trong thời gian đó, cơ thể đã tích lũy khá nhiều “nợ” sức khỏe rồi.</p>
-
-    <p>Nhiều người ban đầu thấy ổn (do còn trẻ, khỏe), nhưng sau vài năm mới “báo động” – như các câu chuyện thực tế từ công nhân, y tá, bảo vệ ở Việt Nam: nghỉ việc vì tiểu đường, rối loạn giấc ngủ nặng, hay suy giảm sức khỏe nghiêm trọng.</p>
-
-    <p>Đây không phải là phán xét (vì nhiều nghề bắt buộc phải làm ca đêm: y tá, bác sĩ, bảo vệ, công nhân sản xuất, IT support đêm...), nhưng thực sự <strong>rất lo lắng cho sức khỏe của bạn</strong>.</p>
-
-    <div class="highlight">
-        <h2>Nếu có thể, hãy cân nhắc:</h2>
+        <h2>Tác hại ngắn hạn</h2>
         <ul>
-            <li>Chuyển sang ca ngày hoặc luân phiên ít đêm hơn</li>
-            <li>Ngủ đủ 7-9 tiếng ban ngày trong phòng tối, yên tĩnh (dùng rèm chắn sáng, tai nghe chống ồn)</li>
-            <li>Ăn uống lành mạnh, tránh đồ chiên xào, caffeine muộn</li>
-            <li>Tập thể dục nhẹ nhàng đều đặn</li>
-            <li>Khám sức khỏe định kỳ, theo dõi chỉ số đường huyết, tim mạch</li>
+            <li>Mệt mỏi kinh niên</li>
+            <li>Buồn ngủ khi làm việc</li>
+            <li>Khó tập trung</li>
+            <li>Rối loạn tiêu hóa (ợ nóng, táo bón, tiêu chảy)</li>
+            <li>Cáu kỉnh, dễ stress</li>
+            <li>Giảm hiệu suất làm việc</li>
         </ul>
-    </div>
 
-    <p><strong>Bảo trọng nhé, sức khỏe là vốn quý nhất!</strong> 💪</p>
+        <h2>Tác hại dài hạn</h2>
+        <ul>
+            <li>Tăng nguy cơ béo phì</li>
+            <li>Tiểu đường type 2</li>
+            <li>Bệnh tim mạch, huyết áp cao</li>
+            <li>Một số loại ung thư (ung thư vú ở nữ, tuyến tiền liệt ở nam, đại trực tràng)</li>
+            <li>Trầm cảm</li>
+            <li>Suy giảm miễn dịch</li>
+            <li>Lão hóa não nhanh hơn</li>
+        </ul>
+
+        <div class="highlight">
+            <p><strong>Lưu ý quan trọng:</strong> Tổ chức Y tế Thế giới (WHO) từng phân loại <em>làm ca đêm</em> là <strong>“yếu tố gây ung thư có thể”</strong> cho con người.</p>
+        </div>
+
+        <p>600 ngày nghĩa là hơn 1 năm rưỡi (khoảng 20 tháng). Nếu tính cả ngày nghỉ thì có thể là vài năm kinh nghiệm tích lũy. Nếu bạn làm ca đêm cố định hoặc thường xuyên trong thời gian đó, cơ thể đã tích lũy khá nhiều “nợ” sức khỏe rồi.</p>
+
+        <p>Nhiều người ban đầu thấy ổn (do còn trẻ, khỏe), nhưng sau vài năm mới “báo động” – như các câu chuyện thực tế từ công nhân, y tá, bảo vệ ở Việt Nam: nghỉ việc vì tiểu đường, rối loạn giấc ngủ nặng, hay suy giảm sức khỏe nghiêm trọng.</p>
+
+        <p>Đây không phải là phán xét (vì nhiều nghề bắt buộc phải làm ca đêm: y tá, bác sĩ, bảo vệ, công nhân sản xuất, IT support đêm...), nhưng thực sự <strong>rất lo lắng cho sức khỏe của bạn</strong>.</p>
+
+        <div class="highlight">
+            <h2>Nếu có thể, hãy cân nhắc:</h2>
+            <ul>
+                <li>Chuyển sang ca ngày hoặc luân phiên ít đêm hơn</li>
+                <li>Ngủ đủ 7-9 tiếng ban ngày trong phòng tối, yên tĩnh (dùng rèm chắn sáng, tai nghe chống ồn)</li>
+                <li>Ăn uống lành mạnh, tránh đồ chiên xào, caffeine muộn</li>
+                <li>Tập thể dục nhẹ nhàng đều đặn</li>
+                <li>Khám sức khỏe định kỳ, theo dõi chỉ số đường huyết, tim mạch</li>
+            </ul>
+        </div>
+
+        <p><strong>Bảo trọng nhé, sức khỏe là vốn quý nhất!</strong> 💪</p>
+    </div>
 
     <footer>
         Trang thông tin được chuyển đổi từ nội dung tư vấn về tác hại của làm ca đêm dài hạn.<br>
         Ngày tạo: 13/12/2025
     </footer>
 
+    <script>
+        const connectBtn = document.getElementById('connect-btn');
+        const walletInfo = document.getElementById('wallet-info');
+        const gatedContent = document.getElementById('gated-content');
+
+        connectBtn.onclick = async () => {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    // Yêu cầu kết nối ví (MetaMask hoặc các ví injected khác)
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                    // Tạo provider từ ethers.js
+                    const provider = new ethers.BrowserProvider(window.ethereum);
+                    const signer = await provider.getSigner();
+                    const address = await signer.getAddress();
+
+                    // Hiển thị thông tin ví và mở nội dung
+                    walletInfo.textContent = `Đã kết nối ví: ${address.slice(0, 6)}...${address.slice(-4)}`;
+                    connectBtn.style.display = 'none';
+                    gatedContent.style.display = 'block';
+                } catch (error) {
+                    alert('Kết nối ví thất bại: ' + error.message);
+                }
+            } else {
+                alert('Vui lòng cài đặt MetaMask hoặc ví Web3 tương thích!');
+            }
+        };
+
+        // Kiểm tra nếu đã kết nối sẵn (khi reload trang)
+        window.addEventListener('load', async () => {
+            if (typeof window.ethereum !== 'undefined' && window.ethereum.selectedAddress) {
+                const provider = new ethers.BrowserProvider(window.ethereum);
+                const signer = await provider.getSigner();
+                const address = await signer.getAddress();
+                walletInfo.textContent = `Đã kết nối ví: ${address.slice(0, 6)}...${address.slice(-4)}`;
+                connectBtn.style.display = 'none';
+                gatedContent.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
