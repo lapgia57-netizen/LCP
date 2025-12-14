@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm ngược đến Ngày Vía Thần Tài 2026</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ff9a00, #ffd700);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 2em;
+        }
+        .box {
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 120px;
+        }
+        .number {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .label {
+            font-size: 0.6em;
+            text-transform: uppercase;
+        }
+        p {
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        .gold {
+            color: #ffd700;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Đếm ngược đến <span class="gold">Ngày Vía Thần Tài 2026</span></h1>
+    <div class="countdown">
+        <div class="box">
+            <div class="number" id="days">00</div>
+            <div class="label">Ngày</div>
+        </div>
+        <div class="box">
+            <div class="number" id="hours">00</div>
+            <div class="label">Giờ</div>
+        </div>
+        <div class="box">
+            <div class="number" id="minutes">00</div>
+            <div class="label">Phút</div>
+        </div>
+        <div class="box">
+            <div class="number" id="seconds">00</div>
+            <div class="label">Giây</div>
+        </div>
+    </div>
+    <p>Ngày <span class="gold">26/02/2026</span> - Chuẩn bị mua vàng cầu may mắn và tài lộc nhé!</p>
+
+    <script>
+        // Ngày đích: 26/02/2026 00:00:00
+        const countdownDate = new Date("2026-02-26T00:00:00").getTime();
+
+        const updateCountdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                clearInterval(updateCountdown);
+                document.querySelector(".countdown").innerHTML = "<h2>Chúc mừng! Ngày Vía Thần Tài đã đến!</h2>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days.toString().padStart(2, "0");
+            document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+        }, 1000);
+    </script>
+</body>
+</html>
