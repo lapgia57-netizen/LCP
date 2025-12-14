@@ -11,42 +11,129 @@
             color: white;
             text-align: center;
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            padding: 20px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+            position: relative;
         }
+
+        /* Hiệu ứng thỏi vàng rơi */
+        .gold-bar {
+            position: absolute;
+            top: -100px;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(145deg, #ffeb3b, #fbc02d);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 2px 5px #fff176;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .gold-bar::before {
+            content: "VÀNG";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #b71c1c;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(360deg);
+                opacity: 0.8;
+            }
+        }
+
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            z-index: 10;
+            position: relative;
         }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5em;
+            }
+        }
+
         .countdown {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            font-size: 2em;
+            gap: 15px;
+            font-size: 1.5em;
+            z-index: 10;
+            position: relative;
         }
+
+        @media (min-width: 768px) {
+            .countdown {
+                gap: 30px;
+                font-size: 2.5em;
+            }
+        }
+
         .box {
             background: rgba(0,0,0,0.4);
-            padding: 20px;
+            padding: 15px 20px;
             border-radius: 15px;
-            min-width: 120px;
+            min-width: 100px;
         }
+
+        @media (min-width: 768px) {
+            .box {
+                padding: 25px 40px;
+                min-width: 150px;
+            }
+        }
+
         .number {
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: bold;
         }
+
+        @media (min-width: 768px) {
+            .number {
+                font-size: 2.5em;
+            }
+        }
+
         .label {
-            font-size: 0.6em;
+            font-size: 0.5em;
             text-transform: uppercase;
         }
+
         p {
-            margin-top: 30px;
-            font-size: 1.5em;
+            margin-top: 40px;
+            font-size: 1.2em;
+            z-index: 10;
+            position: relative;
         }
+
+        @media (min-width: 768px) {
+            p {
+                font-size: 1.8em;
+            }
+        }
+
         .gold {
             color: #ffd700;
             font-weight: bold;
@@ -73,10 +160,46 @@
             <div class="label">Giây</div>
         </div>
     </div>
-    <p>Ngày <span class="gold">26/02/2026</span> - Chuẩn bị mua vàng cầu may mắn và tài lộc nhé!</p>
+    <p>Ngày <span class="gold">26/02/2026</span> - Chuẩn bị mua vàng cầu may mắn và tài lộc nhé! 💰🏮</p>
 
     <script>
-        // Ngày đích: 26/02/2026 00:00:00
+        // Tạo hiệu ứng thỏi vàng rơi
+        function createGoldBar() {
+            const bar = document.createElement('div');
+            bar.classList.add('gold-bar');
+            
+            // Vị trí ngang ngẫu nhiên
+            bar.style.left = Math.random() * 100 + 'vw';
+            
+            // Kích thước ngẫu nhiên một chút
+            const size = 40 + Math.random() * 40;
+            bar.style.width = size + 'px';
+            bar.style.height = size * 0.66 + 'px';
+            
+            // Thời gian rơi ngẫu nhiên (8-20 giây)
+            const duration = 8 + Math.random() * 12;
+            bar.style.animationDuration = duration + 's';
+            
+            // Delay khởi đầu ngẫu nhiên
+            bar.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.body.appendChild(bar);
+            
+            // Xóa sau khi rơi xong để tránh tích tụ
+            setTimeout(() => {
+                bar.remove();
+            }, (duration + 5) * 1000);
+        }
+
+        // Tạo thỏi vàng liên tục
+        setInterval(createGoldBar, 800); // Mỗi 0.8 giây tạo một cái mới
+
+        // Khởi tạo một số thỏi ngay lập tức
+        for (let i = 0; i < 15; i++) {
+            createGoldBar();
+        }
+
+        // Đếm ngược
         const countdownDate = new Date("2026-02-26T00:00:00").getTime();
 
         const updateCountdown = setInterval(() => {
@@ -85,7 +208,7 @@
 
             if (distance < 0) {
                 clearInterval(updateCountdown);
-                document.querySelector(".countdown").innerHTML = "<h2>Chúc mừng! Ngày Vía Thần Tài đã đến!</h2>";
+                document.querySelector(".countdown").innerHTML = "<h2 style='font-size: 2em;'>Chúc mừng! Ngày Vía Thần Tài đã đến! 🎉</h2>";
                 return;
             }
 
