@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dịch Vụ Bảo Vệ Chuyên Nghiệp Tại Khu Công Nghiệp Và Thành Phố Việt Nam</title>
+    <!-- Thêm Web3.js và WalletConnect Provider -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f4; color: #333; }
         h1, h2, h3 { color: #0056b3; }
@@ -12,6 +15,9 @@
         img { max-width: 100%; height: auto; border-radius: 8px; margin: 10px 0; }
         .section { margin-bottom: 40px; }
         .gallery { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .wallet-btn { padding: 10px 20px; background: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-bottom: 20px; }
+        .wallet-btn:hover { background: #003d80; }
+        #wallet-status { margin: 10px 0; font-weight: bold; color: #0056b3; }
         @media (max-width: 768px) { body { margin: 10px; } .gallery { flex-direction: column; } }
     </style>
 </head>
@@ -19,10 +25,58 @@
     <div class="container">
         <h1>Dịch Vụ Bảo Vệ Chuyên Nghiệp Tại Khu Công Nghiệp Và Thành Phố Việt Nam</h1>
         
+        <!-- Tính năng kết nối ví Web3 -->
+        <div style="text-align: center; margin-bottom: 30px;">![](grok_render_searched_image_card_json={"cards":[{"cardId":"e0050c","imageId":"12","caption":"Kết nối ví Web3 (WalletConnect)","size":"LARGE"}]})
+            <button id="connect-wallet" class="wallet-btn">Kết Nối Ví Web3 (MetaMask / WalletConnect)</button>
+            <p id="wallet-status">Trạng thái: Chưa kết nối</p>
+        </div>
+
+        <script>
+            let provider;
+            let web3;
+            let account;
+
+            async function connectWallet() {
+                // Ưu tiên MetaMask nếu có
+                if (window.ethereum) {
+                    web3 = new Web3(window.ethereum);
+                    try {
+                        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                        account = accounts[0];
+                        document.getElementById('wallet-status').innerText = `Đã kết nối: ${account.substring(0,6)}...${account.substring(38)}`;
+                        alert('Kết nối thành công với MetaMask!');
+                    } catch (error) {
+                        alert('Kết nối MetaMask bị từ chối hoặc lỗi.');
+                    }
+                } else {
+                    // Sử dụng WalletConnect nếu không có MetaMask
+                    provider = new WalletConnectProvider.default({
+                        infuraId: "YOUR_INFURA_ID", // Thay bằng Infura ID thật nếu dùng mainnet (hoặc để trống cho test)
+                        qrcode: true,
+                    });
+
+                    try {
+                        await provider.enable();
+                        web3 = new Web3(provider);
+                        const accounts = await web3.eth.getAccounts();
+                        account = accounts[0];
+                        document.getElementById('wallet-status').innerText = `Đã kết nối WalletConnect: ${account.substring(0,6)}...${account.substring(38)}`;
+                        alert('Kết nối thành công qua WalletConnect!');
+                    } catch (error) {
+                        alert('Kết nối WalletConnect thất bại.');
+                    }
+                }
+            }
+
+            document.getElementById('connect-wallet').addEventListener('click', connectWallet);
+        </script>
+
         <div class="section">
             <h2>Cách thức hoạt động của các công ty bảo vệ ở Việt Nam</h2>
             <p>Các công ty bảo vệ (dịch vụ an ninh chuyên nghiệp) hoạt động theo mô hình doanh nghiệp, tuân thủ <strong>Nghị định 96/2016/NĐ-CP</strong> về điều kiện an ninh trật tự. Đây là ngành nghề kinh doanh có điều kiện, chỉ doanh nghiệp mới được phép hoạt động.</p>
-        </div>![](grok_render_searched_image_card_json={"cards":[{"cardId":"a39a32","imageId":"8","caption":"Nâng cao ý thức và kỹ năng nhân viên bảo vệ chuyên nghiệp","size":"LARGE"},{"cardId":"6981c8","imageId":"9","caption":"Đào tạo nghiệp vụ bảo vệ chuyên sâu","size":"LARGE"}]})
+        </div>
+        <div class="gallery">![](grok_render_searched_image_card_json={"cards":[{"cardId":"2ee752","imageId":"0","caption":"Đào tạo huấn luyện nghiệp vụ bảo vệ chuyên nghiệp","size":"LARGE"},{"cardId":"1e14e2","imageId":"1","caption":"Nâng cao kỹ năng nhân viên bảo vệ Việt Nam","size":"LARGE"},{"cardId":"bc8979","imageId":"10","caption":"Huấn luyện chuyên sâu cho bảo vệ chuyên nghiệp","size":"LARGE"},{"cardId":"ffaaaa","imageId":"11","caption":"Đào tạo kỹ năng thực tế nhân viên bảo vệ","size":"LARGE"}]})
+        </div>
 
         <div class="section">
             <h2>1. Khâu cốt lõi trong hoạt động</h2>
@@ -40,22 +94,21 @@
             
             <h3>Tại Khu Công Nghiệp</h3>
             <p>Bảo vệ nhà máy, kho bãi, khu công nghiệp (VSIP, KCN lớn tại Bình Dương, Đồng Nai, Bắc Ninh...): Tuần tra rộng lớn, kiểm soát xe ra vào, ngăn chặn trộm cắp tài sản/hàng hóa.</p>
-            <div class="gallery">![](grok_render_searched_image_card_json={"cards":[{"cardId":"a824ba","imageId":"0","caption":"Bảo vệ chuyên nghiệp tại khu công nghiệp","size":"LARGE"},{"cardId":"630f16","imageId":"1","caption":"Dịch vụ bảo vệ khu công nghiệp uy tín","size":"LARGE"},{"cardId":"769a4b","imageId":"2","caption":"Bảo vệ an ninh KCN Việt Nam – Singapore (VSIP)","size":"LARGE"},{"cardId":"760253","imageId":"3","caption":"Nhân viên bảo vệ tuần tra khu công nghiệp","size":"LARGE"}]})
-
+            <div class="gallery">![](grok_render_searched_image_card_json={"cards":[{"cardId":"e9b778","imageId":"2","caption":"Bảo vệ chuyên nghiệp tại khu công nghiệp","size":"LARGE"},{"cardId":"a3e5a1","imageId":"3","caption":"An ninh toàn diện cho khu công nghiệp Bình Dương","size":"LARGE"},{"cardId":"e3e310","imageId":"4","caption":"Bảo vệ nhà máy và kho bãi uy tín","size":"LARGE"},{"cardId":"b75cd6","imageId":"5","caption":"Tuần tra an ninh khu công nghiệp Việt Nam","size":"LARGE"}]})
             </div>
             
             <h3>Tại Thành Phố (Khu đô thị)</h3>
             <p>Bảo vệ tòa nhà, chung cư, ngân hàng, siêu thị, trường học, bệnh viện: Kiểm soát cư dân/khách ra vào, đảm bảo an ninh 24/7, hỗ trợ quản lý tòa nhà.</p>
-            <div class="gallery">![](grok_render_searched_image_card_json={"cards":[{"cardId":"294e37","imageId":"4","caption":"Bảo vệ tòa nhà chung cư cao cấp","size":"LARGE"},{"cardId":"def386","imageId":"5","caption":"Dịch vụ bảo vệ chung cư 24/7","size":"LARGE"},{"cardId":"9653ec","imageId":"6","caption":"Bảo vệ khu dân cư và chung cư","size":"LARGE"},{"cardId":"dec1de","imageId":"7","caption":"An ninh tuyệt đối cho chung cư đô thị","size":"LARGE"}]})
-
+            <div class="gallery">![](grok_render_searched_image_card_json={"cards":[{"cardId":"81f7c5","imageId":"6","caption":"Bảo vệ chung cư cao cấp tận tâm","size":"LARGE"},{"cardId":"c6bcc7","imageId":"7","caption":"An ninh tòa nhà cao tầng đô thị","size":"LARGE"},{"cardId":"41e14a","imageId":"8","caption":"Dịch vụ bảo vệ chung cư 24/7","size":"LARGE"},{"cardId":"2903da","imageId":"9","caption":"Bảo vệ khu dân cư và tòa nhà thành phố","size":"LARGE"}]})
             </div>
             
             <h3>Dịch vụ khác</h3>
             <ul>
                 <li>Bảo vệ di động: Áp tải tiền/hàng hóa giá trị cao, bảo vệ sự kiện, vệ sĩ VIP.</li>
                 <li>Dịch vụ bổ sung: Lắp đặt camera, báo động, tư vấn rủi ro an ninh.</li>
-            </ul>![](grok_render_searched_image_card_json={"cards":[{"cardId":"bf266c","imageId":"11","caption":"Dịch vụ áp tải hàng hóa và bảo vệ sự kiện","size":"LARGE"}]})
-
+            </ul>
+            <div class="gallery">![](grok_render_searched_image_card_json={"cards":[{"cardId":"61e681","imageId":"13","caption":"Dịch vụ áp tải hàng hóa và bảo vệ sự kiện chuyên nghiệp","size":"LARGE"}]})
+            </div>
         </div>
 
         <div class="section">
