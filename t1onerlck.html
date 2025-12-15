@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm ngược thời gian - LoL Theme</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://images8.alphacoders.com/406/thumb-1920-406809.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial Black', Arial, sans-serif;
+            color: #ffd700; /* Vàng LoL */
+            text-align: center;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6); /* Lớp mờ để chữ dễ đọc */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            max-width: 90%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #000;
+        }
+
+        #timer {
+            font-size: 4rem;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px #ffd700;
+        }
+
+        .label {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #timer { font-size: 2.5rem; }
+            .label { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>Thời gian từ 15:49 09/11/2025 đến hiện tại</h1>
+        <div id="timer">00d 00h 00m 00s</div>
+        <div class="label">(Cập nhật realtime)</div>
+    </div>
+
+    <script>
+        // Thời điểm bắt đầu: 15:49 ngày 9 tháng 11 năm 2025
+        const startDate = new Date('2025-11-09T15:49:00');
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            if (diff < 0) {
+                document.getElementById('timer').textContent = 'Chưa đến thời điểm!';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').textContent = 
+                `${days.toString().padStart(2, '0')}d ` +
+                `${hours.toString().padStart(2, '0')}h ` +
+                `${minutes.toString().padStart(2, '0')}m ` +
+                `${seconds.toString().padStart(2, '0')}s`;
+        }
+
+        // Cập nhật ngay lập tức và mỗi giây
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
