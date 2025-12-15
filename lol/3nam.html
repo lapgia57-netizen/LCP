@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đếm Ngược Đến 16/10/2027</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .countdown-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      min-width: 100px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .time-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .number {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .label {
+      font-size: 1rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    .warning {
+      font-size: 1.4rem;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: rgba(255, 50, 50, 0.2);
+      border: 2px solid #ff3333;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 90%;
+      display: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .number {
+        font-size: 2.2rem;
+      }
+      .time-box {
+        min-width: 80px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Đếm ngược đến ngày</h1>
+  <h2 style="font-size: 2rem; margin-bottom: 30px;">16/10/2027</h2>
+
+  <div class="countdown-container">
+    <div class="time-box">
+      <div class="number" id="days">000</div>
+      <div class="label">Ngày</div>
+    </div>
+    <div class="time-box">
+      <div class="number" id="hours">00</div>
+      <div class="label">Giờ</div>
+    </div>
+    <div class="time-box">
+      <div class="number" id="minutes">00</div>
+      <div class="label">Phút</div>
+    </div>
+    <div class="time-box">
+      <div class="number" id="seconds">00</div>
+      <div class="label">Giây</div>
+    </div>
+  </div>
+
+  <div class="warning" id="warning">
+    ⚠️ Cảnh báo: Chỉ còn dưới 2 tháng nữa là đến ngày 16/10/2027!
+  </div>
+
+  <footer>
+    Trang web đếm ngược tự động • Cập nhật theo thời gian thực
+  </footer>
+
+  <script>
+    // Ngày đích: 16/10/2027 00:00:00
+    const targetDate = new Date("2027-10-16T00:00:00").getTime();
+
+    // Đã thông báo chưa (tránh alert liên tục)
+    let hasAlerted = false;
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      // Tính toán thời gian còn lại
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Cập nhật giao diện
+      document.getElementById("days").textContent = days.toString().padStart(3, '0');
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+      // Kiểm tra còn dưới 60 ngày (2 tháng) để hiển thị cảnh báo
+      if (days <= 60) {
+        document.getElementById("warning").style.display = "block";
+
+        // Chỉ alert 1 lần duy nhất khi lần đầu tiên còn <= 60 ngày
+        if (days === 60 && hours === 0 && minutes === 0 && seconds === 0 && !hasAlerted) {
+          alert("⚠️ Cảnh báo: Chỉ còn đúng 2 tháng nữa là đến ngày 16/10/2027!");
+          hasAlerted = true;
+        }
+      }
+
+      // Nếu đã qua ngày đích
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown-container").innerHTML = 
+          "<h2 style='font-size: 2rem; grid-column: 1 / -1;'>Đã đến ngày 16/10/2027! 🎉</h2>";
+        document.getElementById("warning").style.display = "none";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
