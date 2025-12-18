@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy Hoạch Sử Dụng Đất 10ha Cho Nhà Máy Sản Xuất</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; color: #333; }
+        h1, h2 { text-align: center; color: #2c3e50; }
+        p { line-height: 1.6; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .image-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px 0; }
+        .image-item { text-align: center; max-width: 100%; }
+        .image-item img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .caption { font-style: italic; margin-top: 5px; }
+        #connect-wallet { text-align: center; margin: 20px 0; }
+        #connect-wallet button { padding: 10px 20px; font-size: 16px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #connect-wallet button:disabled { background-color: #95a5a6; cursor: not-allowed; }
+        #wallet-status { font-weight: bold; color: #2c3e50; }
+        .gated-content { display: none; } /* Nội dung bị ẩn ban đầu */
+        @media (max-width: 768px) {
+            table, th, td { font-size: 14px; }
+            .image-gallery { flex-direction: column; align-items: center; }
+        }
+    </style>
+    <!-- Thêm thư viện Web3.js để hỗ trợ kết nối ví MetaMask (phổ biến nhất) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.3.0/web3.min.js"></script>
+</head>
+<body>
+
+    <h1>Quy Hoạch Sử Dụng Đất 10ha Để Mở Nhà Máy Sản Xuất</h1>
+    
+    <p>Diện tích 10ha (100.000 m²) phù hợp cho một nhà máy sản xuất quy mô vừa, thường là dự án độc lập hoặc cụm công nghiệp nhỏ. Theo quy định Việt Nam (Luật Xây dựng, QCVN 01:2021/BXD), dự án ≥10ha phải lập <strong>quy hoạch chi tiết 1/500</strong>; dưới 10ha có thể lập tổng mặt bằng nhưng khuyến khích 1/500 để tối ưu.</p>
+    
+    <!-- Phần kết nối ví Web3 -->
+    <div id="connect-wallet">
+        <p>Để xem nội dung chi tiết quy hoạch và hình ảnh minh họa (tính năng gated content), vui lòng kết nối ví Web3 của bạn:</p>
+        <button id="connectBtn">Kết Nối Ví (MetaMask hoặc tương thích)</button>
+        <p id="wallet-status"></p>
+    </div>
+
+    <!-- Nội dung chính bị ẩn cho đến khi kết nối ví thành công -->
+    <div id="gated-content" class="gated-content">
+
+        <h2>Gợi Ý Phân Bổ Đất Điển Hình Cho 10ha</h2>
+        <p>Phân bổ linh hoạt tùy ngành (cơ khí, điện tử, thực phẩm...), nhưng tỷ lệ phổ biến cho quy mô nhỏ (dựa trên tiêu chuẩn khu công nghiệp và dự án thực tế):</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Khu Vực Chức Năng</th>
+                    <th>Tỷ Lệ Khuyến Nghị (%)</th>
+                    <th>Diện Tích Ước Tính (ha)</th>
+                    <th>Mô Tả Chính</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Đất sản xuất chính (nhà xưởng, phân xưởng)</td>
+                    <td>55-65%</td>
+                    <td>5.5-6.5 ha</td>
+                    <td>Khu chính với dây chuyền sản xuất, mật độ xây dựng 60-70%.</td>
+                </tr>
+                <tr>
+                    <td>Đất kho bãi, logistics</td>
+                    <td>10-15%</td>
+                    <td>1-1.5 ha</td>
+                    <td>Kho nguyên liệu, thành phẩm, bãi xe tải.</td>
+                </tr>
+                <tr>
+                    <td>Đất hành chính, dịch vụ hỗ trợ</td>
+                    <td>5-10%</td>
+                    <td>0.5-1 ha</td>
+                    <td>Văn phòng, nhà ăn, y tế.</td>
+                </tr>
+                <tr>
+                    <td>Hạ tầng kỹ thuật (điện, nước, xử lý thải)</td>
+                    <td>5-10%</td>
+                    <td>0.5-1 ha</td>
+                    <td>Trạm biến áp, xử lý nước thải đạt chuẩn.</td>
+                </tr>
+                <tr>
+                    <td>Giao thông nội bộ (đường, bãi đỗ)</td>
+                    <td>10-15%</td>
+                    <td>1-1.5 ha</td>
+                    <td>Đường chính 15-25m, đảm bảo xe container.</td>
+                </tr>
+                <tr>
+                    <td>Cây xanh, buffer zone, môi trường</td>
+                    <td>10-15%</td>
+                    <td>1-1.5 ha</td>
+                    <td>Vành đai xanh, hồ điều hòa (bắt buộc theo QCVN).</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"><strong>Tổng cộng</strong></td>
+                    <td><strong>10 ha</strong></td>
+                    <td>Bố trí sản xuất trung tâm, xử lý thải hạ phong.</td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <h2>Một Số Ví Dụ Minh Họa Sơ Đồ Quy Hoạch Nhà Máy/Khu Công Nghiệp Nhỏ</h2>
+        <p>Dưới đây là các hình ảnh tham khảo sơ đồ quy hoạch điển hình (tỷ lệ tương tự 10ha hoặc nhỏ hơn):</p>
+        
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="https://xaydungso1saigon.com/upload/filemanager/images/thiet-ke-quy-hoach-1500-lo-dat-nho-hon-10-ha-3.jpg" alt="Sơ đồ quy hoạch chi tiết nhà máy nhỏ">
+                <div class="caption">Ví dụ quy hoạch chi tiết 1/500 cho lô đất <10ha (khu dân cư kết hợp, tham khảo bố trí)</div>
+            </div>
+            <div class="image-item">
+                <img src="https://khucongnghiepmienbac.com.vn/wp-content/uploads/2025/04/khu-cong-nghiep-chau-giang-ii-2.jpg" alt="Ví dụ cụm công nghiệp nhỏ">
+                <div class="caption">Ví dụ bố trí cụm công nghiệp nhỏ tại Việt Nam (với sông và cây xanh bao quanh)</div>
+            </div>
+            <div class="image-item">
+                <img src="https://www.insideconstruction.com.au/wp-content/uploads/2021/11/AlphaHPA.jpg" alt="Nhà máy sản xuất công nghiệp">
+                <div class="caption">Hình ảnh nhà máy sản xuất công nghiệp quy mô tương đương (3D render)</div>
+            </div>
+        </div>
+        
+        <h2>Lưu Ý Quan Trọng</h2>
+        <ul>
+            <li><strong>Môi trường:</strong> Hệ thống xử lý chất thải đạt QCVN, ưu tiên công nghiệp sinh thái.</li>
+            <li><strong>Kết nối:</strong> Gần đường lớn, logistics thuận tiện.</li>
+            <li><strong>Thiết kế giai đoạn:</strong> Phase 1: 6-7ha, phase 2: phần còn lại.</li>
+            <li>Khuyến nghị thuê đơn vị tư vấn chuyên lập quy hoạch 1/500 để có bản vẽ chính thức.</li>
+        </ul>
+        
+        <p>Nếu cần thêm chi tiết (ngành cụ thể, vị trí đất) hoặc chỉnh sửa, hãy cho biết!</p>
+
+    </div>
+
+    <!-- Script kết nối ví Web3 và hiển thị nội dung -->
+    <script>
+        const connectBtn = document.getElementById('connectBtn');
+        const walletStatus = document.getElementById('wallet-status');
+        const gatedContent = document.getElementById('gated-content');
+
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    // Yêu cầu kết nối ví
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const web3 = new Web3(window.ethereum);
+                    const accounts = await web3.eth.getAccounts();
+                    const address = accounts[0];
+
+                    // Hiển thị địa chỉ ví (cắt ngắn cho đẹp)
+                    walletStatus.textContent = `Đã kết nối ví: ${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+                    connectBtn.disabled = true;
+                    connectBtn.textContent = 'Đã Kết Nối';
+
+                    // Hiển thị nội dung gated
+                    gatedContent.style.display = 'block';
+                } catch (error) {
+                    walletStatus.textContent = 'Kết nối bị từ chối hoặc lỗi.';
+                    console.error(error);
+                }
+            } else {
+                walletStatus.textContent = 'Vui lòng cài đặt MetaMask hoặc ví Web3 tương thích!';
+                alert('Không phát hiện ví Web3. Hãy cài MetaMask từ https://metamask.io');
+            }
+        }
+
+        connectBtn.addEventListener('click', connectWallet);
+    </script>
+
+</body>
+</html>
