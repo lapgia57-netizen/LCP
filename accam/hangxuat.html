@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra hàng xuất khẩu</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+        .add-btn {
+            margin-bottom: 15px;
+        }
+        .summary {
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .over { color: red; font-weight: bold; }
+        .under { color: orange; font-weight: bold; }
+        .exact { color: green; font-weight: bold; }
+        .loss { color: red; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { display: none; }
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                overflow: hidden;
+                background: #f9f9f9;
+                padding: 10px;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            }
+            td {
+                display: block;
+                padding: 8px 0;
+                border: none;
+                position: relative;
+                padding-left: 140px;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 120px;
+                font-weight: bold;
+                color: #555;
+            }
+            td:last-child {
+                padding-left: 10px;
+                text-align: right;
+            }
+            .delete-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kiểm tra hàng xuất khẩu trong thùng bìa carton</h1>
+        
+        <div class="card">
+            <button class="add-btn" onclick="addRow()">Thêm sản phẩm mới</button>
+            
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Đơn giá (VND/cái)</th>
+                        <th>Số lượng theo đơn hàng</th>
+                        <th>Số lượng thực tế kiểm</th>
+                        <th>Chênh lệch</th>
+                        <th>Tỷ lệ thừa/thiếu (%)</th>
+                        <th>Thiệt hại (VND)</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Mã sản phẩm"><input type="text" class="code" placeholder="Nhập mã"></td>
+                        <td data-label="Tên sản phẩm"><input type="text" class="name" placeholder="Nhập tên"></td>
+                        <td data-label="Đơn giá (VND)"><input type="number" class="price" min="0" value="0" onchange="calculateRow(this)"></td>
+                        <td data-label="Số lượng theo đơn hàng"><input type="number" class="expected" min="0" value="0" onchange="calculateRow(this)"></td>
+                        <td data-label="Số lượng thực tế kiểm"><input type="number" class="actual" min="0" value="0" onchange="calculateRow(this)"></td>
+                        <td data-label="Chênh lệch" class="diff">0</td>
+                        <td data-label="Tỷ lệ (%)" class="percent">0%</td>
+                        <td data-label="Thiệt hại (VND)" class="loss-amount">0</td>
+                        <td data-label="Xóa"><button class="delete-btn" onclick="deleteRow(this)">Xóa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="summary">
+                <h2>Tổng kết kiểm hàng</h2>
+                <p>Tổng số lượng theo đơn hàng: <strong id="totalExpected">0</strong> cái</p>
+                <p>Tổng số lượng thực tế kiểm: <strong id="totalActual">0</strong> cái</p>
+                <p>Tổng chênh lệch: <strong id="totalDiff">0</strong> cái</p>
+                <p>Tỷ lệ thừa/thiếu tổng: <strong id="totalPercent">0%</strong></p>
+                <p>Tổng thiệt hại tài chính: <strong id="totalLoss" class="loss">0</strong> VND</p>
+                
+                <div id="alertMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateRow(input) {
+            const row = input.closest('tr');
+            const price = parseFloat(row.querySelector('.price').value) || 0;
+            const expected = parseFloat(row.querySelector('.expected').value) || 0;
+            const actual = parseFloat(row.querySelector('.actual').value) || 0;
+            const diff = actual - expected;
+            let percent = expected > 0 ? (diff / expected) * 100 : 0;
+            const lossAmount = diff * price; // Thừa (+) thì không tính thiệt hại, thiếu (-) mới tính
+
+            row.querySelector('.diff').textContent = diff;
+            const percentCell = row.querySelector('.percent');
+            percentCell.textContent = percent.toFixed(2) + '%';
+            
+            percentCell.classList.remove('over', 'under', 'exact');
+            if (percent > 0) percentCell.classList.add('over');
+            else if (percent < 0) percentCell.classList.add('under');
+            else percentCell.classList.add('exact');
+
+            // Hiển thị thiệt hại: chỉ tính khi thiếu hàng (diff < 0)
+            const lossCell = row.querySelector('.loss-amount');
+            if (diff < 0) {
+                lossCell.textContent = Math.abs(lossAmount).toLocaleString('vi-VN');
+                lossCell.classList.add('loss');
+            } else {
+                lossCell.textContent = '0';
+                lossCell.classList.remove('loss');
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const rows = document.querySelectorAll('#productTable tbody tr');
+            let totalExpected = 0, totalActual = 0, totalDiff = 0, totalLoss = 0;
+
+            rows.forEach(row => {
+                const price = parseFloat(row.querySelector('.price').value) || 0;
+                const expected = parseFloat(row.querySelector('.expected').value) || 0;
+                const actual = parseFloat(row.querySelector('.actual').value) || 0;
+                const diff = actual - expected;
+                
+                totalExpected += expected;
+                totalActual += actual;
+                totalDiff += diff;
+                
+                // Chỉ tính thiệt hại khi thiếu hàng
+                if (diff < 0) {
+                    totalLoss += Math.abs(diff) * price;
+                }
+            });
+
+            let totalPercent = totalExpected > 0 ? (totalDiff / totalExpected) * 100 : 0;
+
+            document.getElementById('totalExpected').textContent = totalExpected.toLocaleString('vi-VN');
+            document.getElementById('totalActual').textContent = totalActual.toLocaleString('vi-VN');
+            document.getElementById('totalDiff').textContent = totalDiff;
+            document.getElementById('totalPercent').textContent = totalPercent.toFixed(2) + '%';
+            document.getElementById('totalLoss').textContent = totalLoss.toLocaleString('vi-VN');
+
+            // Tạo thông báo cảnh báo
+            const alertDiv = document.getElementById('alertMessage');
+            alertDiv.innerHTML = '';
+
+            if (totalDiff < 0) {
+                const absDiff = Math.abs(totalDiff);
+                alertDiv.innerHTML = `
+                    <div class="alert-danger">
+                        ⚠️ CẢNH BÁO: THIẾU ${absDiff.toLocaleString('vi-VN')} CÁI HÀNG!<br>
+                        Thiệt hại tài chính ước tính: <strong>${totalLoss.toLocaleString('vi-VN')} VND</strong><br>
+                        Có thể bị khách hàng phạt hợp đồng, từ chối nhận hàng hoặc yêu cầu bồi thường.
+                    </div>`;
+            } else if (totalDiff > 0) {
+                alertDiv.innerHTML = `
+                    <div class="alert-warning">
+                        ⚡ THỪA ${totalDiff.toLocaleString('vi-VN')} CÁI HÀNG!<br>
+                        Tăng chi phí sản xuất, vận chuyển không cần thiết và có thể ảnh hưởng đến đóng container.
+                    </div>`;
+            } else {
+                alertDiv.innerHTML = `
+                    <div class="alert-success">
+                        ✓ CHÍNH XÁC! Số lượng thực tế khớp hoàn toàn với đơn hàng.<br>
+                        Không có thiệt hại tài chính do sai lệch số lượng.
+                    </div>`;
+            }
+        }
+
+        function addRow() {
+            const tbody = document.querySelector('#productTable tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td data-label="Mã sản phẩm"><input type="text" class="code" placeholder="Nhập mã"></td>
+                <td data-label="Tên sản phẩm"><input type="text" class="name" placeholder="Nhập tên"></td>
+                <td data-label="Đơn giá (VND)"><input type="number" class="price" min="0" value="0" onchange="calculateRow(this)"></td>
+                <td data-label="Số lượng theo đơn hàng"><input type="number" class="expected" min="0" value="0" onchange="calculateRow(this)"></td>
+                <td data-label="Số lượng thực tế kiểm"><input type="number" class="actual" min="0" value="0" onchange="calculateRow(this)"></td>
+                <td data-label="Chênh lệch" class="diff">0</td>
+                <td data-label="Tỷ lệ (%)" class="percent">0%</td>
+                <td data-label="Thiệt hại (VND)" class="loss-amount">0</td>
+                <td data-label="Xóa"><button class="delete-btn" onclick="deleteRow(this)">Xóa</button></td>
+            `;
+            tbody.appendChild(newRow);
+        }
+
+        function deleteRow(button) {
+            button.closest('tr').remove();
+            calculateTotal();
+        }
+
+        // Tính toán ban đầu khi tải trang
+        window.onload = calculateTotal;
+    </script>
+</body>
+</html>
