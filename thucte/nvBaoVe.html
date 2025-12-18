@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản Lý Nhân Viên Bảo Vệ</title>
+  <style>
+    :root {
+      --primary: #1e40af;
+      --success: #10b981;
+      --danger: #ef4444;
+      --gray: #6b7280;
+      --light: #f3f4f6;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+      color: #1f2937;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1e3a8a;
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    #addEmployeeBtn {
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    /* Form */
+    #employeeForm {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      display: none;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Danh sách nhân viên */
+    #employeeList {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .employee-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .employee-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .employee-card h3 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: bold;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-area {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .badge-task {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 0.5rem;
+      }
+      #employeeList {
+        grid-template-columns: 1fr;
+      }
+      .checkbox-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quản Lý Nhân Viên Bảo Vệ</h1>
+    <p>Phạm vi hoạt động & Khu vực chịu trách nhiệm</p>
+  </header>
+
+  <div class="container">
+    <button id="addEmployeeBtn" class="btn btn-success">+ Thêm Nhân Viên Mới</button>
+
+    <!-- Form thêm nhân viên -->
+    <div id="employeeForm">
+      <h2 style="margin-top:0;">Thêm nhân viên mới</h2>
+      <div class="form-group">
+        <label>Họ và tên</label>
+        <input type="text" id="name" required />
+      </div>
+      <div class="form-group">
+        <label>Mã số nhân viên</label>
+        <input type="text" id="id" required />
+      </div>
+      <div class="form-group">
+        <label>Khu vực chịu trách nhiệm</label>
+        <select id="area" required>
+          <option value="Cổng chính">Cổng chính</option>
+          <option value="Khu sản xuất">Khu sản xuất</option>
+          <option value="Kho hàng">Kho hàng</option>
+          <option value="Văn phòng">Văn phòng</option>
+          <option value="Toàn khu vực">Toàn khu vực</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Nhiệm vụ chính (phạm vi hoạt động)</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="task1" value="Kiểm soát ra vào" />
+            <label for="task1">Kiểm soát ra vào</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="task2" value="Tuần tra giám sát" />
+            <label for="task2">Tuần tra giám sát</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="task3" value="Bảo vệ tài sản" />
+            <label for="task3">Bảo vệ tài sản</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="task4" value="Xử lý sự cố" />
+            <label for="task4">Xử lý sự cố</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="task5" value="Quản lý thiết bị an ninh" />
+            <label for="task5">Quản lý thiết bị an ninh</label>
+          </div>
+        </div>
+      </div>
+      <button id="saveBtn" class="btn btn-primary">Lưu Nhân Viên</button>
+      <button id="cancelBtn" class="btn" style="background:#9ca3af; color:white; margin-left:0.5rem;">Hủy</button>
+    </div>
+
+    <!-- Danh sách nhân viên -->
+    <div id="employeeList"></div>
+  </div>
+
+  <script>
+    // Dữ liệu mẫu với 4 trường hợp điển hình
+    const employees = JSON.parse(localStorage.getItem('employees')) || [
+      {
+        name: "Nguyễn Văn A",
+        id: "BV001",
+        area: "Cổng chính",
+        tasks: ["Kiểm soát ra vào", "Bảo vệ tài sản"]
+      },
+      {
+        name: "Trần Thị B",
+        id: "BV002",
+        area: "Khu sản xuất",
+        tasks: ["Tuần tra giám sát", "Xử lý sự cố", "Bảo vệ tài sản"]
+      },
+      {
+        name: "Lê Văn C",
+        id: "BV003",
+        area: "Kho hàng",
+        tasks: ["Bảo vệ tài sản", "Tuần tra giám sát", "Quản lý thiết bị an ninh"]
+      },
+      {
+        name: "Phạm Văn D",
+        id: "BV004",
+        area: "Toàn khu vực",
+        tasks: ["Tuần tra giám sát", "Xử lý sự cố", "Quản lý thiết bị an ninh"]
+      }
+    ];
+
+    function renderEmployees() {
+      const list = document.getElementById('employeeList');
+      list.innerHTML = '';
+
+      if (employees.length === 0) {
+        list.innerHTML = '<p style="text-align:center; grid-column:1/-1; color:var(--gray);">Chưa có nhân viên nào.</p>';
+        return;
+      }
+
+      employees.forEach(emp => {
+        const card = document.createElement('div');
+        card.className = 'employee-card';
+        card.innerHTML = `
+          <h3>${emp.name}</h3>
+          <p><strong>Mã số:</strong> ${emp.id}</p>
+          <p><strong>Khu vực chịu trách nhiệm:</strong> <span class="badge badge-area">${emp.area}</span></p>
+          <p><strong>Nhiệm vụ chính:</strong></p>
+          <div>
+            ${emp.tasks.map(task => `<span class="badge badge-task">${task}</span>`).join('')}
+          </div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    // Hiển thị form
+    document.getElementById('addEmployeeBtn').addEventListener('click', () => {
+      document.getElementById('employeeForm').style.display = 'block';
+      document.getElementById('addEmployeeBtn').style.display = 'none';
+    });
+
+    // Hủy form
+    document.getElementById('cancelBtn').addEventListener('click', () => {
+      document.getElementById('employeeForm').style.display = 'none';
+      document.getElementById('addEmployeeBtn').style.display = 'block';
+      document.getElementById('employeeForm').reset();
+    });
+
+    // Lưu nhân viên
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const id = document.getElementById('id').value.trim();
+      const area = document.getElementById('area').value;
+
+      const tasks = [];
+      for (let i = 1; i <= 5; i++) {
+        const cb = document.getElementById(`task${i}`);
+        if (cb.checked) tasks.push(cb.value);
+      }
+
+      if (!name || !id || tasks.length === 0) {
+        alert('Vui lòng điền đầy đủ thông tin và chọn ít nhất một nhiệm vụ!');
+        return;
+      }
+
+      employees.push({ name, id, area, tasks });
+      localStorage.setItem('employees', JSON.stringify(employees));
+
+      document.getElementById('employeeForm').reset();
+      document.getElementById('employeeForm').style.display = 'none';
+      document.getElementById('addEmployeeBtn').style.display = 'block';
+
+      renderEmployees();
+    });
+
+    // Khởi tạo hiển thị
+    renderEmployees();
+  </script>
+</body>
+</html>
