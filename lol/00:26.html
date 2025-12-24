@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giáng Sinh An Lành ✧</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: #f5f5f5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Snow */
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .snowflake {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear forwards, sway 8s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(255,255,255,0.7);
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes sway {
+      0%,100% { transform: translateX(0); }
+      50%     { transform: translateX(30px); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 40px rgba(255, 220, 180, 0.6),
+                   0 0 80px rgba(255, 180, 180, 0.4);
+      letter-spacing: -1px;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      color: #ffd9c2;
+      opacity: 0.9;
+      max-width: 640px;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .wish {
+      font-size: 1.4rem;
+      color: #ffe4d6;
+      max-width: 580px;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-top: 1.5rem;
+    }
+
+    .tree-area {
+      position: relative;
+      width: 320px;
+      height: 380px;
+      margin: 1.5rem 0;
+    }
+
+    .christmas-tree {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 340px solid #1a5c38;
+      filter: drop-shadow(0 30px 60px rgba(26,92,56,0.6));
+      animation: gentle-sway 12s ease-in-out infinite;
+    }
+
+    .christmas-tree::before,
+    .christmas-tree::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-bottom: 260px solid #228b22;
+    }
+
+    .christmas-tree::before {
+      top: 60px;
+    }
+
+    .christmas-tree::after {
+      top: 120px;
+    }
+
+    /* Lights */
+    .light {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: #ffeb3b;
+      border-radius: 50%;
+      box-shadow: 0 0 12px currentColor;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    .light:nth-child(odd)  { animation-delay: 0.8s; }
+    .light:nth-child(3n)   { background: #f44336; }
+    .light:nth-child(4n)   { background: #2196f3; }
+    .light:nth-child(5n)   { background: #e91e63; }
+
+    @keyframes twinkle {
+      0%,100% { opacity: 0.4; transform: scale(0.8); }
+      50%     { opacity: 1;   transform: scale(1.2); }
+    }
+
+    .star {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-bottom: 60px solid #ffd700;
+      box-shadow: 0 0 40px #ffeb3b, 0 0 80px #ffb300;
+      animation: star-glow 4s ease-in-out infinite;
+    }
+
+    @keyframes star-glow {
+      0%,100% { filter: brightness(1) drop-shadow(0 0 30px #ffd700); }
+      50%     { filter: brightness(1.6) drop-shadow(0 0 60px #ffeb3b); }
+    }
+
+    @keyframes gentle-sway {
+      0%,100% { transform: translateX(-50%) rotate(-2deg); }
+      50%     { transform: translateX(-50%) rotate(2deg); }
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 3rem 0 1.5rem;
+      font-size: 0.95rem;
+      opacity: 0.6;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      .tree-area { width: 240px; height: 300px; }
+      .christmas-tree { border-left: 100px solid transparent; border-right: 100px solid transparent; border-bottom: 260px solid #1a5c38; }
+      .christmas-tree::before, .christmas-tree::after { border-left: 80px solid transparent; border-right: 80px solid transparent; }
+      .christmas-tree::before { top: 50px; border-bottom: 200px solid #228b22; }
+      .christmas-tree::after { top: 95px; border-bottom: 160px solid #228b22; }
+      .star { top: -45px; border-left: 25px solid transparent; border-right: 25px solid transparent; border-bottom: 45px solid #ffd700; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="snow" id="snow"></div>
+
+<div class="container">
+  <div class="tree-area">
+    <div class="star"></div>
+    <div class="christmas-tree">
+      <!-- Lights -->
+      <div class="light" style="left:30%; top:20%"></div>
+      <div class="light" style="left:65%; top:18%"></div>
+      <div class="light" style="left:45%; top:35%"></div>
+      <div class="light" style="left:20%; top:45%"></div>
+      <div class="light" style="left:75%; top:48%"></div>
+      <div class="light" style="left:40%; top:60%"></div>
+      <div class="light" style="left:60%; top:62%"></div>
+      <div class="light" style="left:25%; top:75%"></div>
+      <div class="light" style="left:70%; top:78%"></div>
+    </div>
+  </div>
+
+  <h1>Giáng Sinh An Lành</h1>
+  
+  <div class="subtitle">
+    Mong bạn tìm thấy chút bình yên giữa mùa đông lạnh giá
+  </div>
+
+  <div class="wish">
+    Chúc bạn một Giáng sinh thật nhẹ nhàng,<br>
+    ấm áp như ánh đèn vàng,<br>
+    ngọt ngào như hương quế và<br>
+    an yên như tuyết rơi đầu tiên.
+  </div>
+
+  <div class="footer">
+    Merry Christmas & Happy New Year 2026 • ♡
+  </div>
+</div>
+
+<script>
+  // Snow effect
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    
+    const size = Math.random() * 5 + 3;
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+    snowflake.style.left = Math.random() * 100 + 'vw';
+    snowflake.style.animationDuration = Math.random() * 8 + 8 + 's';
+    snowflake.style.opacity = Math.random() * 0.5 + 0.5;
+    
+    document.querySelector('.snow').appendChild(snowflake);
+    
+    setTimeout(() => {
+      snowflake.remove();
+    }, 14000);
+  }
+
+  // Create snowflakes continuously
+  setInterval(createSnowflake, 180);
+
+  // Initial burst
+  for(let i = 0; i < 50; i++) {
+    setTimeout(createSnowflake, i * 100);
+  }
+</script>
+</body>
+</html>
