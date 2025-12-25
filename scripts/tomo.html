@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XUẤT KHẨU SMARTPHONE TỪ VIỆT NAM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom style bổ sung cho timeline line */
+    .timeline-line {
+      content: '';
+      position: absolute;
+      inset: 0;
+      left: 1.25rem; /* ml-5 */
+      width: 2px;
+      background: linear-gradient(to bottom, #bfdbfe, #60a5fa);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+
+  <div class="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Xuất khẩu Smartphone từ Việt Nam
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Thủ tục đơn giản, thuế 0%, chỉ cần khai báo hải quan điện tử
+      </p>
+    </div>
+
+    <!-- Bảng so sánh nhanh -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">
+        So sánh Xuất khẩu vs Nhập khẩu
+      </h2>
+      
+      <div class="overflow-x-auto rounded-2xl shadow-lg border border-gray-200 bg-white/80 backdrop-blur-sm">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-6 py-5 text-left text-sm font-semibold text-gray-700">Yếu tố</th>
+              <th class="px-6 py-5 text-center text-sm font-semibold text-blue-700">Xuất khẩu từ VN</th>
+              <th class="px-6 py-5 text-center text-sm font-semibold text-gray-700">Nhập khẩu vào VN</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 bg-white">
+            <tr>
+              <td class="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-900">Thuế xuất/nhập khẩu</td>
+              <td class="px-6 py-5 text-center text-green-600 font-bold">0%</td>
+              <td class="px-6 py-5 text-center text-green-600 font-bold">Thường 0%</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-900">Thuế GTGT</td>
+              <td class="px-6 py-5 text-center text-green-600 font-bold">0% (xuất khẩu)</td>
+              <td class="px-6 py-5 text-center text-red-600">10%</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-900">Giấy phép</td>
+              <td class="px-6 py-5 text-center text-green-600 font-bold">Không cần (trừ đặc biệt)</td>
+              <td class="px-6 py-5 text-center text-gray-600">Không cần (từ 2018)</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-6 py-5 whitespace-nowrap text-sm font-medium text-gray-900">Độ phức tạp</td>
+              <td class="px-6 py-5 text-center text-green-600 font-bold">Rất đơn giản</td>
+              <td class="px-6 py-5 text-center text-yellow-600">Phức tạp hơn</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Quy trình thủ tục - Vertical Timeline -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-8 text-center">
+        Quy trình xuất khẩu cơ bản
+      </h2>
+
+      <div class="space-y-8 relative">
+        <!-- Dòng timeline dọc -->
+        <div class="timeline-line"></div>
+
+        <!-- Bước 1 -->
+        <div class="relative pl-12">
+          <div class="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-bold shadow-md">
+            1
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Chuẩn bị hồ sơ</h3>
+            <p class="text-gray-600">Hợp đồng, Invoice, Packing List, C/O (nếu cần). Nộp điện tử qua VNACCS.</p>
+          </div>
+        </div>
+
+        <!-- Bước 2 -->
+        <div class="relative pl-12">
+          <div class="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-bold shadow-md">
+            2
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Khai báo hải quan</h3>
+            <p class="text-gray-600">Khai tờ khai xuất khẩu → Phân luồng (thường Xanh/Vàng) → Thông quan nhanh.</p>
+          </div>
+        </div>
+
+        <!-- Bước 3 -->
+        <div class="relative pl-12">
+          <div class="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-bold shadow-md">
+            3
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Vận chuyển & Hoàn tất</h3>
+            <p class="text-gray-600">Lên phương tiện → Nhận Vận đơn → Theo dõi đến nước nhập khẩu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lưu ý quan trọng - Accordion -->
+    <div>
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">
+        Lưu ý quan trọng
+      </h2>
+      <div class="space-y-4">
+        <details class="group rounded-xl bg-white shadow-md">
+          <summary class="flex cursor-pointer items-center justify-between p-6 text-lg font-medium text-gray-800">
+            Xuất khẩu cá nhân / xách tay
+            <span class="transition group-open:rotate-180">▼</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-600">
+            Dưới 5-10 máy → coi như hành lý, không cần khai. Số lượng lớn phải khai thương mại.
+          </div>
+        </details>
+
+        <!-- Bạn có thể thêm các <details> khác tương tự ở đây -->
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
