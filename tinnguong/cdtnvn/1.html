@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ăn Có Mời, Làm Có Khiến - Tục Ngữ Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2c5282;       /* xanh đậm truyền thống */
+      --primary-light: #4299e1;
+      --bg: #f9fafb;
+      --text: #1a202c;
+      --gray: #4a5568;
+      --light: #edf2f7;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #4299e1 0%, #2c5282 100%);
+      color: white;
+      text-align: center;
+      padding: 120px 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    
+    header p {
+      font-size: 1.35rem;
+      max-width: 680px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+    
+    .content {
+      padding: 80px 0;
+    }
+    
+    .section {
+      margin-bottom: 80px;
+    }
+    
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 2.6rem;
+      margin-bottom: 24px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--primary-light);
+      border-radius: 2px;
+    }
+    
+    .meaning {
+      font-size: 1.25rem;
+      color: var(--gray);
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+    
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+    
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.04);
+    }
+    
+    .contrast {
+      background: white;
+      padding: 48px;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+      margin: 60px 0;
+    }
+    
+    .contrast .pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .pair div {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .pair .pro {
+      color: #48bb78;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    .pair .con {
+      color: var(--primary);
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    .examples {
+      background: var(--light);
+      padding: 60px 0;
+    }
+    
+    .example-item {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+      font-size: 0.95rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    @media (max-width: 768px) {
+      header { padding: 90px 16px 70px; }
+      h1 { font-size: 3.8rem; }
+      h2 { font-size: 2.2rem; }
+      .contrast .pair { flex-direction: column; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Ăn có mời<br>Làm có khiến</h1>
+      <p>Lời dạy về sự lịch sự, tự trọng và biết giữ chừng mực trong văn hóa Việt Nam</p>
+    </div>
+  </header>
+
+  <main class="container content">
+    
+    <section class="section">
+      <h2>Ý nghĩa chính</h2>
+      <p class="meaning">
+        Câu tục ngữ dạy về <span class="highlight">lòng tự trọng</span> và <span class="highlight">phép tắc ứng xử</span>.<br><br>
+        <strong>Ăn có mời</strong> → Không tự tiện ăn uống, phải chờ hoặc có lời mời → thể hiện sự nhường nhịn, lịch sự.<br><br>
+        <strong>Làm có khiến</strong> → Không tự ý làm việc của người khác, cần có sự phân công, nhờ vả rõ ràng → tránh bao đồng, lấn lướt.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Văn hóa ăn uống lịch sự Việt Nam</h2>
+      <div class="gallery">
+        <!-- Thay bằng link ảnh thật nếu deploy -->
+        <img src="https://www.asiakingtravel.com/cuploads/files/family-vietnamese-meal.jpg" alt="Bữa cơm gia đình Việt Nam lịch sự">
+        <img src="https://izitour.com/media/blog/vietnamese-table-manners.webp" alt="Cách mời mọc khi ăn uống">
+        <img src="https://www.indochina.tours/wp-content/uploads/2018/06/Vietnamese-Dining-Etiquette.jpg" alt="Phong thái nhường nhịn trong bữa ăn">
+      </div>
+    </section>
+
+    <div class="contrast">
+      <h2>So sánh hai thái cực</h2>
+      <div class="pair">
+        <div>
+          <div class="pro">Thấy cơm thì ăn<br>Thấy việc thì làm</div>
+          <p style="margin-top:12px;">→ Ở chỗ quen, thân thiết, thoải mái tự nhiên</p>
+        </div>
+        <div>
+          <div class="con">Ăn có mời<br>Làm có khiến</div>
+          <p style="margin-top:12px;">→ Ở chỗ lạ, nơi công cộng, cần giữ ý tứ, quy củ</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section examples">
+      <h2>Ví dụ thực tế</h2>
+      <div class="example-item">
+        <strong>Đi ăn tiệc nhà người khác:</strong> Đợi chủ nhà mời, gắp thức ăn cho khách trước, không tự xới cơm đầy bát.
+      </div>
+      <div class="example-item">
+        <strong>Đi làm chỗ mới:</strong> Chờ sếp phân công nhiệm vụ, không tự ý "xắn tay áo" làm việc của đồng nghiệp.
+      </div>
+      <div class="example-item">
+        <strong>Đến nhà bạn lần đầu:</strong> Không tự mở tủ lạnh lấy đồ ăn, không tự ý dọn dẹp nếu chưa được nhờ.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Trang minh họa tục ngữ Việt Nam • Thiết kế đơn giản - tập trung vào nội dung &copy; 2025</p>
+  </footer>
+
+</body>
+</html>
