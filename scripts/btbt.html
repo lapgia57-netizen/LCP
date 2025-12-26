@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoàn Lương & Bất Tam Bất Tứ - Kim Dung & Cuộc Đời</title>
+  <style>
+    :root {
+      --primary: #2c3e50;     /* Màu kiếm hiệp đậm */
+      --secondary: #c0392b;   /* Đỏ máu kiếm hiệp */
+      --light: #ecf0f1;
+      --accent: #e67e22;
+      --text: #34495e;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #d5dbdb);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: var(--secondary);
+      margin: 3rem 0 2rem;
+      font-size: 2.2rem;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    
+    .card-header {
+      background: var(--primary);
+      color: white;
+      padding: 1.4rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    
+    .card-body {
+      padding: 1.6rem;
+    }
+    
+    .highlight {
+      color: var(--secondary);
+      font-weight: bold;
+    }
+    
+    .accordion {
+      margin-top: 1.5rem;
+    }
+    
+    .accordion-item {
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .accordion-header {
+      background: #f8f9fa;
+      padding: 1rem 1.4rem;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    
+    .accordion-header:hover {
+      background: #e9ecef;
+    }
+    
+    .accordion-content {
+      padding: 1rem 1.4rem;
+      display: none;
+      background: white;
+    }
+    
+    .accordion-content.active {
+      display: block;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: white;
+      margin-top: 4rem;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hoàn Lương & Bất Tam Bất Tứ</h1>
+    <p>Cuộc đời có thể lầm lỡ, nhưng vẫn còn cơ hội quay đầu • Kim Dung ẩn ý qua những cái tên</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Phần 1: Hoàn lương -->
+    <h2 class="section-title">Hoàn Lương & Cơ Hội Hoàn Lương</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">Hoàn lương là gì?</div>
+        <div class="card-body">
+          <p><span class="highlight">Trở lại làm người lương thiện</span> sau một thời gian lầm lỡ, phạm tội hoặc sống buông thả.</p>
+          <p>Ví dụ: Người từng phạm tội, sau khi mãn hạn tù, cải tạo tốt, làm ăn chân chính → <strong>đã hoàn lương thành công</strong>.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Cơ hội hoàn lương</div>
+        <div class="card-body">
+          <p>Là những điều kiện, sự hỗ trợ từ <strong>gia đình • xã hội • nhà nước</strong> để người từng sai lầm có thể:</p>
+          <ul>
+            <li>Tái hòa nhập cộng đồng</li>
+            <li>Có việc làm ổn định</li>
+            <li>Xóa bỏ mặc cảm, tránh tái phạm</li>
+          </ul>
+          <p>→ Các chương trình như <em>"Thắp sáng ước mơ hoàn lương"</em> rất ý nghĩa.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần 2: Nhân vật Kim Dung -->
+    <h2 class="section-title">Nhân vật "Bất Tam Bất Tứ" trong tiểu thuyết Kim Dung</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">Ý nghĩa "Bất Tam Bất Tứ"</div>
+        <div class="card-body">
+          <p>不三不四 → <strong>không ra gì, lăng nhăng, không đứng đắn, kỳ quái, tiểu nhân</strong>.</p>
+          <p>Kim Dung rất thích dùng chữ <span class="highlight">"Bất"</span> để đặt tên cho những nhân vật có khuyết điểm lớn về nhân cách.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Nhân vật tiêu biểu nhất</div>
+        <div class="card-body">
+          <p><strong>Đinh Bất Tam</strong> & <strong>Đinh Bất Tứ</strong> (Hiệp Khách Hành)</p>
+          <p>Hai anh em nhà họ Đinh: <strong>tàn ác, giết người không gớm tay</strong>, hành vi quái gở, tự phụ, đại diện cho kiểu người "bất tam bất tứ" đúng nghĩa đen lẫn bóng.</p>
+          <p>→ Đây là cặp đôi ác độc, kỳ quái bậc nhất mà fan Kim Dung hay nhắc khi nói đến cụm từ này.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bonus: Các nhân vật "Bất" khác (accordion) -->
+    <div class="accordion">
+      <h3 style="text-align:center; margin:2rem 0 1rem; color:var(--primary)">Các nhân vật "Bất" khác trong Kim Dung</h3>
+      
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.nextElementSibling.classList.toggle('active')">Nhạc Bất Quần (Tiếu Ngạo Giang Hồ) <span>▼</span></div>
+        <div class="accordion-content">
+          <p>Bề ngoài đạo mạo "Quân Tử Kiếm", bên trong <strong>tiểu nhân, giả tạo, tham quyền</strong>.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.nextElementSibling.classList.toggle('active')">Tôn Bất Nhị (Thần Điêu Đại Hiệp) <span>▼</span></div>
+        <div class="accordion-content">
+          <p>Một trong Toàn Chân Thất Tử, tính tình <strong>nhỏ nhen, hay để bụng</strong>.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="this.nextElementSibling.classList.toggle('active')">Thuyết Bất Đắc (Ỷ Thiên Đồ Long Ký) <span>▼</span></div>
+        <div class="accordion-content">
+          <p>Một trong Ngũ Tán Nhân Minh Giáo, võ công cao nhưng hay nói <strong>"không nói được"</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 - Kiếm hiệp & Cuộc đời • Thiết kế đơn giản nhưng ý nghĩa</p>
+  </footer>
+
+  <script>
+    // Optional: Đóng/mở accordion khi click (đã có inline onclick)
+  </script>
+
+</body>
+</html>
