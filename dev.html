@@ -3,161 +3,403 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LCP - Quán Net Chat Lan</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/lapgia57-netizen/LCP/main/favicon.ico" type="image/x-icon">
+  <title>LCP • Quán Net Chat Lan</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/lapgia57-netizen/LCP/main/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    body { margin:0; font-family: system-ui; background:#0d1117; color:#c9d1d9; }
-    .header { background:#010409; padding:20px; text-align:center; border-bottom:3px solid #f85149; }
-    h1 { margin:0; color:#f85149; }
-    .container { display:flex; height:calc(100vh - 100px); }
-    .sidebar { width:35%; background:#161b22; border-right:1px solid #30363d; overflow:auto; }
-    .content { width:65%; padding:20px; overflow:auto; }
-    .tree ul { padding-left:20px; margin:5px 0; list-style:none; }
-    .tree li { padding:6px; cursor:pointer; border-radius:6px; }
-    .tree li:hover { background:#30363d; }
-    .tree .folder::before { content:"📁 "; }
-    .tree .file::before { content:"📄 "; }
-    .search { width:100%; padding:12px; background:#0d1117; border:1px solid #30363d; color:white; box-sizing:border-box; }
-    #file-content { background:#0d1117; padding:20px; border-radius:8px; min-height:100%; }
-    .online-count { position:fixed; bottom:10px; right:10px; background:#238636; color:white; padding:10px 15px; border-radius:50px; font-weight:bold; }
-    .refresh { font-size:12px; color:#8b949e; text-align:center; margin-top:10px; }
-    .instructions { background:#21262d; padding:15px; border-radius:8px; margin:10px 0; }
-    .collapsed { display: none; }
+    :root {
+      --bg: #0d1117;
+      --bg-alt: #161b22;
+      --surface: #1f2937;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #f85149;
+      --accent-dark: #c2410c;
+      --border: #30363d;
+      --online: #22c55e;
+      --hover: rgba(255,255,255,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .loading {
+      position: fixed;
+      inset: 0;
+      background: rgba(13,17,23,0.98);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      gap: 1.5rem;
+    }
+
+    .spinner {
+      width: 56px;
+      height: 56px;
+      border: 5px solid var(--border);
+      border-top: 5px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 0.9s cubic-bezier(0.4,0,0.2,1) infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg) } }
+
+    header {
+      background: linear-gradient(135deg, #0d1117 0%, #10151c 100%);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .online-badge {
+      background: var(--online);
+      color: white;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      height: calc(100vh - 72px);
+    }
+
+    .sidebar {
+      background: var(--bg-alt);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .search-container {
+      padding: 1rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(248,81,73,0.2);
+    }
+
+    .tree-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .tree ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .tree li {
+      padding: 0.55rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.13s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.93rem;
+    }
+
+    .tree li:hover {
+      background: var(--hover);
+    }
+
+    .tree li.folder {
+      font-weight: 600;
+      color: #a5b4fc;
+    }
+
+    .tree li.file {
+      color: #c9d1d9;
+    }
+
+    .tree .collapsed > ul {
+      display: none;
+    }
+
+    .content-area {
+      background: var(--bg);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .welcome-card {
+      max-width: 520px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .welcome-card h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .tip {
+      background: rgba(248,81,73,0.08);
+      border-left: 4px solid var(--accent);
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+
+    .floating-online {
+      position: fixed;
+      bottom: 20px;
+      right: 24px;
+      background: rgba(34,197,94,0.9);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(34,197,94,0.35);
+      z-index: 100;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 0.6rem;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(8px);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+      header { padding: 1rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>LCP – Chờ tại quán net</h1>
-    <p>Đang có <span id="online">0</span> anh em trong quán • Click file để mở tab mới • Auto cập nhật mỗi 2 phút</p>
-  </div>
 
-  <div class="container">
-    <div class="sidebar">
-      <input type="text" class="search" id="search" placeholder="Tìm file, nick, tin nhắn..."/>
-      <div class="tree" id="tree">Đang load repo...</div>
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  <div>Đang kết nối đến quán net...</div>
+</div>
+
+<header>
+  <h1><i class="fas fa-terminal"></i> LCP • Quán Net</h1>
+  
+  <div class="status-bar">
+    <div class="online-badge">
+      <i class="fas fa-circle" style="font-size:0.7em"></i>
+      <span id="online">0</span> online
     </div>
-    <div class="content">
-      <div id="file-content">
-        <h2>🖥️ Bảng điều khiển Explorer</h2>
-        <div class="instructions">
-          <strong>Chức năng mới:</strong><br>
-          - <strong>File .html:</strong> Mở tab mới tại <code>https://lcp.lck.io.vn/[tên-file]</code> (render trực tiếp trên domain quán net).<br>
-          - <strong>File khác:</strong> Mở raw content tại GitHub trong tab mới (xem nhanh Markdown/text).<br>
-          <br>
-          <strong>Mẹo quán net:</strong> Tạo file <code>online/nick-cua-ban.html</code> với nội dung "đang cày rank" → click nó sẽ mở trang cá nhân đẹp trên domain!
-        </div>
-        <p><em>Chọn file từ cây bên trái để mở tab mới nhé!</em></p>
+    <div><i class="far fa-clock"></i> <span id="clock">--:--:--</span></div>
+  </div>
+</header>
+
+<div class="main-layout">
+  <aside class="sidebar">
+    <div class="search-container">
+      <input type="text" class="search-input" id="search" placeholder="Tìm nick, file, tin nhắn...">
+    </div>
+    <div class="tree-container">
+      <div class="tree" id="tree">Đang tải danh sách file...</div>
+    </div>
+  </aside>
+
+  <main class="content-area">
+    <div class="welcome-card" id="file-content">
+      <h2>🖥️ Explorer Control Panel</h2>
+      <p>Chào mừng trở lại quán net!</p>
+
+      <div class="tip">
+        <strong>Quick tip:</strong><br>
+        Tạo file <code>online/tênnick.html</code> → click là có profile riêng ngay lập tức
       </div>
+      
+      <p style="margin-top:1.5rem; opacity:0.7">
+        👉 Chọn file bên trái để xem (HTML sẽ render trực tiếp, còn lại mở raw GitHub)
+      </p>
     </div>
-  </div>
+  </main>
+</div>
 
-  <div class="online-count">Online: <span id="online2">0</span></div>
-  <div class="refresh">Cập nhật lần cuối: <span id="time"></span></div>
+<div class="floating-online">
+  Online: <span id="online2">0</span> anh em
+</div>
 
-  <script>
-    const owner = "lapgia57-netizen";
-    const repo = "LCP";
-    const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
-    const customDomain = "https://lcp.lck.io.vn/";
+<footer>
+  Dữ liệu cập nhật lúc: <span id="refreshTime">--</span> • Auto refresh mỗi 2 phút
+</footer>
 
-    async function loadRepo() {
-      try {
-        const res = await fetch(api);
-        const data = await res.json();
-        const files = data.tree.filter(f => f.type === "blob");
-        const onlineCount = files.filter(f => f.path.startsWith("online/")).length;
-        document.getElementById("online").textContent = onlineCount;
-        document.getElementById("online2").textContent = onlineCount;
+<script>
+// Các script giữ nguyên logic cũ, chỉ thêm một số cải tiến nhỏ
+const owner = "lapgia57-netizen";
+const repo = "LCP";
+const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
+const domain = "https://lcp.lck.io.vn/";
 
-        renderTree(data.tree);
-        updateTime();
-      } catch (e) {
-        document.getElementById("tree").innerHTML = "Lỗi kết nối GitHub API :(";
-        console.error(e);
-      }
-    }
+const loading = document.getElementById("loading");
+const tree = document.getElementById("tree");
+const onlineEl = document.getElementById("online");
+const onlineEl2 = document.getElementById("online2");
+const clockEl = document.getElementById("clock");
+const refreshTimeEl = document.getElementById("refreshTime");
+const searchInput = document.getElementById("search");
 
-    function renderTree(items) {
-      const rootUl = document.createElement("ul");
-      const folders = {}; // key: full path của folder (ví dụ: "online", "online/sub")
+async function loadRepo() {
+  loading.style.display = "flex";
+  try {
+    const res = await fetch(api);
+    if (!res.ok) throw new Error("GitHub API error");
+    const data = await res.json();
 
-      items.filter(item => item.type === "blob").forEach(item => {
-        const parts = item.path.split('/');
-        let currentUl = rootUl;
+    const files = data.tree.filter(f => f.type === "blob");
+    const onlineCount = files.filter(f => f.path.startsWith("online/")).length;
 
-        // Xử lý từng cấp folder
-        for (let i = 0; i < parts.length - 1; i++) {
-          const folderPath = parts.slice(0, i + 1).join('/');
-
-          if (!folders[folderPath]) {
-            const folderLi = document.createElement("li");
-            folderLi.className = "folder";
-            folderLi.textContent = parts[i] + "/";
-
-            const subUl = document.createElement("ul");
-            subUl.classList.add("collapsed");
-            folderLi.appendChild(subUl);
-
-            folderLi.onclick = (e) => {
-              e.stopPropagation();
-              subUl.classList.toggle("collapsed");
-            };
-
-            folders[folderPath] = { li: folderLi, ul: subUl };
-
-            // Thêm vào parent
-            if (i === 0) {
-              currentUl.appendChild(folderLi);
-            } else {
-              const parentPath = parts.slice(0, i).join('/');
-              folders[parentPath].ul.appendChild(folderLi);
-            }
-          }
-          currentUl = folders[folderPath].ul;
-        }
-
-        // Thêm file vào ul hiện tại
-        const fileLi = document.createElement("li");
-        fileLi.className = "file";
-        fileLi.textContent = parts[parts.length - 1];
-        fileLi.title = item.path;
-        fileLi.onclick = (e) => {
-          e.stopPropagation();
-          openFileInNewTab(item.path);
-        };
-        currentUl.appendChild(fileLi);
-      });
-
-      const container = document.getElementById("tree");
-      container.innerHTML = "";
-      container.appendChild(rootUl);
-    }
-
-    function openFileInNewTab(path) {
-      let url;
-      if (path.endsWith('.html')) {
-        url = customDomain + path;
-      } else {
-        url = `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
-      }
-      window.open(url, '_blank');
-    }
-
-    function updateTime() {
-      document.getElementById("time").textContent = new Date().toLocaleString("vi-VN");
-    }
-
-    // Load + auto refresh
-    loadRepo();
-    setInterval(loadRepo, 120000);
-
-    // Tìm kiếm
-    document.getElementById("search").addEventListener("input", (e) => {
-      const term = e.target.value.toLowerCase();
-      document.querySelectorAll(".tree .file, .tree .folder").forEach(el => {
-        el.style.display = el.textContent.toLowerCase().includes(term) ? "" : "none";
-      });
+    onlineEl.textContent = onlineCount;
+    onlineEl2.textContent = onlineCount;
+    refreshTimeEl.textContent = new Date().toLocaleString("vi-VN", {
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
     });
-  </script>
+
+    renderTree(data.tree);
+  } catch (e) {
+    tree.innerHTML = `<div style="color:#f85149;padding:1rem">❌ Không thể tải dữ liệu từ GitHub</div>`;
+    console.error(e);
+  } finally {
+    loading.style.display = "none";
+  }
+}
+
+function renderTree(items) {
+  const root = document.createElement("ul");
+  const folders = {};
+
+  items.filter(i => i.type === "blob").forEach(item => {
+    const parts = item.path.split("/");
+    let current = root;
+
+    for (let i = 0; i < parts.length - 1; i++) {
+      const folderPath = parts.slice(0, i + 1).join("/");
+      if (!folders[folderPath]) {
+        const li = document.createElement("li");
+        li.className = "folder";
+        li.innerHTML = `<i class="fas fa-folder"></i> ${parts[i]}/`;
+        const ul = document.createElement("ul");
+        ul.classList.add("collapsed");
+        li.appendChild(ul);
+        li.addEventListener("click", e => {
+          e.stopPropagation();
+          ul.classList.toggle("collapsed");
+        });
+        folders[folderPath] = ul;
+        current.appendChild(li);
+      }
+      current = folders[folderPath];
+    }
+
+    const fileLi = document.createElement("li");
+    fileLi.className = "file";
+    fileLi.innerHTML = `<i class="fas fa-file-code"></i> ${parts.at(-1)}`;
+    fileLi.addEventListener("click", e => {
+      e.stopPropagation();
+      const url = item.path.endsWith(".html")
+        ? `${domain}${item.path}`
+        : `https://raw.githubusercontent.com/${owner}/${repo}/main/${item.path}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+    current.appendChild(fileLi);
+  });
+
+  tree.innerHTML = "";
+  tree.appendChild(root);
+}
+
+// Clock
+setInterval(() => {
+  clockEl.textContent = new Date().toLocaleTimeString("vi-VN");
+}, 1000);
+
+// Search
+searchInput.addEventListener("input", e => {
+  const term = e.target.value.toLowerCase().trim();
+  document.querySelectorAll(".tree li").forEach(li => {
+    li.style.display = li.textContent.toLowerCase().includes(term) ? "" : "none";
+  });
+});
+
+// Initial load & auto refresh
+loadRepo();
+setInterval(loadRepo, 120000);
+</script>
 </body>
 </html>
