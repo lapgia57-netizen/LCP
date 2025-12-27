@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cấu Trúc Cơ Thể Người - Human Body Structure</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --light: #f8f9fa;
+      --dark: #2c3e50;
+      --gray: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 2.5rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid var(--primary);
+      padding-left: 1rem;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      background: #f1f5ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .body-parts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(67,97,238,0.15);
+    }
+
+    .card-header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 1.2rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .card-body {
+      padding: 1.3rem;
+    }
+
+    .en {
+      color: #005bbb;
+      font-weight: 600;
+    }
+
+    .vi {
+      color: #c8102e;
+      font-weight: 600;
+    }
+
+    .systems {
+      background: #f8f9ff;
+      padding: 1.8rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    .systems ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .systems li {
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f1f5ff;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .content { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Human Body Structure</h1>
+      <div class="subtitle">Cấu trúc cơ thể người</div>
+    </header>
+
+    <div class="content">
+
+      <div class="intro">
+        The human body is an amazing and complex structure composed of cells → tissues → organs → organ systems → the complete organism.<br><br>
+        <strong>Cơ thể người</strong> là một cấu trúc kỳ diệu và phức tạp, được tạo thành từ tế bào → mô → cơ quan → hệ cơ quan → cơ thể hoàn chỉnh.
+      </div>
+
+      <div class="section">
+        <h2>Main Parts of the Body</h2>
+        <div class="body-parts-grid">
+
+          <div class="card">
+            <div class="card-header">Head - Đầu</div>
+            <div class="card-body">
+              <span class="en">Head</span> / <span class="vi">Đầu</span><br>
+              Contains: brain, eyes, ears, nose, mouth...
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Neck - Cổ</div>
+            <div class="card-body">
+              <span class="en">Neck</span> / <span class="vi">Cổ</span><br>
+              Connects head to torso, contains throat, trachea, esophagus...
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Torso/Trunk - Thân</div>
+            <div class="card-body">
+              <span class="en">Torso / Trunk</span> / <span class="vi">Thân</span><br>
+              Consists of: <strong>thorax (ngực)</strong> & <strong>abdomen (bụng)</strong>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Upper Limbs - Chi trên</div>
+            <div class="card-body">
+              <span class="en">Arms / Upper limbs</span> / <span class="vi">Tay - Chi trên</span><br>
+              Shoulder → arm → elbow → forearm → wrist → hand
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Lower Limbs - Chi dưới</div>
+            <div class="card-body">
+              <span class="en">Legs / Lower limbs</span> / <span class="vi">Chân - Chi dưới</span><br>
+              Hip → thigh → knee → leg → ankle → foot
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section systems">
+        <h2>Major Organ Systems</h2>
+        <p>Các hệ cơ quan chính trong cơ thể người (Major human organ systems)</p>
+        <ul>
+          <li><strong>Skeletal system</strong> — Hệ xương</li>
+          <li><strong>Muscular system</strong> — Hệ cơ</li>
+          <li><strong>Nervous system</strong> — Hệ thần kinh</li>
+          <li><strong>Circulatory system</strong> — Hệ tuần hoàn</li>
+          <li><strong>Respiratory system</strong> — Hệ hô hấp</li>
+          <li><strong>Digestive system</strong> — Hệ tiêu hóa</li>
+          <li><strong>Urinary system</strong> — Hệ bài tiết</li>
+          <li><strong>Endocrine system</strong> — Hệ nội tiết</li>
+          <li><strong>Reproductive system</strong> — Hệ sinh sản</li>
+          <li><strong>Integumentary system</strong> — Hệ da (da, tóc, móng)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <footer>
+      Human Body Structure © 2025 | Cấu trúc cơ thể người - Học tập & tham khảo
+    </footer>
+  </div>
+
+</body>
+</html>
