@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Converse Chuck Taylor All Star - Huyền Thoại Bất Hủ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #000;
+      --accent: #fff;
+      --gray: #333;
+      --light-gray: #eee;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 0 2rem;
+      background: linear-gradient(to bottom, #000, #111);
+      color: white;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .intro {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 1rem auto;
+      opacity: 0.9;
+    }
+    section {
+      margin: 4rem 0;
+    }
+    h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #de2c2c; /* màu đỏ Converse classic */
+      bottom: -10px;
+      left: 0;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      margin: 2rem 0;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+      position: relative;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      background: rgba(0,0,0,0.6);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    .controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .control-btn {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .control-btn:hover {
+      background: rgba(0,0,0,0.9);
+    }
+    .question {
+      background: #000;
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 1.3rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Converse All Star</h1>
+      <p class="intro">Hay còn gọi là Chuck Taylor All Star – đôi giày biểu tượng bất hủ hơn 100 năm, vẫn cực hot đến tận 2025!</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Lịch sử ngắn gọn của "huyền thoại"</h2>
+      <p><strong>1917:</strong> Converse ra mắt mẫu giày bóng rổ đầu tiên mang tên All Star (ban đầu gọi là "Non-Skids"), với đế cao su chống trượt và phần upper vải canvas đơn giản.</p>
+      <p><strong>1920s:</strong> Chuck Taylor – một cầu thủ bóng rổ bán chuyên – gia nhập Converse, cải tiến thiết kế cho thoải mái hơn và giúp quảng bá rầm rộ.</p>
+      <p><strong>1932:</strong> Chữ ký của Chuck Taylor được thêm vào miếng patch ở mắt cá chân → chính thức trở thành Chuck Taylor All Star (đôi giày có chữ ký đầu tiên trên thế giới!).</p>
+      <p>Từ sân bóng rổ → trở thành biểu tượng văn hóa: rock, punk, hip-hop, grunge, streetwear... từ những năm 60-70 đến nay vẫn là item "must-have" của mọi thế hệ.</p>
+      
+      <p>Thiết kế gần như không thay đổi suốt gần thế kỷ: mũi tròn, vải canvas, đế cao su vulcanized, miếng patch ngôi sao + chữ ký Chuck Taylor. Chính sự đơn giản, kinh điển này làm nên sức sống trường tồn!</p>
+
+      <!-- Carousel Classic đen trắng -->
+      <div class="carousel">
+        <div class="carousel-inner" id="classicCarousel">
+          <div class="carousel-item">
+            <img src="https://i.ebayimg.com/images/g/HNEAAOSwGWJl1ZyP/s-l1200.jpg" alt="Classic Black White High Top">
+            <div class="carousel-caption">Classic Black High Top</div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.shoepalace.com/cdn/shop/products/1867c17db33cb801f5d2e4a8ab49d479_2048x2048.jpg?v=1652823835" alt="Chuck Taylor Classic Black">
+            <div class="carousel-caption">Black & White Icon</div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://m.media-amazon.com/images/I/613tyv+udOL._AC_SL1200_.jpg" alt="Converse Chuck Taylor Classic">
+            <div class="carousel-caption">Timeless White-Black Combo</div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="control-btn" onclick="moveCarousel('classicCarousel', -1)">‹</button>
+          <button class="control-btn" onclick="moveCarousel('classicCarousel', 1)">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Màu sắc & Phiên bản đa dạng đang hot 2025</h2>
+      <p>Hiện nay Converse All Star có vô vàn màu sắc và phiên bản (cổ cao, cổ thấp, Chuck 70 cải tiến, collab với hàng loạt brand nổi tiếng). Nhìn vài style đa dạng đang hot 2025 này xem:</p>
+
+      <!-- Carousel Colorful -->
+      <div class="carousel">
+        <div class="carousel-inner" id="colorCarousel">
+          <div class="carousel-item">
+            <img src="https://coolhunting.com/wp-content/uploads/2015/07/Chuck_II_Group_hero-1024x683.jpg" alt="Colorful Converse Group">
+            <div class="carousel-caption">Vibrant Collection</div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.ebayimg.com/images/g/iscAAOSw7T5koKmz/s-l1200.png" alt="Metallic Pink Gold Rainbow">
+            <div class="carousel-caption">Metallic Rainbow Vibes</div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.ebayimg.com/images/g/sIQAAOSwijVkb-S6/s-l1600.jpg" alt="Colorful Variations">
+            <div class="carousel-caption">Hot Colorways 2025</div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="control-btn" onclick="moveCarousel('colorCarousel', -1)">‹</button>
+          <button class="control-btn" onclick="moveCarousel('colorCarousel', 1)">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cách phối đồ đường phố cực chất với Chucks</h2>
+      <p>Và đây là cách dân chơi phối đồ đường phố với Chucks – cực chất và dễ mix:</p>
+
+      <!-- Carousel Streetwear -->
+      <div class="carousel">
+        <div class="carousel-inner" id="streetCarousel">
+          <div class="carousel-item">
+            <img src="https://www.converse.com.au/media/ewave_blog/post/205/image/1f817d207c805fcfc0ff0ec070454631.png" alt="Street Style Black Chucks">
+            <div class="carousel-caption">Effortless Street Look</div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.ytimg.com/vi/12Bpv-EMlUk/hq720.jpg" alt="Outfit Ideas with Converse">
+            <div class="carousel-caption">Casual Streetwear Vibes</div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="control-btn" onclick="moveCarousel('streetCarousel', -1)">‹</button>
+          <button class="control-btn" onclick="moveCarousel('streetCarousel', 1)">›</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="question">
+      Bạn thích Converse cổ cao, cổ thấp, màu basic hay màu nổi? <br>
+      Hay đang dùng phiên bản nào rồi? Comment bên dưới nhé! 🔥
+    </div>
+
+  </div>
+
+  <script>
+    function moveCarousel(carouselId, direction) {
+      const inner = document.getElementById(carouselId);
+      const items = inner.children.length;
+      let current = parseInt(inner.dataset.current || '0');
+      current = (current + direction + items) % items;
+      inner.style.transform = `translateX(-${current * 100}%)`;
+      inner.dataset.current = current;
+    }
+  </script>
+</body>
+</html>
