@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sự Kiện Nổi Bật 2019 - 2020 - 2021</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #212529;
+      --card: #ffffff;
+      --accent: #0d6efd;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --accent: #4da6ff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      transition: background 0.4s, color 0.4s;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      background: var(--card);
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-weight: bold;
+      z-index: 100;
+    }
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(to bottom, #0d6efd, #6610f2);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      z-index: 1;
+    }
+    .year {
+      position: relative;
+      margin: 5rem 0;
+      text-align: center;
+    }
+    .year h2 {
+      display: inline-block;
+      background: var(--card);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 2.2rem;
+      box-shadow: var(--shadow);
+      border: 4px solid var(--accent);
+      z-index: 2;
+      position: relative;
+    }
+    .events {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      border-left: 6px solid var(--accent);
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+    @media (min-width: 768px) {
+      .events {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card:nth-child(odd) {
+        margin-right: 3rem;
+      }
+      .card:nth-child(even) {
+        margin-left: 3rem;
+      }
+      .timeline::before {
+        left: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+  <div class="container">
+    <h1>Sự Kiện Nổi Bật Thế Giới<br>2019 – 2020 – 2021</h1>
+
+    <div class="timeline">
+
+      <!-- Năm 2019 -->
+      <div class="year">
+        <h2>2019</h2>
+      </div>
+      <div class="events">
+        <div class="card">
+          <h3>Hong Kong Protests bùng nổ</h3>
+          <p>Biểu tình lớn chống dự luật dẫn độ, kéo dài nhiều tháng, trở thành biểu tượng đấu tranh dân chủ.</p>
+        </div>
+        <div class="card">
+          <h3>Cháy lớn Nhà thờ Đức Bà Paris</h3>
+          <p>Ngọn lửa thiêu rụi tháp nhọn và mái vòm, gây chấn động toàn cầu (15/4).</p>
+        </div>
+        <div class="card">
+          <h3>Ảnh đầu tiên của hố đen</h3>
+          <p>Event Horizon Telescope công bố ảnh hố đen ở thiên hà M87 – bước ngoặt thiên văn học.</p>
+        </div>
+        <div class="card">
+          <h3>Hội nghị Thượng đỉnh Mỹ-Triều tại Hà Nội</h3>
+          <p>Trump – Kim Jong-un gặp mặt lần 2, Việt Nam trở thành tâm điểm truyền thông thế giới.</p>
+        </div>
+      </div>
+
+      <!-- Năm 2020 -->
+      <div class="year">
+        <h2>2020</h2>
+      </div>
+      <div class="events">
+        <div class="card">
+          <h3>Đại dịch COVID-19 toàn cầu</h3>
+          <p>Bắt đầu từ Vũ Hán, lan khắp thế giới, gây lockdown, kinh tế suy thoái lớn nhất kể từ Đại Suy thoái.</p>
+        </div>
+        <div class="card">
+          <h3>Phong trào Black Lives Matter bùng nổ</h3>
+          <p>Sau cái chết của George Floyd, biểu tình chống phân biệt chủng tộc lan rộng toàn cầu.</p>
+        </div>
+        <div class="card">
+          <h3>Bầu cử Tổng thống Mỹ – Biden thắng Trump</h3>
+          <p>Cuộc bầu cử gây tranh cãi, dẫn đến sự kiện bạo loạn Capitol sau đó.</p>
+        </div>
+        <div class="card">
+          <h3>Vaccine COVID đầu tiên được phê duyệt</h3>
+          <p>Pfizer/BioNTech, Moderna... bắt đầu triển khai cuối năm, mở ra hy vọng chống dịch.</p>
+        </div>
+      </div>
+
+      <!-- Năm 2021 -->
+      <div class="year">
+        <h2>2021</h2>
+      </div>
+      <div class="events">
+        <div class="card">
+          <h3>Bạo loạn Điện Capitol (6/1)</h3>
+          <p>Người ủng hộ Trump xông vào Quốc hội Mỹ, gián đoạn chứng nhận kết quả bầu cử.</p>
+        </div>
+        <div class="card">
+          <h3>Triển khai vaccine COVID-19 toàn cầu</h3>
+          <p>Hàng tỷ liều được tiêm, đánh dấu bước ngoặt lớn trong cuộc chiến chống đại dịch.</p>
+        </div>
+        <div class="card">
+          <h3>Taliban chiếm Kabul – Kết thúc chiến tranh Afghanistan</h3>
+          <p>Mỹ rút quân sau 20 năm, chính quyền Afghanistan sụp đổ nhanh chóng (15/8).</p>
+        </div>
+        <div class="card">
+          <h3>Chuyến bay vũ trụ dân sự đầu tiên (Inspiration4)</h3>
+          <p>SpaceX đưa 4 người dân thường vào quỹ đạo – cột mốc du lịch vũ trụ thương mại.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      if (current === 'dark') {
+        body.removeAttribute('data-theme');
+        document.querySelector('.theme-toggle').textContent = '🌙 Dark Mode';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        document.querySelector('.theme-toggle').textContent = '☀️ Light Mode';
+      }
+    }
+  </script>
+</body>
+</html>
