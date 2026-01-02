@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sự Kiện Lớn Thế Giới 2022 - 2023</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #3b82f6;
+      --bg: #f8fafc;
+      --text: #1f2937;
+      --card: #ffffff;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h1 { margin: 0; font-size: 2.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--secondary);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .year-card {
+      background: var(--card);
+      border-radius: 12px;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .year-card:hover { transform: translateY(-8px); }
+    .year-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .year-number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--primary);
+      background: rgba(30,58,138,0.1);
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .events { list-style: none; padding: 0; margin: 0; }
+    .event {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .event::before {
+      content: '•';
+      color: var(--secondary);
+      font-size: 1.8rem;
+      position: absolute;
+      left: 0;
+      top: -4px;
+    }
+    .details { display: none; margin-top: 1rem; padding: 1rem; background: #f1f5f9; border-radius: 8px; }
+    .details.show { display: block; }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .gallery img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex: 1 1 300px;
+    }
+    @media (max-width: 768px) {
+      .timeline::before { left: 30px; }
+      .year-card { margin-left: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sự Kiện Lớn Nhất Thế Giới<br>2022 – 2023</h1>
+    <p>Giai đoạn chuyển mình: Chiến tranh, thiên tai, AI bùng nổ & biến đổi khí hậu</p>
+  </header>
+
+  <div class="container">
+    <div class="timeline">
+
+      <!-- Timeline infographic minh họa -->
+      <div style="text-align:center; margin:2rem 0;">
+        <h2>Tổng quan các sự kiện nổi bật</h2>
+        <div class="gallery">
+          <img src="https://www.visualcapitalist.com/wp-content/uploads/2023/12/OC_2023-in-Review_SHARE.jpg" alt="Timeline 2023 events visualized" loading="lazy">
+          <img src="https://www.shutterstock.com/image-vector/business-infographic-6-important-events-260nw-2453571003.jpg" alt="Infographic historical events" loading="lazy">
+        </div>
+      </div>
+
+      <div class="year-card" onclick="toggleDetails(this)">
+        <div class="year-header">
+          <div class="year-number">2022</div>
+          <h2>Năm bản lề lịch sử: Chiến tranh trở lại châu Âu</h2>
+        </div>
+        <ul class="events">
+          <li><strong>Nga xâm lược Ukraine (24/2)</strong> → Xung đột lớn nhất châu Âu từ WWII, gây khủng hoảng tị nạn, năng lượng & lạm phát toàn cầu.</li>
+          <li><strong>Nữ hoàng Elizabeth II qua đời (8/9)</strong> → Kết thúc triều đại 70 năm, Vua Charles III lên ngôi.</li>
+          <li><strong>Dân số thế giới đạt 8 tỷ người (15/11)</strong> → Mốc lịch sử nhân loại.</li>
+          <li>Khủng hoảng kinh tế, lạm phát kỷ lục do chiến tranh & giá năng lượng tăng vọt.</li>
+          <li>Biểu tình lớn ở Iran sau cái chết của Mahsa Amini.</li>
+        </ul>
+        <div class="details">
+          <p>Chi tiết thêm: World Cup 2022 (Argentina vô địch), thảm kịch giẫm đạp Itaewon (Hàn Quốc) & Kanjuruhan (Indonesia), thời tiết cực đoan (lũ Pakistan, nóng kỷ lục châu Âu), Trung Quốc nới lỏng Zero-COVID sau biểu tình.</p>
+          <div class="gallery">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2022_Russian_invasion_of_Ukraine.svg/1200px-2022_Russian_invasion_of_Ukraine.svg.png" alt="Bản đồ xâm lược Ukraine 2022" loading="lazy">
+            <img src="https://www.aljazeera.com/wp-content/uploads/2022/03/INTERACTIVE_UKRAINE_CONTROL-MAP-DAY17_INTERACTIVE_Miltiary-Dispatch-Day-17.jpg?resize=770%2C513&quality=80" alt="Bản đồ chiến sự Ukraine tháng 3/2022" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="year-card" onclick="toggleDetails(this)">
+        <div class="year-header">
+          <div class="year-number">2023</div>
+          <h2>Năm của thảm họa & bùng nổ AI</h2>
+        </div>
+        <ul class="events">
+          <li><strong>Động đất Thổ Nhĩ Kỳ - Syria (6/2)</strong> → Gần 60.000 người chết, thảm họa động đất chết chóc nhất thế kỷ 21.</li>
+          <li><strong>Xung đột Israel - Hamas (từ 7/10)</strong> → Tấn công bất ngờ của Hamas, Israel phản công Gaza, khủng hoảng nhân đạo nghiêm trọng.</li>
+          <li><strong>Ấn Độ vượt Trung Quốc thành quốc gia đông dân nhất</strong> (khoảng tháng 4).</li>
+          <li><strong>AI bùng nổ</strong> → ChatGPT & các mô hình lớn phổ biến, mở ra cuộc đua AI toàn cầu.</li>
+          <li>COP28 (Dubai): Thỏa thuận lịch sử chuyển đổi khỏi nhiên liệu hóa thạch.</li>
+        </ul>
+        <div class="details">
+          <p>Chi tiết thêm: Khủng hoảng ngân hàng (SVB, Credit Suisse sụp đổ), thảm họa thiên nhiên (bão Daniel Libya, động đất Morocco, Cyclone Freddy), Barbenheimer (phim Barbie & Oppenheimer), Vua Charles III đăng quang (6/5).</p>
+          <div class="gallery">
+            <img src="https://disasterphilanthropy.org/wp-content/uploads/2023/02/Turkey-earthquake-@tcsavunma-7.jpeg" alt="Động đất Thổ Nhĩ Kỳ - Syria 2023 - cảnh phá hủy" loading="lazy">
+            <img src="https://i.guim.co.uk/img/media/5933d8f8caea79bcdf3359c475cd069b5a83aa89/0_0_3886_2579/master/3886.jpg?width=1000&quality=85&s=a39945754a9adbdc651594be85745298" alt="Cảnh đổ nát sau động đất Thổ Nhĩ Kỳ 2023" loading="lazy">
+            <img src="https://restofworld.org/wp-content/uploads/twitter/2023/12/the-year-of-ai-boom-2023.jpg" alt="Bùng nổ AI năm 2023 - ChatGPT illustration" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(card) {
+      const details = card.querySelector('.details');
+      details.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
