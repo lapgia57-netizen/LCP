@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Năm 2017 ở Việt Nam - Tổng kết sự kiện</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+      color: #333;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #1a365d;
+      margin-bottom: 20px;
+      font-size: 2.8rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: #4a5568;
+      margin-bottom: 60px;
+      font-size: 1.2rem;
+    }
+    .timeline {
+      position: relative;
+      min-height: 100px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: #cbd5e0;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      z-index: 1;
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 40px 40px;
+      clear: both;
+    }
+    .timeline-item:nth-child(odd) {
+      float: left;
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      float: right;
+      text-align: left;
+    }
+    .timeline-item:nth-child(odd) .content {
+      margin-right: 40px;
+    }
+    .timeline-item:nth-child(even) .content {
+      margin-left: 40px;
+    }
+    .content {
+      position: relative;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .content:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .content::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    .timeline-item:nth-child(odd) .content::before {
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 15px 0 15px 20px;
+      border-color: transparent transparent transparent white;
+    }
+    .timeline-item:nth-child(even) .content::before {
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 15px 20px 15px 0;
+      border-color: transparent white transparent transparent;
+    }
+    .year {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 80px;
+      height: 80px;
+      background: #3182ce;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      left: 50%;
+      margin-left: -40px;
+      z-index: 2;
+      box-shadow: 0 5px 15px rgba(49,130,206,0.4);
+    }
+    .timeline-item:nth-child(even) .year {
+      background: #e53e3e; /* Màu đỏ cho các sự kiện tiêu cực */
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      color: #2c5282;
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #e2e8f0;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .positive { background: #d4edda; color: #155724; }
+    .negative { background: #fed7d7; color: #721c24; }
+    ul {
+      padding-left: 20px;
+    }
+    @media (max-width: 768px) {
+      .timeline::before { left: 30px; }
+      .timeline-item {
+        width: 100%;
+        padding: 20px 0;
+      }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        float: none;
+        text-align: left;
+      }
+      .content {
+        margin-left: 70px !important;
+        margin-right: 20px !important;
+      }
+      .content::before {
+        left: -20px !important;
+        border-width: 15px 20px 15px 0 !important;
+        border-color: transparent white transparent transparent !important;
+      }
+      .year {
+        left: 30px;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Năm 2017 ở Việt Nam</h1>
+    <p class="subtitle">Năm chuyển tiếp quan trọng: Thành tựu kinh tế - hội nhập lớn, nhưng lộ rõ nhiều vấn đề xã hội nhức nhối</p>
+
+    <div class="timeline">
+
+      <!-- 1. Kinh tế bứt phá -->
+      <div class="timeline-item">
+        <div class="year">2017</div>
+        <div class="content">
+          <span class="tag positive">Tích cực</span>
+          <h2>Kinh tế - "Năm kỳ tích"</h2>
+          <p>GDP tăng trưởng 6,81% (cao nhất gần 10 năm), xuất nhập khẩu vượt 424 tỷ USD, FDI mạnh, VN-Index tăng ~46%, du lịch bùng nổ.</p>
+        </div>
+      </div>
+
+      <!-- 2. APEC thành công -->
+      <div class="timeline-item">
+        <div class="year">2017</div>
+        <div class="content">
+          <span class="tag positive">Tích cực</span>
+          <h2>Hội nhập quốc tế - Đỉnh cao APEC</h2>
+          <p>Việt Nam đăng cai APEC với chủ đề "Tạo động lực mới", thu hút lãnh đạo thế giới (Trump, Tập Cận Bình, Putin...), nâng tầm vị thế quốc tế.</p>
+        </div>
+      </div>
+
+      <!-- 3. Chống tham nhũng -->
+      <div class="timeline-item">
+        <div class="year">2017</div>
+        <div class="content">
+          <span class="tag positive">Tích cực</span>
+          <h2>Chống tham nhũng quyết liệt</h2>
+          <p>Chiến dịch "đốt lò" không vùng cấm: Ông Đinh La Thăng bị bắt, nhiều cán bộ cấp cao bị xử lý → tạo niềm tin lớn trong dư luận.</p>
+        </div>
+      </div>
+
+      <!-- 4. Formosa di chứng -->
+      <div class="timeline-item">
+        <div class="year">2017</div>
+        <div class="content">
+          <span class="tag negative">Tiêu cực</span>
+          <h2>Môi trường - Di chứng Formosa vẫn nóng</h2>
+          <p>Biểu tình lớn ở miền Trung đòi bồi thường minh bạch, căng thẳng với chính quyền, bồi thường 500 triệu USD nhưng dân vẫn bất bình.</p>
+        </div>
+      </div>
+
+      <!-- 5. Biểu tình BOT -->
+      <div class="timeline-item">
+        <div class="year">2017</div>
+        <div class="content">
+          <span class="tag negative">Xã hội</span>
+          <h2>Biểu tình chống BOT, "chiến tranh tiền lẻ"</h2>
+          <p>Người dân dùng tiền lẻ gây tắc nghẽn trạm BOT Cai Lậy và nhiều nơi khác → buộc giảm giá vé, thể hiện sức mạnh dư luận.</p>
+        </div>
+      </div>
+
+      <!-- 6. Thiên tai & Quyền con người -->
+      <div class="timeline-item">
+        <div class="year">2017</div>
+        <div class="content">
+          <span class="tag negative">Thách thức</span>
+          <h2>Thiên tai & Quyền con người</h2>
+          <ul>
+            <li>16 cơn bão, 375 người chết, thiệt hại >51.000 tỷ đồng.</li>
+            <li>Bắt giữ nhiều nhà hoạt động, blogger (theo HRW, Amnesty).</li>
+            <li>Hạn chế tự do ngôn luận trên mạng.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
