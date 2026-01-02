@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Năm 2016 - Việt Nam: Nghệ thuật & Sự kiện Nổi bật</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e74c3c;       /* Đỏ cam ấm áp */
+      --secondary: #f39c12;
+      --bg: #f9f9f9;
+      --text: #2c3e50;
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #fff, #f0f4f8);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    h1, h2 { text-align: center; margin-bottom: 1rem; color: var(--primary); }
+    h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -1px; }
+    .intro { text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #555; }
+    .section { margin-bottom: 60px; }
+    .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 12px 28px;
+      background: #eee;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .tab-btn.active { background: var(--primary); color: white; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card h3 { color: var(--secondary); margin-bottom: 12px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #f8f8f8; color: var(--primary); }
+    .highlight { background: #fff3cd; padding: 2px 6px; border-radius: 4px; }
+    .emoji { font-size: 1.4rem; margin-right: 8px; }
+    footer { text-align: center; margin-top: 60px; color: #777; font-size: 0.9rem; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .tabs { flex-direction: column; }
+      table { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌟 Năm 2016 – Việt Nam: Năm "lắm drama" nhưng đầy thành tựu 🌟</h1>
+    <p class="intro">
+      Năm Bính Thân (mệnh Sơn Hạ Hỏa) – một năm chuyển giao lớn: điện ảnh & âm nhạc bùng nổ, môi trường gặp thách thức, kinh tế & thể thao lập kỷ lục. Cùng nhìn lại!
+    </p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="nghe-thuat">Nghệ thuật & Văn hóa</button>
+      <button class="tab-btn" data-tab="su-kien">Sự kiện Nổi bật</button>
+    </div>
+
+    <!-- Tab Nghệ thuật -->
+    <div id="nghe-thuat" class="tab-content active section">
+      <div class="card">
+        <h2>🎬 1. Điện ảnh Việt Nam – Năm "bùng nổ" phòng vé</h2>
+        <p>Năm 2016 chứng kiến phim Việt thương mại đạt doanh thu kỷ lục, đa dạng thể loại từ cổ tích, drama đến hài & hành động.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Phim</th>
+              <th>Đạo diễn / Diễn viên chính</th>
+              <th>Doanh thu (ước tính)</th>
+              <th>Điểm nổi bật</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Nắng</td><td>Đồng Đăng Giao</td><td class="highlight">~64 tỷ đồng</td><td>Phim Việt cao nhất năm, drama gia đình cảm động</td></tr>
+            <tr><td>Tấm Cám: Chuyện chưa kể</td><td>Ngô Thanh Vân</td><td>~63 tỷ đồng</td><td>Cổ tích hiện đại, visual đẹp, "đả nữ" tái xuất</td></tr>
+            <tr><td>Taxi, Em tên gì?</td><td>Đức Thịnh – Thanh Thúy</td><td>~47 tỷ đồng</td><td>Hài lãng mạn, chemistry tốt, hit khán giả trẻ</td></tr>
+            <tr><td>Gái già lắm chiêu</td><td>Namcito, Bảo Nhân</td><td>~31 tỷ đồng</td><td>Hài nhân văn về phụ nữ 30+, thành công bất ngờ</td></tr>
+            <tr><td>Lật mặt 2: Phim trường</td><td>Lý Hải</td><td>Cao (top đầu)</td><td>Hành động kịch tính, tiếp nối phần 1</td></tr>
+            <tr><td>Bao giờ có yêu nhau</td><td>Dustin Nguyễn</td><td>Trung bình</td><td>Lãng mạn, Minh Hằng đóng đôi vai sinh đôi</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>🎵 2. Âm nhạc – Năm của hit "khủng" & MV viral</h2>
+        <ul>
+          <li>🔥 <strong>Phía sau một cô gái</strong> – Soobin Hoàng Sơn (80+ triệu views)</li>
+          <li><strong>Sau tất cả</strong> – Erik (ballad hit, nhiều giải thưởng)</li>
+          <li><strong>Chúng ta không thuộc về nhau</strong> – Sơn Tùng M-TP (gây tranh cãi nhưng cực hot)</li>
+          <li><strong>Anh cứ đi đi</strong> – Hari Won</li>
+          <li><strong>Bống bống bang bang</strong> – 365daband (gây sốt mạng xã hội)</li>
+          <li><strong>Bánh trôi nước</strong> – Hoàng Thùy Linh (dân ca + EDM, văn hóa Việt ấn tượng)</li>
+        </ul>
+        <p><strong>Xu hướng:</strong> Ca sĩ 9X lên ngôi, MV đầu tư lớn, trào lưu cover lan tỏa.</p>
+      </div>
+
+      <div class="card">
+        <h2>🖼️ 3. Mỹ thuật & Di sản</h2>
+        <p>Triển lãm mỹ thuật chất lượng cao tại HN & HCM, Flamingo Art Festival, và thành tựu lớn: <strong>UNESCO công nhận Tín ngưỡng thờ Mẫu Tam Phủ</strong> là di sản văn hóa phi vật thể.</p>
+      </div>
+    </div>
+
+    <!-- Tab Sự kiện -->
+    <div id="su-kien" class="tab-content section">
+      <div class="card">
+        <h2>🏛️ 1. Đại hội Đảng XII (tháng 1/2016)</h2>
+        <p>Sự kiện chính trị lớn nhất: Nguyễn Phú Trọng tái đắc cử Tổng Bí thư, đề ra đường lối 2016-2020 đưa VN thành nước công nghiệp hiện đại.</p>
+      </div>
+
+      <div class="card">
+        <h2>🐟 2. Sự cố Formosa – Thảm họa môi trường biển miền Trung</h2>
+        <p>Cá chết hàng loạt, Formosa thừa nhận xả thải độc hại → bồi thường 500 triệu USD. Bài học lớn về môi trường.</p>
+      </div>
+
+      <div class="card">
+        <h2>💰 3. Kinh tế & Hội nhập</h2>
+        <ul>
+          <li>10 triệu khách quốc tế (kỷ lục)</li>
+          <li>>100.000 doanh nghiệp mới</li>
+          <li>Tăng 9 bậc Doing Business</li>
+          <li>Ký TPP (tiền thân CPTPP)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🏅 4. Thể thao – Năm HCV Olympic lịch sử</h2>
+        <p>Hoàng Xuân Vinh: HCV bắn súng đầu tiên • Lê Văn Công: HCV Paralympic cử tạ • U20 VN vào VCK World Cup U20.</p>
+      </div>
+
+      <div class="card">
+        <h2>🌧️ 5. Thiên tai & Khác</h2>
+        <p>Hạn hán lịch sử miền Nam, xâm nhập mặn ĐBSCL, Mỹ dỡ bỏ cấm bán vũ khí sát thương.</p>
+      </div>
+    </div>
+
+    <footer>
+      Tổng hợp năm 2016 – Một năm chuyển mình mạnh mẽ của Việt Nam 🇻🇳<br>
+      Bạn nhớ nhất khoảnh khắc nào trong năm đó? 🎥🎶
+    </footer>
+  </div>
+
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        tabContents.forEach(c => c.classList.remove('active'));
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
