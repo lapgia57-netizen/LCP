@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bí Ẩn Khu Công Nghiệp Việt Nam - Những Chuyện Ma Quái Ca Đêm</title>
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --text: #e0e0ff;
+      --accent: #ff3366;
+      --card: #1a1a2e;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,51,102,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(100,50,200,0.06) 0%, transparent 50%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: var(--accent);
+      text-shadow: 0 0 15px rgba(255,51,102,0.6);
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+    .intro {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 40px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .story {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .story:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(255,51,102,0.15);
+    }
+    .story::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,51,102,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+    .story:hover::before {
+      opacity: 1;
+    }
+    .number {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 4rem;
+      font-weight: bold;
+      color: rgba(255,51,102,0.15);
+      pointer-events: none;
+    }
+    h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 25px 0;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      transition: transform 0.4s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .conclusion {
+      text-align: center;
+      font-style: italic;
+      opacity: 0.9;
+      margin: 50px 0;
+      padding: 30px;
+      background: rgba(255,51,102,0.08);
+      border-radius: 12px;
+    }
+    .call-to-action {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 1.3rem;
+    }
+    .call-to-action span {
+      color: var(--accent);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>BÍ ẨN KHU CÔNG NGHIỆP</h1>
+      <p class="subtitle">Những chuyện ma quái ca đêm mà công nhân Việt Nam hay truyền tai nhau...</p>
+    </header>
+
+    <div class="intro">
+      <p>Ở Việt Nam, khi nhắc đến "điều bí ẩn" ở các khu công nghiệp, đa số mọi người thường nghĩ ngay đến những chuyện ma quái, hiện tượng kỳ lạ mà công nhân hay kể lại vào những ca đêm khuya, chứ không phải bí ẩn kinh tế hay kỹ thuật.</p>
+      <p>Những câu chuyện này thường xuất hiện ở các khu công nghiệp xây trên đất cũ (nghĩa trang, làng quê xưa, hoặc nơi từng xảy ra tai nạn lớn).</p>
+    </div>
+
+    <!-- Câu chuyện 1 -->
+    <div class="story">
+      <div class="number">1</div>
+      <h2>Hiện tượng "ma nhập" ở KCN Lương Sơn – Hòa Bình (khoảng 2014)</h2>
+      <p>Một trong những vụ nổi tiếng nhất: Nhiều công nhân (chủ yếu nữ) ở một nhà máy sản xuất hương bỗng dưng co giật, nói lảm nhảm bằng tiếng Mường dù họ là người Kinh và chưa từng biết tiếng này.</p>
+      <p>Dân địa phương đồn: Khu đất này trước kia là nghĩa trang cũ của người Mường, khi xây KCN đã di dời mộ nhưng vẫn sót vài ngôi mộ cổ → "các cụ" nổi giận.</p>
+      <p>Sau đó công ty cho nghỉ ca đêm vài ngày, mời thầy cúng về làm lễ, rồi mọi chuyện dần yên ắng. Nhiều người vẫn tin đây là chuyện thật, chứ không phải stress tập thể như lãnh đạo công ty giải thích.</p>
+    </div>
+
+    <!-- Câu chuyện 2 + gallery -->
+    <div class="story">
+      <div class="number">2</div>
+      <h2>Tiếng khóc trẻ con, tiếng cười phụ nữ lúc nửa đêm</h2>
+      <p>Rất phổ biến ở các KCN Bình Dương, Đồng Nai, Long An (nhất là ca đêm):</p>
+      <ul>
+        <li>Nghe tiếng trẻ con khóc rõ mồn một trong nhà xưởng nhưng chạy ra thì không thấy ai.</li>
+        <li>Tiếng cười khúc khích của phụ nữ hoặc tiếng hát ru vọng từ kho bãi bỏ trống.</li>
+        <li>Có người kể thấy bóng trắng lướt qua dãy máy lúc 2-3h sáng.</li>
+      </ul>
+      <p>Giải thích phổ biến: Nhiều KCN xây trên ruộng đồng, nghĩa địa cũ hoặc nơi từng có tai nạn chết người khi san lấp mặt bằng.</p>
+
+      <div class="gallery">
+        <img src="https://cdn.baophapluat.vn/w1280/uploaded/thanhnga/2019_03_17/nhamay_CWLS.jpg" alt="Nhà máy ca đêm">
+        <img src="https://media-cdn-v2.laodong.vn/storage/newsportal/2025/12/29/1632694/Ngung-San-Xuat-16.jpg" alt="Công nhân làm việc đêm">
+        <img src="https://media.thanhtra.com.vn/public/uploads/2025/12/31/6954f34a08dcb36fd5a06407.jpg?w=1319" alt="Khu công nghiệp đêm tối">
+      </div>
+    </div>
+
+    <!-- Câu chuyện 3 -->
+    <div class="story">
+      <div class="number">3</div>
+      <h2>Án mạng và oan hồn ở KCN (truyện ma kinh điển)</h2>
+      <p>Có khá nhiều truyện audio và kể miệng về án mạng khu công nghiệp – thường là công nhân nữ bị giết, thi thể giấu trong kho hoặc dưới nền nhà xưởng → hồn ma lang thang tìm công lý.</p>
+      <p>Một số người thề rằng đã thấy cô gái mặc đồng phục công nhân đứng ở cổng KCN vào ban đêm, tóc dài che mặt, mời đi uống nước nhưng khi quay lại thì biến mất.</p>
+    </div>
+
+    <!-- Câu chuyện 4 + ảnh bỏ hoang -->
+    <div class="story">
+      <div class="number">4</div>
+      <h2>Những bí ẩn "thực tế" hơn nhưng vẫn rất lạ</h2>
+      <ul>
+        <li><strong>Dự án KCN "ma"</strong>: Nhiều khu công nghiệp bỏ hoang, cỏ mọc um tùm dù hạ tầng đã xong (ví dụ vài cụm công nghiệp ở TP.HCM hoặc ngoại ô Hà Nội). Tiền đầu tư hàng trăm tỷ nhưng không ai thuê → dân địa phương gọi vui là "KCN ma".</li>
+        <li><strong>Ô nhiễm bí ẩn</strong>: Một số nơi nước thải ra sông nhưng cá chết trắng cả đoạn, mùi hôi khủng khiếp chỉ xuất hiện vào ban đêm hoặc khi trời mưa, khiến người dân đồn là "đất báo oán".</li>
+      </ul>
+
+      <div class="gallery">
+        <img src="https://media.vov.vn/sites/default/files/styles/large_watermark/public/2021-12/dat%20bo%20hoang.jpg" alt="KCN bỏ hoang cỏ mọc um tùm">
+        <img src="https://cdn.tienphong.vn/images/a6bf4f60924201126af6849ca45a3980e6d004a9ef351d77277fa2b50cb7912a147839368631e249f436dc6b6be011c909fc8f03bd5da23500647ccf2893709e64bcb15432c814b2050d276f4db53198/cong-vien-ho-dieu-ho-05-6612-3321.jpg" alt="Đất bỏ hoang">
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <p>Tóm lại, phần lớn chuyện ma ở KCN là sản phẩm của: Làm ca đêm mệt mỏi + thiếu ngủ, stress công việc cao, tâm lý sợ hãi khi làm việc ở nơi xa nhà, đất lạ, và truyền miệng phóng đại theo thời gian.</p>
+      <p>Dù vậy, những câu chuyện này vẫn rất "chill" và được kể lại mỗi mùa thu trở lạnh, đặc biệt ở các nhóm công nhân trên mạng xã hội.</p>
+    </div>
+
+    <div class="call-to-action">
+      Bạn đã từng nghe hoặc gặp chuyện lạ nào ở KCN chưa? <br>
+      <span>Kể mình nghe với nhé! 👻🌙</span>
+    </div>
+  </div>
+</body>
+</html>
