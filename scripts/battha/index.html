@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ngai Sắt - Iron Throne | Game of Thrones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0d0d0d;
+      --text-gold: #c9a96e;
+      --text-light: #e0e0e0;
+      --accent-red: #8b0000;
+      --shadow: 0 0 25px rgba(139, 0, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #0a0a0a, #1a0000);
+      color: var(--text-light);
+      font-family: 'Cinzel', serif;
+      line-height: 1.6;
+      background-image: url('https://images.alphacoders.com/113/1131565.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      background: rgba(0,0,0,0.7);
+      border-bottom: 3px solid var(--accent-red);
+    }
+
+    h1 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 4.5rem;
+      color: var(--text-gold);
+      text-shadow: 0 0 20px var(--accent-red);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: #b8860b;
+      letter-spacing: 3px;
+    }
+
+    .throne-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .throne-card {
+      background: rgba(20, 20, 20, 0.85);
+      border: 2px solid #4a2c0d;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .throne-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(139, 0, 0, 0.8);
+    }
+
+    .throne-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 3px solid var(--accent-red);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      color: var(--text-gold);
+      margin-bottom: 0.8rem;
+      font-size: 1.6rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .highlight {
+      color: var(--text-gold);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 3.2rem; }
+      .throne-gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ngai Sắt</h1>
+    <p class="subtitle">Biểu tượng của quyền lực tàn khốc</p>
+  </header>
+
+  <div class="container">
+    <p style="text-align:center; font-size:1.3rem; max-width:800px; margin:0 auto 3rem;">
+      Rèn từ hàng nghìn thanh gươm bại trận, nung chảy bằng lửa rồng... Ngai Sắt không bao giờ cho phép ai ngồi thoải mái. 
+      <span class="highlight">Ai không xứng đáng sẽ chảy máu.</span>
+    </p>
+
+    <div class="throne-gallery">
+      <!-- Ngai Sắt chính -->
+      <div class="throne-card">
+        <img src="https://platform.vox.com/wp-content/uploads/sites/2/chorus/assets/4229567/game-of-thrones-poster_85627-1920x1200.jpg?quality=90&strip=all&crop=3.125,0,93.75,100" alt="Iron Throne majestic view">
+        <div class="card-content">
+          <h3>Ngai Sắt - Iron Throne</h3>
+          <p class="description">Biểu tượng quyền lực tối thượng của Bảy Vương quốc</p>
+        </div>
+      </div>
+
+      <!-- Rhaenyra -->
+      <div class="throne-card">
+        <img src="https://wikiofthrones.com/wp-content/uploads/2024/08/Screenshot-1245-e1722826532674.png" alt="Rhaenyra Targaryen on Iron Throne">
+        <div class="card-content">
+          <h3>Rhaenyra Targaryen</h3>
+          <p class="description">Nữ hoàng đầu tiên ngồi Ngai (trong sách), nhưng chỉ được 6 tháng đầy bi kịch</p>
+        </div>
+      </div>
+
+      <!-- Daenerys cuối cùng -->
+      <div class="throne-card">
+        <img src="https://media.newyorker.com/photos/5ce1737d65b32ef4d4d99908/16:9/w_1280,c_limit/Larson-GoTFinale.jpg?mbid=social_retweet" alt="Daenerys on Iron Throne">
+        <div class="card-content">
+          <h3>Daenerys Targaryen</h3>
+          <p class="description">Chỉ ngồi trong khoảnh khắc ngắn ngủi... rồi bị Drogon phá hủy hoàn toàn</p>
+        </div>
+      </div>
+
+      <!-- Cersei -->
+      <div class="throne-card">
+        <img src="https://i.redd.it/841ia2dfjiw21.jpg" alt="Cersei Lannister on Iron Throne">
+        <div class="card-content">
+          <h3>Cersei Lannister</h3>
+          <p class="description">Nữ hoàng cuối cùng trước khi Ngai tan biến, quyền lực đầy máu và lửa</p>
+        </div>
+      </div>
+
+      <!-- Aegon I -->
+      <div class="throne-card">
+        <img src="https://static.wikia.nocookie.net/gameofthrones/images/7/7a/Aegon_Iron_Throne.png/revision/latest/scale-to-width-down/985?cb=20171213000314" alt="Aegon the Conqueror">
+        <div class="card-content">
+          <h3>Aegon I Targaryen</h3>
+          <p class="description">Người tạo ra Ngai Sắt - Kẻ Chinh Phạt đầu tiên</p>
+        </div>
+      </div>
+
+      <!-- Vua Điên -->
+      <div class="throne-card">
+        <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/25/1466683466-aerys.jpg?resize=640:*" alt="Aerys II Mad King">
+        <div class="card-content">
+          <h3>Aerys II - Vua Điên</h3>
+          <p class="description">Vị vua Targaryen cuối cùng trước Robert's Rebellion</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-style:italic; margin:4rem 0;">
+      "Ngai Sắt không tha thứ cho kẻ yếu. Nó sẽ cắt vào da thịt bất cứ ai không xứng đáng."
+    </p>
+  </div>
+
+  <footer>
+    Game of Thrones & House of the Dragon © George R.R. Martin & HBO • Thiết kế fan-made
+  </footer>
+</body>
+</html>
