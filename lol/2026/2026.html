@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Levi - Huyền Thoại Đi Rừng Việt Nam | Giải Nghệ 18/11/2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0d0d1a;
+      --primary: #00ff9d;
+      --accent: #ff007a;
+      --text: #e0e0ff;
+      --card: rgba(20, 20, 40, 0.7);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a001f, #1a0033);
+      color: var(--text);
+      line-height: 1.6;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .date {
+      font-size: 1.8rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 120px;
+      height: 4px;
+      background: var(--primary);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-item {
+      flex: 0 0 320px;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,255,157,0.15);
+      transition: all 0.4s ease;
+      scroll-snap-align: center;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.08);
+      box-shadow: 0 20px 50px rgba(0,255,157,0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.12);
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,255,157,0.2);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .positive, .negative {
+      margin: 30px 0;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .negative {
+      background: rgba(255,0,122,0.15);
+      border-left: 5px solid var(--accent);
+    }
+
+    .positive {
+      background: rgba(0,255,157,0.15);
+      border-left: 5px solid var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .hashtag {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 60px 20px 30px; }
+      h1 { font-size: 4.5rem; }
+      .gallery-item { flex: 0 0 280px; height: 360px; }
+      .content { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>LEVI</h1>
+      <p class="subtitle">Huyền Thoại Đi Rừng - Đỗ Duy Khánh</p>
+      <p class="date">18/11/2025 - Giải nghệ ở tuổi 28</p>
+    </div>
+  </header>
+
+  <section class="gallery-section">
+    <div class="container">
+      <h2>Hành Trình 10 Năm Vĩ Đại</h2>
+      <div class="gallery">
+        <div class="gallery-item"><img src="https://liquipedia.net/commons/images/7/76/GAM_Levi_Worlds_2024.jpg" alt="Levi tại Worlds"></div>
+        <div class="gallery-item"><img src="https://admin.esports.gg/wp-content/uploads/2025/11/Levi-retirment-.jpg" alt="Levi thông báo giải nghệ"></div>
+        <div class="gallery-item"><img src="https://www.sheepesports.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F9rqbl8zs%2Fproduction%2Ff5515d8fd8c47df5a5b2a7df80be557efb9916f9-3840x2180.webp&w=3840&q=75" alt="Levi announcement"></div>
+        <div class="gallery-item"><img src="https://cdn.oneesports.gg/cdn-data/2022/06/LeagueofLegends_GAMEsportsSEAGames2022Players.jpg" alt="GAM Esports celebration"></div>
+        <div class="gallery-item"><img src="https://esports.gg/_next/image/?url=https%3A%2F%2Fadmin.esports.gg%2Fwp-content%2Fuploads%2F2025%2F11%2F54858034021_41a5676028_k-1024x683.jpg&w=3840&q=75" alt="PSG Talon logo"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="content">
+        <p>Ngày <span class="highlight">18/11/2025</span>, đúng vào sinh nhật tuổi 28, <strong>Levi (Đỗ Duy Khánh)</strong> chính thức nói lời chia tay với sự nghiệp thi đấu chuyên nghiệp sau 10 năm cống hiến cho LMHT Việt Nam. Một chương sử vàng son khép lại, để lại khoảng trống không thể lấp đầy trong lòng cộng đồng.</p>
+
+        <h2>Di Sản Vô Song</h2>
+        <p>Anh là tuyển thủ <span class="highlight">giàu thành tích nhất</span> lịch sử LMHT Việt Nam:</p>
+        <ul>
+          <li>10 chức vô địch VCS</li>
+          <li>HCV SEA Games 31</li>
+          <li>4 lần MSI & 5 lần CKTG đại diện VCS/LCP</li>
+        </ul>
+        <p>Levi chính là người đưa LMHT Việt Nam từ vị thế wildcard lên bản đồ thế giới với những khoảnh khắc kinh điển năm 2017: MSI top 6, CKTG vòng bảng.</p>
+
+        <h2>Không Chỉ Là "Thần Rừng"</h2>
+        <p>Với lối chơi táo bạo, macro sắc bén, Levi còn là <span class="highlight">thủ lĩnh tinh thần</span> của GAM Esports và ĐT Việt Nam. Anh dẫn dắt GAM thống trị VCS, truyền cảm hứng cho cả thế hệ trẻ dù mùa LCP 2025 kết thúc không như ý (thua PSG Talon ở playoff, lỡ CKTG).</p>
+
+        <div class="negative">
+          <h3>Tạm biệt & Tiêu cực ngắn hạn</h3>
+          <p>Cùng ngày 18/11/2025, <strong>PSG Talon</strong> bị Riot Games loại khỏi LCP do vấn đề tài chính nghiêm trọng (trì hoãn lương). "Ông kẹ" kinh điển của VCS đã ra đi, mở ra cơ hội vàng cho GAM, Vikings MGN, Secret Whales thống trị khu vực.</p>
+          <p>Nhưng việc Levi giải nghệ là tổn thất lớn: GAM thiếu lãnh đạo, đội hình tan rã, thế hệ vàng khép lại sau SofM. LCP vẫn cạnh tranh khốc liệt với CFO, DFM, FSG...</p>
+        </div>
+
+        <div class="positive">
+          <h3>Tích cực dài hạn & Cơ hội 2026</h3>
+          <p>Talon "bay màu" mang đến cơ hội thống trị LCP. Việt Nam sở hữu 3 slot (GAM partner + 2 guest từ VCS), dễ lọt top 3-4, tranh 3 suất CKTG/MSI.</p>
+          <p>Levi giải nghệ thúc đẩy thế hệ mới (Draktharr, Taki...) lên thay thế. GAM tái thiết mạnh mẽ. LCP chính là bước đệm để Việt Nam mơ về <span class="highlight">Worlds top 8</span> – giấc mơ Levi chưa hoàn thành.</p>
+        </div>
+
+        <h2>Kết Luận</h2>
+        <p><strong>LCP 2026</strong> là cơ hội đặc biệt để tuyển Việt Nam bứt phá, không còn Levi trên sân đấu nhưng có động lực từ anh. Cộng đồng tiếc nuối, nhưng đầy lạc quan. <span class="hashtag">#GAMTIME</span> vẫn mãi vang vọng!</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Tri ân Levi - Huyền thoại mãi mãi trong lòng LMHT Việt Nam</p>
+    <p>Thiết kế bởi Grok • Dữ liệu cập nhật tháng 01/2026</p>
+  </footer>
+
+</body>
+</html>
