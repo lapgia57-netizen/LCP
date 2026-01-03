@@ -1,185 +1,250 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>12 Cung Hoàng Đạo - The 12 Zodiac Signs</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>12 Cung Hoàng Đạo - Zodiac Symbols</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+        :root {
+            --bg: #0d001a;
+            --card-bg: rgba(20, 15, 60, 0.6);
+            --accent: #bb86fc;
+            --text: #e0e0ff;
+            --glow: 0 0 20px rgba(187, 134, 252, 0.6);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-            color: #f0f0f0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(138,43,226,0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(75,0,130,0.1) 0%, transparent 50%);
             min-height: 100vh;
+            padding: 2rem 1rem;
         }
+
         header {
-            background: url('https://source.unsplash.com/random/1600x900/?stars,galaxy') no-repeat center/cover;
-            padding: 100px 20px;
             text-align: center;
-            position: relative;
+            margin-bottom: 3rem;
         }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+
+        h1 {
+            font-size: 3.2rem;
+            background: linear-gradient(90deg, #bb86fc, #03dac6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 0 10px #fff;
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.85;
         }
-        header p {
-            font-size: 1.3em;
-            position: relative;
-            z-index: 1;
-        }
-        .container {
-            max-width: 1300px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
+
         .card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(187, 134, 252, 0.18);
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            transition: transform 0.4s, box-shadow 0.4s;
+            padding: 2.2rem 1.6rem;
             text-align: center;
-            padding-bottom: 20px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
         }
+
         .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 40px rgba(138,43,226,0.4);
+            transform: translateY(-12px);
+            box-shadow: var(--glow);
+            border-color: var(--accent);
         }
-        .card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-bottom: 3px solid #8a2be2;
+
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(30, 20, 80, 0.4);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 0 25px rgba(187,134,252,0.3);
         }
-        .card h3 {
-            font-size: 1.6em;
-            margin: 20px 0 10px;
-            color: #bb86fc;
+
+        .logo-container img {
+            max-width: 85%;
+            max-height: 85%;
+            filter: drop-shadow(0 0 10px var(--accent));
         }
-        .card .dates {
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .dates {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 1rem;
             font-style: italic;
-            color: #cfd8dc;
-            margin-bottom: 15px;
         }
-        .card p {
-            padding: 0 20px;
+
+        .description {
             line-height: 1.6;
+            font-size: 1.05rem;
+            opacity: 0.92;
         }
+
         footer {
             text-align: center;
-            padding: 30px;
-            background: rgba(0,0,0,0.5);
-            margin-top: 50px;
+            margin-top: 4rem;
+            opacity: 0.6;
+            font-size: 0.95rem;
         }
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2em; }
-            .grid { grid-template-columns: 1fr; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.6rem; }
+            .logo-container { width: 120px; height: 120px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>12 Cung Hoàng Đạo<br><small>The 12 Zodiac Signs</small></h1>
-        <p>Khám phá bí mật về tính cách và vận mệnh của từng cung hoàng đạo</p>
+        <h1>12 Cung Hoàng Đạo</h1>
+        <p class="subtitle">Khám phá biểu tượng & tính cách qua logo từng cung</p>
     </header>
 
-    <div class="container">
-        <div class="grid">
+    <div class="grid">
 
-            <div class="card"><grok:render card_id="de17b3" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Aries - Bạch Dương</h3>
-                <p class="dates">(21/3 - 19/4)</p>
-                <p>Năng động, nhiệt huyết, dũng cảm và quyết đoán. Luôn dẫn đầu, thích thử thách nhưng đôi khi bốc đồng và thiếu kiên nhẫn.</p>
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://www.shutterstock.com/image-vector/ram-goat-aries-zodiac-sign-600nw-2256449567.jpg" alt="Biểu tượng Bạch Dương">
             </div>
-
-            <div class="card"><grok:render card_id="82ddd8" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Taurus - Kim Ngưu</h3>
-                <p class="dates">(20/4 - 20/5)</p>
-                <p>Kiên định, trung thành, yêu cái đẹp và sự ổn định. Rất kiên nhẫn nhưng đôi khi bảo thủ và cứng đầu.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="1a4f9c" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Gemini - Song Tử</h3>
-                <p class="dates">(21/5 - 20/6)</p>
-                <p>Thông minh, linh hoạt, thích giao tiếp và khám phá mới. Sáng tạo nhưng dễ thay đổi tâm trí.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="7d7540" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Cancer - Cự Giải</h3>
-                <p class="dates">(21/6 - 22/7)</p>
-                <p>Tình cảm, nhạy cảm, yêu gia đình và trung thành. Hay lo lắng nhưng rất bảo vệ người thân.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="2214bf" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Leo - Sư Tử</h3>
-                <p class="dates">(23/7 - 22/8)</p>
-                <p>Tự tin, tham vọng, hào phóng và lãnh đạo bẩm sinh. Thích được chú ý nhưng đôi khi kiêu ngạo.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="e188ff" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Virgo - Xử Nữ</h3>
-                <p class="dates">(23/8 - 22/9)</p>
-                <p>Cầu toàn, tỉ mỉ, thông minh và chu đáo. Hay phân tích nhưng đôi khi quá chỉ trích.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="2d2805" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Libra - Thiên Bình</h3>
-                <p class="dates">(23/9 - 22/10)</p>
-                <p>Cân bằng, yêu hòa bình, duyên dáng và công bằng. Thích cái đẹp nhưng hay do dự quyết định.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="ffd233" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Scorpio - Thiên Yết</h3>
-                <p class="dates">(23/10 - 21/11)</p>
-                <p>Bí ẩn, đam mê, kiên cường và trung thành. Quyết đoán nhưng dễ ghen tuông.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="1d4a62" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Sagittarius - Nhân Mã</h3>
-                <p class="dates">(22/11 - 21/12)</p>
-                <p>Tự do, lạc quan, yêu phiêu lưu và chân thành. Thích khám phá nhưng đôi khi thiếu trách nhiệm.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="f8bf4e" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Capricorn - Ma Kết</h3>
-                <p class="dates">(22/12 - 19/1)</p>
-                <p>Tham vọng, kiên trì, trách nhiệm và thực tế. Hay lãnh đạo nhưng đôi khi quá nghiêm khắc.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="1e2429" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Aquarius - Bảo Bình</h3>
-                <p class="dates">(20/1 - 18/2)</p>
-                <p>Sáng tạo, độc lập, nhân đạo và thông minh. Thích đổi mới nhưng đôi khi xa cách cảm xúc.</p>
-            </div>
-
-            <div class="card"><grok:render card_id="68cff9" card_type="image_card" type="render_searched_image"></grok:render>
-                <h3>Pisces - Song Ngư</h3>
-                <p class="dates">(19/2 - 20/3)</p>
-                <p>Nhạy cảm, mơ mộng, giàu lòng trắc ẩn và sáng tạo. Rất lãng mạn nhưng dễ bị tổn thương.</p>
-            </div>
-
+            <h3>Bạch Dương - Aries</h3>
+            <p class="dates">21/3 - 19/4</p>
+            <p class="description">Năng động, dũng cảm, thích dẫn đầu nhưng đôi khi bốc đồng.</p>
         </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://media.istockphoto.com/id/1196179155/vector/taurus-zodiac-sign.jpg?s=612x612&w=0&k=20&c=3pDh8PDTKoIfdQkWZFpGZV1Go31VTkuvUyUmzq2bnhI=" alt="Biểu tượng Kim Ngưu">
+            </div>
+            <h3>Kim Ngưu - Taurus</h3>
+            <p class="dates">20/4 - 20/5</p>
+            <p class="description">Kiên định, trung thành, yêu sự ổn định và cái đẹp.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://thumbs.dreamstime.com/z/elegant-gemini-zodiac-symbol-astrological-representation-twin-constellation-perfect-digital-art-prints-378557949.jpg" alt="Biểu tượng Song Tử">
+            </div>
+            <h3>Song Tử - Gemini</h3>
+            <p class="dates">21/5 - 20/6</p>
+            <p class="description">Thông minh, linh hoạt, thích giao tiếp và khám phá.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://thumbs.dreamstime.com/b/mystical-surreal-image-shows-constellation-cancer-its-symbolic-crab-shining-ethereal-glow-over-vast-399915430.jpg" alt="Biểu tượng Cự Giải">
+            </div>
+            <h3>Cự Giải - Cancer</h3>
+            <p class="dates">21/6 - 22/7</p>
+            <p class="description">Nhạy cảm, tình cảm, luôn bảo vệ gia đình và người thân.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://thumbs.dreamstime.com/z/golden-leo-horoscope-sign-celestial-elements-zodiac-symbol-astrological-design-391181637.jpg" alt="Biểu tượng Sư Tử">
+            </div>
+            <h3>Sư Tử - Leo</h3>
+            <p class="dates">23/7 - 22/8</p>
+            <p class="description">Tự tin, hào phóng, thích được chú ý và lãnh đạo.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://media.istockphoto.com/id/1898131442/vector/virgo-zodiac-constellation-astrological-and-horoscope-symbol.jpg?s=612x612&w=0&k=20&c=qRpl76Jn-1rrpfhkGqZsvQTkwrT72zhBDQX2wDM7Grs=" alt="Biểu tượng Xử Nữ">
+            </div>
+            <h3>Xử Nữ - Virgo</h3>
+            <p class="dates">23/8 - 22/9</p>
+            <p class="description">Cầu toàn, tỉ mỉ, chu đáo và rất thông minh.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://thumbs.dreamstime.com/b/detailed-ornate-golden-symbol-libra-zodiac-sign-represented-scales-centrally-placed-against-deep-rich-purple-418273977.jpg" alt="Biểu tượng Thiên Bình">
+            </div>
+            <h3>Thiên Bình - Libra</h3>
+            <p class="dates">23/9 - 22/10</p>
+            <p class="description">Cân bằng, duyên dáng, yêu hòa bình và công bằng.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://www.shutterstock.com/image-vector/scorpio-zodiac-constellations-sign-on-260nw-1248104251.jpg" alt="Biểu tượng Thiên Yết">
+            </div>
+            <h3>Thiên Yết - Scorpio</h3>
+            <p class="dates">23/10 - 21/11</p>
+            <p class="description">Bí ẩn, đam mê, trung thành nhưng dễ ghen tuông.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://thumbs.dreamstime.com/b/blue-glowing-sagittarius-zodiac-sign-deep-space-archer-rides-powerful-horse-bow-arrow-cosmic-galaxy-background-many-stars-413720295.jpg" alt="Biểu tượng Nhân Mã">
+            </div>
+            <h3>Nhân Mã - Sagittarius</h3>
+            <p class="dates">22/11 - 21/12</p>
+            <p class="description">Lạc quan, yêu tự do, thích phiêu lưu và khám phá.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://t4.ftcdn.net/jpg/07/30/46/77/360_F_730467795_FmxuDAHZeA1nm6KkT38Em5kNf3f6urKt.jpg" alt="Biểu tượng Ma Kết">
+            </div>
+            <h3>Ma Kết - Capricorn</h3>
+            <p class="dates">22/12 - 19/1</p>
+            <p class="description">Tham vọng, kiên trì, trách nhiệm và thực tế.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://www.shutterstock.com/image-illustration/aquarius-zodiac-sign-on-galaxy-600nw-2702804449.jpg" alt="Biểu tượng Bảo Bình">
+            </div>
+            <h3>Bảo Bình - Aquarius</h3>
+            <p class="dates">20/1 - 18/2</p>
+            <p class="description">Sáng tạo, độc lập, nhân đạo và thích đổi mới.</p>
+        </div>
+
+        <div class="card">
+            <div class="logo-container">
+                <img src="https://thumbs.dreamstime.com/b/pisces-convertito-161522185.jpg" alt="Biểu tượng Song Ngư">
+            </div>
+            <h3>Song Ngư - Pisces</h3>
+            <p class="dates">19/2 - 20/3</p>
+            <p class="description">Nhạy cảm, mơ mộng, giàu lòng trắc ẩn và lãng mạn.</p>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; 2025 - Trang web 12 Cung Hoàng Đạo với thiết kế hiện đại, responsive hoàn toàn bằng HTML & CSS.</p>
+        <p>© 2026 - Giao diện Zodiac Symbols • Minimal Neon Design</p>
     </footer>
 
 </body>
