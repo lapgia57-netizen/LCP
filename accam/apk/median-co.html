@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Median.co - Chuyển Website Thành App Native iOS & Android</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #0066ff;
+      --primary-dark: #0052cc;
+      --text: #1a1a1a;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--light);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: linear-gradient(135deg, #0066ff 0%, #0033aa 100%);
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+    .section {
+      padding: 80px 0;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      text-align: center;
+      color: var(--primary-dark);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 40px 0;
+      font-size: 1.1rem;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .comparison-table th {
+      background: var(--primary);
+      color: white;
+    }
+    .comparison-table tr:nth-child(even) {
+      background: #f8f9ff;
+    }
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .cta {
+      text-align: center;
+      margin: 60px 0;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Median.co</h1>
+      <p>Nền tảng hàng đầu thế giới giúp chuyển đổi website hoặc web app thành ứng dụng native iOS & Android chất lượng cao <strong>không cần viết code native</strong> (hoặc rất ít).</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2>Tại sao Median.co lại mạnh mẽ?</h2>
+      <p style="text-align:center; max-width:800px; margin:0 auto 48px; font-size:1.2rem;">
+        Ý tưởng đơn giản nhưng cực kỳ hiệu quả: Nhập URL website → Median "bọc" trong shell native → App sẵn sàng lên App Store & Google Play.
+      </p>
+
+      <div class="features-grid">
+        <div class="card">
+          <h3>App Studio</h3>
+          <p>Xây dựng & xem trước ứng dụng ngay trong trình duyệt với simulator iOS/Android chuyên nghiệp.</p>
+        </div>
+        <div class="card">
+          <h3>JavaScript Bridge</h3>
+          <p>Cầu nối siêu mạnh: gọi tính năng native (push notification, Face ID, quét QR, GPS, haptic...) chỉ bằng JavaScript.</p>
+        </div>
+        <div class="card">
+          <h3>Native Plugin Library</h3>
+          <p>Hàng chục plugin sẵn có: push, biometric, barcode, in-app purchase, analytics, chia sẻ MXH...</p>
+        </div>
+        <div class="card">
+          <h3>Cập nhật tức thì</h3>
+          <p>Chỉnh web → app tự động cập nhật, <strong>không cần submit lại store</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>Dịch vụ Full-Service</h3>
+          <p>Đội ngũ Median làm từ A→Z: config, branding, publish (bảo đảm duyệt 100%).</p>
+        </div>
+        <div class="card">
+          <h3>Hỗ trợ Doanh nghiệp</h3>
+          <p>SLA cao cấp, bảo mật enterprise, tuân thủ compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <h2>Đây là cách Median.co hoạt động</h2>
+      <p style="text-align:center; margin-bottom:40px;">Dưới đây là một số ví dụ giao diện App Studio và cách wrapper web thành native app đẹp mắt:</p>
+
+      <!-- Carousel đơn giản với các hình ảnh -->
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center;">
+        <img src="https://cdn.prod.website-files.com/64639702efb70084175b1e0f/657127b99e6c40d811c49ed0_A%20-%20Convert%20your%20website%20to%20an%20app%20with%20Median.co%20(1).webp" alt="Median App Studio" style="max-width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.1); width:480px;">
+        <img src="https://cdn.prod.website-files.com/64639702efb70084175b1e0f/68bdad8915c17c5273009850_convert-base44-web-app-into-native-app-main.webp" alt="Convert web app to native" style="max-width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.1); width:480px;">
+        <img src="https://cdn.prod.website-files.com/63894f0e251e567f6e443bfa/6865a4f352326f55503677f1_20250702T0915-c2436afb-af62-4680-adc3-802e5704fff4.webp" alt="Webview native wrapper example" style="max-width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.1); width:480px;">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>So sánh nhanh với các cách khác</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Cách làm</th>
+            <th>Thời gian</th>
+            <th>Chi phí</th>
+            <th>Cần dev native</th>
+            <th>Cập nhật nhanh</th>
+            <th>Chất lượng app</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Viết native (Swift/Kotlin)</td>
+            <td>3–12 tháng</td>
+            <td>Rất cao</td>
+            <td>Có</td>
+            <td>Chậm</td>
+            <td>Cao nhất</td>
+          </tr>
+          <tr>
+            <td>React Native / Flutter</td>
+            <td>2–6 tháng</td>
+            <td>Cao–trung bình</td>
+            <td>Ít</td>
+            <td>Trung bình</td>
+            <td>Cao</td>
+          </tr>
+          <tr style="background:#e6f0ff; font-weight:600;">
+            <td><span class="highlight">Median.co (Webview + Bridge)</span></td>
+            <td>Vài ngày–vài tuần</td>
+            <td>Thấp–trung bình</td>
+            <td>Không</td>
+            <td>Tức thì</td>
+            <td>Cao (nếu web tốt)</td>
+          </tr>
+          <tr>
+            <td>Tool wrapper đơn giản</td>
+            <td>Vài giờ</td>
+            <td>Rẻ</td>
+            <td>Không</td>
+            <td>Nhanh</td>
+            <td>Thường thấp</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <h2>Ai đang dùng Median.co?</h2>
+      <p style="text-align:center; font-size:1.2rem;">Rất nhiều doanh nghiệp từ startup đến Fortune 500: McKesson, AON, Property.ca, Conrad Siegel, Doctena, ScheduleFly, Whole Foods, Honeywell, Allstate...</p>
+      <p style="text-align:center; margin-top:16px;">Họ chọn Median để triển khai app nhanh, chi phí thấp, đồng bộ web-mobile dễ dàng mà không cần đội mobile dev lớn.</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="container">
+      <h2 style="margin-bottom:24px;">Sẵn sàng có app native chưa?</h2>
+      <a href="https://median.co" target="_blank" class="btn">Thử tạo app miễn phí ngay tại App Studio →</a>
+      <p style="margin-top:16px; color:var(--gray);">Chỉ cần nhập URL website của bạn là xong!</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>Median.co – Giải pháp #1 chuyển website thành app native từ năm 2014 (trước đây là GoNative.io)<br>Website chính thức: <a href="https://median.co" style="color:#4da6ff;">https://median.co</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
