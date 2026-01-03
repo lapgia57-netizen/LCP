@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub Pages - Giới hạn chịu tải (2026)</title>
+  <meta name="description" content="Tổng hợp giới hạn bandwidth, traffic thực tế và mẹo tối ưu GitHub Pages năm 2026"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --card: #f8f9fa;
+      --accent: #0069d9;
+      --border: #e0e0e0;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --accent: #4da6ff;
+      --border: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      transition: background 0.4s, color 0.4s;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .section {
+      background: var(--card);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: rgba(0,105,217,0.1);
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 1.6rem;
+      margin: 1rem 0;
+    }
+    li {
+      margin-bottom: 0.6rem;
+    }
+    .highlight {
+      background: rgba(0,105,217,0.08);
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .section { padding: 1.5rem; }
+      th, td { padding: 12px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+  <div class="container">
+    <header>
+      <h1>GitHub Pages<br>Giới hạn chịu tải & Traffic thực tế</h1>
+      <p style="color:#666; font-size:1.1rem;">Cập nhật đầu năm 2026 theo tài liệu chính thức</p>
+    </header>
+
+    <div class="section">
+      <h2>Các giới hạn chính (Soft limits)</h2>
+      <ul>
+        <li><strong>Soft bandwidth limit</strong>: 100 GB/tháng</li>
+        <li>Nếu vượt → GitHub liên hệ trước, yêu cầu giảm tải. Chỉ throttle hoặc tạm ngừng nếu cố tình lạm dụng tiếp.</li>
+        <li><strong>Kích thước published site</strong>: Tối đa 1 GB (khuyến nghị repo source ~1 GB)</li>
+        <li><strong>Build limit</strong>: Soft 10 builds/giờ</li>
+        <li>Không có giới hạn cứng về request/giây hay concurrent users (có thể xử lý hàng nghìn người ổn nếu trang nhẹ)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Ước lượng traffic thực tế (tùy kích thước trang)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Kích thước trung bình mỗi page view</th>
+            <th>Số page view/tháng ước tính (trước khi chạm 100GB)</th>
+            <th>Ghi chú thực tế</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>~500 KB (trang khá nhẹ, ít hình)</td>
+            <td>~200.000 views</td>
+            <td>Rất thoải mái</td>
+          </tr>
+          <tr>
+            <td>~1 MB (trang trung bình)</td>
+            <td>~100.000 views</td>
+            <td>Vẫn ổn cho hầu hết blog/portfolio</td>
+          </tr>
+          <tr>
+            <td>~2–3 MB (nhiều ảnh, JS nặng)</td>
+            <td>~30.000–50.000 views</td>
+            <td>Dễ chạm giới hạn nếu viral</td>
+          </tr>
+          <tr>
+            <td>>5 MB (tệ, nhiều ảnh full HD)</td>
+            <td><20.000 views</td>
+            <td>Không nên dùng GH Pages</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Mẹo để chịu tải tốt hơn trên GitHub Pages</h2>
+      <ul>
+        <li>Dùng <strong>Cloudflare</strong> (miễn phí) làm proxy/cache → giảm tải về GitHub còn 20–40% traffic gốc</li>
+        <li>Tối ưu hóa hình ảnh: WebP, lazy loading, nén mạnh</li>
+        <li>Dùng CDN cho file tĩnh nặng (ảnh, font, video) → chỉ giữ HTML/CSS/JS nhẹ trên GitHub</li>
+        <li>Nếu dự đoán viral hoặc >100–150k views/tháng → chuyển sang:
+          <ul>
+            <li>Vercel / Netlify (miễn phí vẫn tốt hơn rất nhiều về bandwidth)</li>
+            <li>Cloudflare Pages</li>
+            <li>AWS S3 + CloudFront</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <strong>Tóm lại:</strong> Với website cá nhân, blog, portfolio, landing page thông thường → GitHub Pages <strong>dư sức</strong> chịu tải.  
+      Nhưng nếu site có khả năng viral hoặc phục vụ file nặng → 100 GB/tháng là con số cần lưu ý kỹ.
+    </div>
+
+    <footer>
+      <p>Code UI/UX này dùng cho GitHub Pages demo • Responsive • Dark mode • 2026</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      if (current === 'dark') {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+</html>
