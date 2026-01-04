@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lịch Sử Phát Triển Hành Chính - Thành Phố Hải Phòng</title>
+  <style>
+    :root {
+      --primary: #005BAC;      /* Xanh dương Hải Phòng */
+      --secondary: #00AEEF;
+      --light: #f8f9fa;
+      --dark: #333;
+      --accent: #FFD700;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+    section {
+      background: white;
+      margin: 30px 0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--primary);
+      top: 0;
+      bottom: 0;
+      left: 20px;
+    }
+    .event {
+      position: relative;
+      margin: 30px 0;
+      padding: 20px;
+      background: var(--light);
+      border-radius: 10px;
+      border-left: 6px solid var(--primary);
+    }
+    .event::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+      left: -30px;
+      top: 25px;
+      border: 4px solid white;
+    }
+    .highlight {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      section { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Thành Phố Hải Phòng (Biển số 15)</h1>
+      <p>Lịch sử phát triển hành chính - Từ thành phố cảng đến siêu đô thị biển hiện đại</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Sáp nhập lớn nhất lịch sử hiện đại: Hợp nhất với tỉnh Kiến An (1962)</h2>
+      <p>Ngày <span class="highlight">27/10/1962</span>, Quốc hội nước Việt Nam Dân chủ Cộng hòa ban hành Nghị quyết hợp nhất thành phố Hải Phòng cũ với tỉnh Kiến An, tạo nên một thành phố rộng lớn hơn.</p>
+      <ul>
+        <li><strong>Trước đó</strong>: Tỉnh Kiến An tồn tại từ 1906, bao gồm các huyện ngoại vi: An Dương, An Lão, Kiến Thụy, Thủy Nguyên, Tiên Lãng, Vĩnh Bảo...</li>
+        <li><strong>Sau sáp nhập</strong>:
+          <ul>
+            <li>3 khu phố nội thành: Hồng Bàng, Lê Chân, Ngô Quyền.</li>
+            <li>9 huyện ngoại thành: An Dương, An Lão, Cát Bà, Cát Hải, Hải An, Kiến Thụy, Thủy Nguyên, Tiên Lãng, Vĩnh Bảo.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Mục tiêu: Mở rộng không gian, tăng cường nguồn lực cho thành phố cảng công nghiệp - xã hội chủ nghĩa trong bối cảnh kháng chiến chống Mỹ.</p>
+    </section>
+
+    <section>
+      <h2>Các thay đổi hành chính sau năm 1962</h2>
+      <div class="timeline">
+        <div class="event">
+          <strong>1955</strong>: Huyện Hải An (từ tỉnh Kiến An) sáp nhập vào Hải Phòng trước đó.
+        </div>
+        <div class="event">
+          <strong>1966-1977</strong>: Các hợp nhất huyện (An Dương + Hải An → An Hải; An Lão + Kiến Thụy → An Thụy; Cát Bà vào Cát Hải).
+        </div>
+        <div class="event">
+          <strong>1980</strong>: Thành lập huyện Kiến An (từ thị xã Kiến An cũ + 16 xã của huyện An Thụy).
+        </div>
+        <div class="event">
+          <strong>1994</strong>: Chuyển thị xã Kiến An thành quận Kiến An (quận nội thành hiện nay).
+        </div>
+        <div class="event">
+          <strong>2000s</strong>: Thành lập quận Hải An (2002), Dương Kinh (2007), Đồ Sơn (2007) và gần đây là thành phố Thủy Nguyên (từ huyện Thủy Nguyên, hiệu lực 2025).
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Sáp nhập cấp tỉnh lớn nhất năm 2025: Hợp nhất với tỉnh Hải Dương</h2>
+      <p>Ngày <span class="highlight">12/6/2025</span>, Quốc hội ban hành Nghị quyết sáp nhập tỉnh Hải Dương vào thành phố Hải Phòng, giữ nguyên tên <strong>Thành phố Hải Phòng</strong> (trực thuộc Trung ương).</p>
+      <ul>
+        <li><strong>Diện tích mới</strong>: Khoảng <strong>3.194,72 km²</strong></li>
+        <li><strong>Dân số</strong>: Khoảng <strong>4,66 triệu người</strong></li>
+        <li><strong>Đơn vị hành chính</strong>: 114 (67 xã, 45 phường, 2 đặc khu đảo Cát Hải và Bạch Long Vĩ)</li>
+      </ul>
+      <p><strong>Trung tâm hành chính - chính trị</strong>: Khu đô thị mới Bắc Sông Cấm (Thủy Nguyên).</p>
+      <p>Mục tiêu: Xây dựng siêu đô thị biển - công nghiệp, phát triển logistics, cảng biển, công nghiệp ô tô (VinFast), kinh tế biển đảo.</p>
+    </section>
+
+    <section>
+      <h2>Hình ảnh minh họa - Địa danh lịch sử & hiện đại</h2>
+      <p>Dưới đây là một số hình ảnh tiêu biểu về Hải Phòng qua các thời kỳ:</p>
+
+      <div class="gallery">
+        <!-- Nhà hát lớn -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Haiphong_Opera_House.jpg/1200px-Haiphong_Opera_House.jpg" alt="Nhà hát lớn Hải Phòng - Công trình lịch sử thời Pháp thuộc">
+
+        <!-- Cảng Lạch Huyện -->
+        <img src="https://bcp.cdnchinhphu.vn/334894974524682240/2025/4/5/cnag-1-1743835743955987214138.jpg" alt="Cảng Lạch Huyện - Biểu tượng cảng biển hiện đại">
+
+        <!-- Sông Bạch Đằng -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Cua_song_Bach_Dang.JPG" alt="Sông Bạch Đằng - Nơi ghi dấu lịch sử hào hùng">
+
+        <!-- Đền thờ Lê Chân -->
+        <img src="https://thanhdoanhaiphong.gov.vn/data/media/1012/images/danhtuongLeChan01.jpg" alt="Đền thờ nữ tướng Lê Chân - Di tích lịch sử">
+
+        <!-- Bản đồ sau sáp nhập 2025 -->
+        <img src="https://bhd.1cdn.vn/2025/06/18/gen-h-hai-phong.jpg" alt="Bản đồ hành chính Hải Phòng mới sau sáp nhập 2025">
+
+        <!-- Quận Kiến An -->
+        <img src="https://mediadddt.kinhtedothi.vn/upload/userfiles/files/z5892495520333_4833cdc5a5251ce53533b2e0e015fc13_03102024152257_37.jpg" alt="Quận Kiến An - Khu vực phát triển mạnh mẽ">
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Thành phố Hải Phòng - Hơn 2.000 năm bề dày lịch sử, vươn mình thành siêu đô thị hiện đại • Cập nhật: Tháng 01/2026</p>
+  </footer>
+
+</body>
+</html>
