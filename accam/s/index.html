@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thôn Ngọc Giang - Lịch sử & Vị trí Đắc địa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #2d2d2d;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Hero */
+    .hero {
+      position: relative;
+      height: 70vh;
+      min-height: 500px;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+                  url('https://images.unsplash.com/photo-1585208798174-6cedd78e0198?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(220, 38, 38, 0.85);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #b91c1c;
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #b91c1c;
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .text-content {
+      padding: 1rem;
+    }
+
+    .text-content h3 {
+      color: #1e40af;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      background: #fef3f2;
+      padding: 1.5rem;
+      border-left: 5px solid #b91c1c;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .feature-card .icon {
+      font-size: 2.8rem;
+      color: #b91c1c;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="badge">Di tích lịch sử - Cách mạng</div>
+      <h1>Thôn Ngọc Giang</h1>
+      <p>Vùng đất thiêng liêng nơi in dấu chân Bác Hồ và các lãnh đạo cách mạng, nay đang trở thành điểm nóng bất động sản ven đô phía Bắc Hà Nội</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Lịch sử hào hùng</h2>
+      
+      <div class="grid-2">
+        <div class="text-content">
+          <h3>An Toàn Khu (ATK) quan trọng 1941–1945</h3>
+          <p>Ngọc Giang được chọn làm nơi trú ẩn an toàn của Ban Thường vụ Trung ương Đảng Cộng sản Đông Dương.</p>
+          
+          <div class="highlight">
+            Đầu năm 1945, tại <strong>chùa Ngọc Giang</strong>, đồng chí Trường Chinh chủ trì cuộc họp lịch sử quyết định chủ trương chuẩn bị Tổng khởi nghĩa giành chính quyền.
+          </div>
+
+          <p>Tháng 8/1945, Bác Hồ đã dừng chân nghỉ một đêm tại nhà ông Thơ ở thôn này khi từ Tân Trào về Hà Nội nhận chính quyền.</p>
+        </div>
+
+        <div>
+          <h3>Di tích còn lưu giữ</h3>
+          <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+            <li>✔ Bia tưởng niệm An toàn khu Ngọc Giang</li>
+            <li>✔ Chùa Ngọc Giang – Di tích lịch sử được bảo tồn</li>
+            <li>✔ Nhiều gia đình cách mạng lâu đời</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: #fff; border-radius: 16px; margin: 60px 0; padding: 60px 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.06);">
+      <h2>Vị trí & Tiềm năng hiện tại (2025–2026)</h2>
+      
+      <div class="features">
+        <div class="feature-card">
+          <div class="icon">🚗</div>
+          <h3>Gần Cầu Nhật Tân</h3>
+          <p>Chỉ 5–10 phút vào nội thành Hà Nội</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">🏡</div>
+          <h3>Điểm nóng bất động sản</h3>
+          <p>Đất thổ cư, mặt tiền đường trục chính đang rất được săn đón</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">🌳</div>
+          <h3>Tiện ích đầy đủ</h3>
+          <p>Trường chuẩn quốc gia, chợ, công viên, khu đô thị mới</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">📈</div>
+          <h3>Vùng ven đô phát triển mạnh</h3>
+          <p>Gần các dự án thành phố thông minh & hạ tầng giao thông lớn</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Thôn Ngọc Giang – Nơi lưu giữ lịch sử, đón nhận tương lai</p>
+    <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.95rem;">
+      Xã Vĩnh Ngọc - Huyện Đông Anh - Thành phố Hà Nội
+    </p>
+  </footer>
+
+</body>
+</html>
