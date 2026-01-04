@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prototype Là Gì? Giải Thích Rõ Ràng</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --bg: #f8f9ff;
+      --card: #ffffff;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacOSystem, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin: 40px 0 60px;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      color: var(--primary-dark);
+      margin-bottom: 1.2em;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .definition {
+      font-size: 1.15rem;
+      background: rgba(99, 102, 241, 0.08);
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      margin: 24px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(99, 102, 241, 0.03);
+    }
+
+    .highlight {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .summary {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 48px 0 32px;
+      color: var(--primary-dark);
+    }
+
+    .quote {
+      font-style: italic;
+      color: var(--text-light);
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 40px 0;
+      padding: 0 20px;
+    }
+
+    .question {
+      margin-top: 60px;
+      padding: 32px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .question h3 {
+      margin-bottom: 16px;
+      font-size: 1.6rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      .section { padding: 24px; }
+      table { font-size: 0.92rem; }
+      th, td { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>Prototype Là Gì?</h1>
+      <p class="subtitle">Hiểu rõ khái niệm "làm thử cái xịn trước khi làm cái xịn thật"</p>
+    </header>
+
+    <div class="section">
+      <div class="definition">
+        <strong>Prototype</strong> (nguyên mẫu / mẫu thử / bản thử nghiệm) là một phiên bản đầu tiên hoặc mô hình thử nghiệm của sản phẩm, được tạo ra để:
+        <ul style="margin: 16px 0 0 24px;">
+          <li>Kiểm tra ý tưởng</li>
+          <li>Thử nghiệm chức năng</li>
+          <li>Thu thập phản hồi từ người dùng</li>
+          <li>Phát hiện lỗi/sai sót sớm</li>
+        </ul>
+        <div style="margin-top: 16px;">→ Trước khi đầu tư sản xuất phiên bản hoàn chỉnh (final product)</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Prototype xuất hiện ở nhiều lĩnh vực</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Lĩnh vực</th>
+            <th>Ý nghĩa của Prototype</th>
+            <th>Ví dụ thực tế</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Thiết kế sản phẩm/công nghiệp</td>
+            <td>Mẫu thử vật lý đầu tiên để kiểm tra hình dáng, cơ chế, độ bền</td>
+            <td>Mẫu xe hơi concept, mẫu điện thoại vỏ nhựa</td>
+          </tr>
+          <tr>
+            <td>Thiết kế UI/UX (app, website)</td>
+            <td>Bản demo tương tác (clickable) mô phỏng cách hoạt động của giao diện</td>
+            <td>Prototype trên Figma, Adobe XD, Protopie</td>
+          </tr>
+          <tr>
+            <td>Phát triển phần mềm</td>
+            <td>Phiên bản sơ khai để lấy yêu cầu từ khách hàng (Prototype Model)</td>
+            <td>Bản demo web/app chỉ có giao diện + vài chức năng chính</td>
+          </tr>
+          <tr>
+            <td>Lập trình (JavaScript)</td>
+            <td>Cơ chế kế thừa đặc trưng của JS (prototype chain)</td>
+            <td>Object.prototype, __proto__</td>
+          </tr>
+          <tr>
+            <td>Kinh doanh/Startup</td>
+            <td>MVP (Minimum Viable Product) hoặc bản thử để test thị trường</td>
+            <td>Ứng dụng đặt xe đầu tiên của Grab, Gojek</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Các loại prototype phổ biến trong thiết kế & phát triển sản phẩm</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Loại</th>
+            <th>Độ chi tiết</th>
+            <th>Mục đích chính</th>
+            <th>Công cụ thường dùng</th>
+            <th>Thời gian & chi phí</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="highlight">Low-fidelity (Low-fi)</span></td>
+            <td>Rất thô</td>
+            <td>Thảo luận ý tưởng nhanh, concept</td>
+            <td>Giấy bút, vẽ tay, Balsamiq</td>
+            <td>Rất rẻ, rất nhanh</td>
+          </tr>
+          <tr>
+            <td><span class="highlight">Mid-fidelity</span></td>
+            <td>Trung bình</td>
+            <td>Kiểm tra luồng người dùng cơ bản</td>
+            <td>Figma (wireframe + click)</td>
+            <td>Trung bình</td>
+          </tr>
+          <tr>
+            <td><span class="highlight">High-fidelity (Hi-fi)</span></td>
+            <td>Gần giống sản phẩm thật</td>
+            <td>Test trải nghiệm người dùng thực tế, demo cho sếp/khách</td>
+            <td>Figma, Protopie, Framer, code thật</td>
+            <td>Đắt, lâu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="summary">
+      Tóm lại ngắn gọn nhất:
+    </div>
+
+    <div class="quote">
+      “Prototype = Làm thử một cái xịn trước khi làm cái xịn thật”<br>
+      → Tiết kiệm thời gian, tiền bạc và tránh làm sai hướng lớn!
+    </div>
+
+    <div class="question">
+      <h3>Bạn đang hỏi về prototype trong lĩnh vực nào vậy?</h3>
+      <p>Thiết kế app/UI/UX • Lập trình JavaScript • Sản xuất • Startup/MVP • Hay lĩnh vực khác?</p>
+      <p>Mình sẽ giải thích sâu hơn nếu bạn cần nhé! 🚀</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
