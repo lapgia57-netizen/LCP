@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lịch sử gắn bó Bắc Giang - Bắc Ninh | Vùng Kinh Bắc</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;       /* xanh đậm Kinh Bắc */
+      --secondary: #b45309;      /* nâu đất cổ */
+      --light: #f3f4f6;
+      --dark: #111827;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #e5e7eb);
+      color: var(--dark);
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 12px 12px 0 0;
+      margin-bottom: 30px;
+    }
+    h1, h2 {
+      margin: 0.4em 0;
+    }
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: var(--primary);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    .item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+    .item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid var(--secondary);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .left { left: 0; }
+    .right { left: 50%; }
+    .right::after { left: -16px; }
+    .content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      border-left: 5px solid var(--primary);
+    }
+    .right .content { border-left: none; border-right: 5px solid var(--primary); }
+    .date {
+      position: absolute;
+      top: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+      color: var(--primary);
+    }
+    .left .date { right: -80px; }
+    .right .date { left: -80px; text-align: right; }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 30px 0;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 320px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #666;
+      font-size: 0.9em;
+    }
+    @media screen and (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .item { width: 100%; margin-bottom: 30px; }
+      .item::after { left: 15px; }
+      .left .date, .right .date { left: 60px; text-align: left; }
+      .right { left: 0%; }
+      .content { margin-left: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Lịch sử gắn bó Bắc Giang - Bắc Ninh</h1>
+      <p>Vùng Kinh Bắc – Cái nôi văn hóa lâu đời của dân tộc Việt Nam</p>
+    </header>
+
+    <div class="timeline">
+      
+      <div class="item left">
+        <div class="content">
+          <h2>Thời kỳ cổ đại & phong kiến</h2>
+          <p>Cả Bắc Giang và Bắc Ninh đều thuộc bộ Vũ Ninh (nước Văn Lang), sau là Âu Lạc. Đây là vùng đất cổ châu thổ sông Hồng, trung tâm văn hóa - chính trị - Phật giáo sớm nhất Việt Nam với kinh đô Luy Lâu xưa.</p>
+          <ul>
+            <li>Thời Lý – Trần: Thuộc lộ Bắc Giang</li>
+            <li>Thời Hậu Lê: Thừa tuyên Kinh Bắc → trấn Kinh Bắc → trấn Bắc Ninh</li>
+            <li>Năm 1831 (triều Minh Mệnh): Thành tỉnh Bắc Ninh lớn (khoảng 6.000 km², 70 vạn dân), bao gồm cả hai tỉnh ngày nay.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item right">
+        <div class="content">
+          <h2>Thời kỳ thuộc Pháp</h2>
+          <p>Năm 1895, thực dân Pháp chia tách tỉnh Bắc Ninh lớn thành hai tỉnh riêng biệt, lấy sông Cầu làm ranh giới:</p>
+          <ul>
+            <li>Tỉnh Bắc Ninh (phía nam sông Cầu – đồng bằng)</li>
+            <li>Tỉnh Bắc Giang (phía bắc sông Cầu – trung du, thành lập 10/10/1895)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item left">
+        <div class="content">
+          <h2>Sau Cách mạng Tháng Tám</h2>
+          <p>Ngày 27/10/1962: Quốc hội quyết định sáp nhập hai tỉnh thành <strong>tỉnh Hà Bắc</strong> (tên do Bác Hồ và Trung ương đặt), tỉnh lỵ tại thị xã Bắc Giang. Tồn tại hơn 33 năm.</p>
+        </div>
+      </div>
+
+      <div class="item right">
+        <div class="content">
+          <h2>Tái lập hai tỉnh riêng biệt</h2>
+          <p>Ngày 6/11/1996: Quốc hội khóa IX quyết định chia tách tỉnh Hà Bắc, tái lập:</p>
+          <ul>
+            <li>Tỉnh Bắc Giang (từ 1/1/1997)</li>
+            <li>Tỉnh Bắc Ninh (từ 1/1/1997)</li>
+          </ul>
+          <p>Kể từ đó đến nay (2026), hai tỉnh phát triển mạnh mẽ về công nghiệp và đô thị hóa, nhưng vẫn giữ mối liên hệ văn hóa sâu sắc.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 style="text-align:center; margin: 60px 0 30px;">Những nét văn hóa – lịch sử nổi bật chung</h2>
+
+    <div class="gallery">
+      <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2023/5/20/1194672/Nha-Hat-Quan-Ho-BN-1.jpg" alt="Biểu diễn dân ca quan họ Bắc Ninh">
+      <img src="https://pystravel.vn/_next/image?url=https%3A%2F%2Fbooking.pystravel.vn%2Fuploads%2Fposts%2Favatar%2F1735966239.jpg&w=3840&q=75" alt="Chùa Vĩnh Nghiêm Bắc Giang cổ kính">
+      <img src="https://sinhtour.vn/wp-content/uploads/2024/12/thanh-co-luy-lau.jpg" alt="Di tích Luy Lâu - Kinh đô cổ">
+      <img src="https://www2.thesaigontimes.vn/wp-content/uploadsgtt/2023/08/den-do-6.jpg" alt="Đền thờ 8 vị vua nhà Lý ở Bắc Ninh">
+    </div>
+
+    <p style="text-align:center; font-style:italic; margin-top:40px;">
+      Bắc Giang và Bắc Ninh – chung nguồn gốc từ vùng Kinh Bắc, từng là một, chia rồi hợp, hợp rồi chia, nhưng tình cảm văn hóa luôn gắn bó keo sơn.
+    </p>
+
+    <footer>
+      Nguồn tư liệu lịch sử tổng hợp • Cập nhật đến năm 2026
+    </footer>
+  </div>
+
+</body>
+</html>
