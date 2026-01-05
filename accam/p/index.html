@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tưởng Nhớ Thiền sư Thích Nhất Hạnh</title>
+  <style>
+    :root {
+      --primary: #2e7d32;     /* xanh lá nhẹ nhàng của Làng Mai */
+      --soft-bg: #f5f9f5;
+      --text: #1b5e20;
+      --light: #e8f5e9;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #ffffff);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+      position: relative;
+    }
+    
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    
+    header .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+    
+    .content {
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--primary);
+      margin: 40px 0;
+      padding: 0 20px;
+      position: relative;
+    }
+    
+    .quote::before,
+    .quote::after {
+      content: '“';
+      font-size: 4rem;
+      opacity: 0.15;
+      position: absolute;
+      font-family: Georgia, serif;
+    }
+    
+    .quote::before { left: -10px; top: -20px; }
+    .quote::after { right: -10px; bottom: -40px; transform: rotate(180deg); }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 50px 0;
+    }
+    
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.04);
+    }
+    
+    .signature {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-top: 50px;
+      font-style: italic;
+    }
+    
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95rem;
+    }
+    
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2rem; }
+      .quote { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Thiền sư Thích Nhất Hạnh</h1>
+      <div class="subtitle">1926 – 2022<br>Hòa bình chính là con đường</div>
+    </header>
+
+    <div class="content">
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+        "Hiện tại là khoảnh khắc kỳ diệu nhất."<br>
+        Cảm ơn Thầy vì đã dạy chúng con cách thở, cách bước đi và cách mỉm cười giữa cuộc đời.
+      </p>
+
+      <div class="quote">
+        Không có con đường nào dẫn đến hòa bình.<br>Hòa bình chính là con đường.
+      </div>
+
+      <!-- Phần gallery ảnh đẹp của Thầy -->
+      <div class="gallery">
+        <img src="https://www.lionsroar.com/wp-content/uploads/2022/03/20140610-39-Thich-Nhat-Hanh-leading-walking-meditation-through-pines-legendary-path-son-ha-2014-june-PHOTO-PVCEB-Cropped.jpg" alt="Thầy dẫn dắt thiền hành">
+        <img src="https://tricycle.org/wp-content/uploads/2022/01/walking-meditation-tnh-1024x612.jpg" alt="Thiền hành an lạc">
+        <img src="https://plumvillage.org/wp-content/uploads/2019/03/Thay-Leading-Walking-Meditation.png" alt="Cộng đồng Làng Mai">
+        <img src="https://utsnyc.edu/wp-content/uploads/2017UnionMedal_FeaturedImage-1.jpeg" alt="Thầy với nụ cười từ bi">
+        <img src="https://downtheforestpath.com/wp-content/uploads/2015/06/thich_nhat_hanh_by-kelvin-cheuk-1024x710.jpg" alt="Thầy cầm hoa">
+        <img src="https://plumvillage.org/wp-content/uploads/2019/10/24-Thich-Nhat-Hanh-at-Tu%CC%9B%CC%80-Hie%CC%82%CC%81u-Temple-in-Hue-2005-Vietnam-PHOTO-%C2%A9-Paul-Davis-1024x820.jpg" alt="Thầy tại chùa Từ Hiếu">
+      </div>
+
+      <div class="signature">
+        Hít vào… tôi biết tôi đang hít vào<br>
+        Thở ra… tôi mỉm cười với Thầy
+      </div>
+    </div>
+
+    <footer>
+      Thầy vẫn đang ở đây, mỗi khi chúng ta thực tập chánh niệm.<br>
+      Namo Avalokiteshvara • Niệm ơn Thầy
+    </footer>
+  </div>
+
+</body>
+</html>
