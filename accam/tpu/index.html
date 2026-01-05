@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Highlands Coffee - Niềm tự hào đất Việt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #8B4513;       /* nâu đậm Highlands */
+      --primary-light: #A67C52;
+      --accent: #D4A373;        /* vàng nhạt */
+      --text: #2D2D2D;
+      --light: #F8F5F0;
+      --gray: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 100px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      margin-bottom: 0.8rem;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .hero .subtitle {
+      font-size: 1.4rem;
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Section */
+    section {
+      padding: 80px 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-text {
+      max-width: 820px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+    }
+
+    /* Challenges */
+    .challenges {
+      background-color: #fff;
+    }
+
+    .challenge-list {
+      list-style: none;
+      counter-reset: challenge;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .challenge-list li {
+      counter-increment: challenge;
+      position: relative;
+      padding: 28px 28px 28px 70px;
+      margin-bottom: 20px;
+      background: var(--light);
+      border-radius: 12px;
+      border-left: 6px solid var(--primary);
+    }
+
+    .challenge-list li::before {
+      content: counter(challenge);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    footer h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 15px 80px;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <span class="badge">Từ 1999 - Niềm tự hào đất Việt</span>
+      <h1>Highlands Coffee</h1>
+      <p class="subtitle">Chuỗi cà phê lớn nhất Việt Nam – nơi hội tụ tinh hoa cà phê Việt và phong cách hiện đại</p>
+    </div>
+  </header>
+
+  <!-- Giới thiệu -->
+  <section class="container">
+    <h2>Về Highlands Coffee</h2>
+    <p class="intro-text">
+      Thành lập năm 1999 tại Hà Nội bởi doanh nhân Việt kiều David Thái. Từ sản phẩm cà phê đóng gói, Highlands nhanh chóng trở thành biểu tượng cà phê Việt hiện đại, mang khát vọng nâng tầm giá trị cà phê Việt Nam ra thế giới.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" alt="Cà phê phin Highlands">
+        <div class="card-content">
+          <h3>Bản sắc Việt</h3>
+          <p>Nguyên liệu cà phê & trà chủ yếu từ cao nguyên Việt Nam (Đắk Lắk, Lâm Đồng...)</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&q=80&w=800" alt="Phin Sữa Đá">
+        <div class="card-content">
+          <h3>Signature Drinks</h3>
+          <p>Phin Sữa Đá, PhinDi, Trà Sen Vàng, Freeze Trà Xanh...</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Không gian Highlands">
+        <div class="card-content">
+          <h3>Không gian hiện đại</h3>
+          <p>Rộng rãi, gần gũi – lý tưởng làm việc, gặp gỡ, hẹn hò</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thực trạng 2026 -->
+  <section class="container" style="background-color:#f9f5ee; margin: 40px 0; border-radius:16px; padding:60px 20px;">
+    <h2>Tình hình hiện tại (đầu năm 2026)</h2>
+    <p class="intro-text" style="font-size:1.25rem; font-weight:500; color:var(--primary);">
+      ≈ 900–950 cửa hàng tại Việt Nam • Top 1 về số lượng • Vẫn tiếp tục mở rộng mạnh mẽ
+    </p>
+  </section>
+
+  <!-- Thách thức -->
+  <section class="challenges container">
+    <h2>Thách thức hiện nay</h2>
+    <ol class="challenge-list">
+      <li><strong>Cạnh tranh khốc liệt</strong> – Starbucks, The Coffee House, Phúc Long, Katinat, Trung Nguyên Legend, Cộng...</li>
+      <li><strong>Bản sắc thương hiệu</strong> – Một bộ phận khách hàng tiếc nuối "hồn Việt" sau khi thuộc Jollibee</li>
+      <li><strong>Chất lượng đồng đều</strong> – Khó duy trì trải nghiệm ổn định khi có hàng trăm cửa hàng nhượng quyền</li>
+      <li><strong>Áp lực giá cả</strong> – Phân khúc trung-cao trong bối cảnh kinh tế khó khăn</li>
+      <li><strong>Yếu tố môi trường</strong> – Ly nhựa dùng một lần vẫn bị chỉ trích bởi Gen Z</li>
+    </ol>
+  </section>
+
+  <!-- Kết luận -->
+  <footer>
+    <div class="container">
+      <h2>Highlands Coffee</h2>
+      <p style="font-size:1.2rem; max-width:680px; margin:0 auto 1.5rem;">
+        Vẫn là "ông lớn" không thể thay thế trong văn hóa cà phê Việt hiện đại.<br>
+        Tương lai phụ thuộc vào việc giữ gìn bản sắc và đáp ứng kỳ vọng mới của thế hệ trẻ.
+      </p>
+      <p style="opacity:0.9; font-size:0.95rem;">
+        &copy; 2026 - Highlands Coffee - Nâng tầm cà phê Việt
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
