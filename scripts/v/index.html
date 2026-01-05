@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tương thích ngược (Backward Compatibility) - Giải thích chi tiết</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #1f2937;
+      --text-light: #4b5563;
+      --border: #e5e7eb;
+    }
+    
+    [data-theme="dark"] {
+      --bg: #111827;
+      --card: #1f2937;
+      --text: #f3f4f6;
+      --text-light: #9ca3af;
+      --border: #374151;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    header {
+      text-align: center;
+      padding: 3.5rem 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 2.5rem;
+    }
+    
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    
+    .definition {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+      margin-bottom: 2.5rem;
+      border-left: 6px solid var(--primary);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2.5rem 0;
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    }
+    
+    th, td {
+      padding: 1.3rem 1.4rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+    
+    tr:nth-child(even) {
+      background: rgba(0,0,0,0.03);
+    }
+    
+    .levels {
+      display: grid;
+      gap: 1.2rem;
+      margin: 2.5rem 0;
+    }
+    
+    .level-card {
+      background: var(--card);
+      padding: 1.6rem;
+      border-radius: 12px;
+      border-left: 6px solid;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    
+    .level-perfect    { border-color: #10b981; }
+    .level-good       { border-color: #3b82f6; }
+    .level-acceptable { border-color: #f59e0b; }
+    .level-poor       { border-color: #ef4444; }
+    .level-none       { border-color: #6b7280; }
+    
+    .summary {
+      background: linear-gradient(135deg, #8b5cf6, #d946ef);
+      color: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      margin: 3.5rem 0;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    
+    .question {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      margin-top: 3rem;
+      border: 3px dashed var(--primary);
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      thead tr { position: absolute; top: -9999px; left: -9999px; }
+      tr {
+        margin-bottom: 1.8rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+      }
+      td {
+        border: none;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        padding-left: 50%;
+      }
+      td:before {
+        position: absolute;
+        top: 1.3rem;
+        left: 1.4rem;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        content: attr(data-label);
+        color: var(--primary);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tương thích ngược (Backward Compatibility)</h1>
+    <p>Khả năng sản phẩm mới vẫn "chơi được" đồ cũ một cách mượt mà</p>
+  </header>
+
+  <div class="container">
+
+    <div class="definition">
+      <h2>Định nghĩa đơn giản</h2>
+      <p><strong>Tương thích ngược</strong> là khả năng một hệ thống, phần mềm, phần cứng hoặc tiêu chuẩn <strong>mới</strong> vẫn có thể chạy tốt hoặc hỗ trợ những thứ được thiết kế cho các phiên bản <strong>cũ</strong> hơn.</p>
+      <p style="font-size:1.4rem; margin-top:1.8rem; font-weight:700; color:var(--primary);">
+        Nói ngắn gọn: <span style="color:#000;">"Sản phẩm mới vẫn chơi được đồ cũ"</span>
+      </p>
+    </div>
+
+    <h2>Ví dụ thực tế về tương thích ngược</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Lĩnh vực</th>
+          <th>Ví dụ thực tế</th>
+          <th>Mức độ</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Lĩnh vực">CPU Intel/AMD</td>
+          <td data-label="Ví dụ">Core i9-14900K chạy được phần mềm từ năm 2005</td>
+          <td data-label="Mức độ">Rất cao</td>
+          <td data-label="Ghi chú">Hầu như toàn bộ phần mềm x86/x64 từ 30+ năm trước vẫn chạy tốt</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">Windows</td>
+          <td data-label="Ví dụ">Windows 11 vẫn chạy hầu hết phần mềm Windows XP</td>
+          <td data-label="Mức độ">Cao (nhưng giảm dần)</td>
+          <td data-label="Ghi chú">Nhiều phần mềm 16-bit và driver rất cũ đã không còn hỗ trợ</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">Android</td>
+          <td data-label="Ví dụ">Android 15 vẫn chạy app viết cho Android 4.0</td>
+          <td data-label="Mức độ">Trung bình → Cao</td>
+          <td data-label="Ghi chú">Google duy trì tương thích khá tốt, nhưng nhiều app cũ không tối ưu</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">iOS</td>
+          <td data-label="Ví dụ">iOS 18 chạy app từ iOS 9–10 khá ổn</td>
+          <td data-label="Mức độ">Trung bình</td>
+          <td data-label="Ghi chú">Apple thường cắt hỗ trợ nhanh hơn Android</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">PlayStation</td>
+          <td data-label="Ví dụ">PS5 chơi được hầu hết game PS4</td>
+          <td data-label="Mức độ">Rất cao</td>
+          <td data-label="Ghi chú">Một trong những ví dụ tương thích ngược tốt nhất trong console hiện nay</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">USB</td>
+          <td data-label="Ví dụ">USB4 cắm được chuột USB 1.1 năm 1998</td>
+          <td data-label="Mức độ">Cực cao</td>
+          <td data-label="Ghi chú">USB là ví dụ kinh điển về tương thích ngược tuyệt vời</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">Python 3.13</td>
+          <td data-label="Ví dụ">Chạy code Python 2.0 (1990) nếu không dùng print</td>
+          <td data-label="Mức độ">Thấp – trung bình</td>
+          <td data-label="Ghi chú">Python 3 đã phá vỡ tương thích lớn với Python 2</td>
+        </tr>
+        <tr>
+          <td data-label="Lĩnh vực">JavaScript (ES2025)</td>
+          <td data-label="Ví dụ">Chạy code từ ES3 (1999) gần như 100%</td>
+          <td data-label="Mức độ">Cực cao</td>
+          <td data-label="Ghi chú">JS là một trong những ngôn ngữ giữ tương thích ngược tốt nhất</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Các mức độ tương thích ngược phổ biến</h2>
+    
+    <div class="levels">
+      <div class="level-card level-perfect">
+        <h3>Hoàn hảo</h3>
+        <p>Chạy y chang, không cần sửa gì (như USB, x86, PS5 với PS4)</p>
+      </div>
+      
+      <div class="level-card level-good">
+        <h3>Tốt</h3>
+        <p>Chạy được, có thể chậm hơn hoặc thiếu vài tính năng mới</p>
+      </div>
+      
+      <div class="level-card level-acceptable">
+        <h3>Chấp nhận được</h3>
+        <p>Chạy được sau khi sửa nhẹ / dùng polyfill / chế độ compatibility</p>
+      </div>
+      
+      <div class="level-card level-poor">
+        <h3>Kém</h3>
+        <p>Phải sửa nhiều code, hoặc phải dùng emulator/layer trung gian</p>
+      </div>
+      
+      <div class="level-card level-none">
+        <h3>Không còn</h3>
+        <p>Phá vỡ hoàn toàn (như Python 2 → 3, Flash → HTML5, 32-bit → 64-bit macOS)</p>
+      </div>
+    </div>
+
+    <div class="summary">
+      Khi nghe ai đó hỏi: "Cái này có tương thích ngược không?"<br>
+      → Họ đang hỏi: "Nếu nâng cấp lên phiên bản mới thì đồ cũ / code cũ / game cũ / thiết bị cũ của mình có còn xài được không?"
+    </div>
+
+    <div class="question">
+      <h2>Bạn đang quan tâm đến lĩnh vực nào?</h2>
+      <p>Game • Phần mềm • Phần cứng • Ngôn ngữ lập trình • Web • Mobile...<br>
+      Comment bên dưới để mình giải thích chi tiết hơn cho trường hợp bạn quan tâm nhé! 🚀</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
