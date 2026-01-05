@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Có cái lồn - Các phiên bản kinh điển</title>
+  <style>
+    :root {
+      --bg: #0f0f11;
+      --card: #1a1a1e;
+      --text: #e0e0e0;
+      --accent: #ff2d55;
+      --accent-dark: #d91e44;
+      --border: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 1.8rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,45,85,0.4);
+    }
+
+    .warning {
+      background: rgba(255, 45, 85, 0.12);
+      border: 1px solid rgba(255,45,85,0.4);
+      color: #ff758f;
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .level {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 2.5rem 0 1.2rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .level::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 25px rgba(255,45,85,0.18);
+    }
+
+    .phrase {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.5;
+      word-break: break-word;
+      color: #f0f0f0;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.08);
+      color: #aaa;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255,45,85,0.25);
+      color: white;
+    }
+
+    .copy-btn.copied {
+      background: #28a745;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 2rem; }
+      .phrase { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>CÓ CÁI LỒN<br>Các phiên bản kinh điển</h1>
+
+  <div class="warning">
+    Dùng xong nhớ block + ẩn nick gấp!<br>
+    Dễ report lắm nha anh em 𓀀
+  </div>
+
+  <!-- Level 1 -->
+  <div class="level">CƠ BẢN - PHỔ BIẾN NHẤT</div>
+  <div class="card">
+    <button class="copy-btn" data-clipboard="Có cái lồn mà đòi địt con bà mày à thằng chó">Copy</button>
+    <div class="phrase">
+      "Có cái lồn mà đòi địt con bà mày à thằng chó"
+    </div>
+  </div>
+
+  <!-- Level 2 -->
+  <div class="level">RÚT GỌN - NHANH GỌN</div>
+  <div class="card">
+    <button class="copy-btn" data-clipboard="Có cái lồn địt con bà mày">Copy</button>
+    <div class="phrase">
+      "Có cái lồn địt con bà mày"
+    </div>
+  </div>
+
+  <!-- Level 3 -->
+  <div class="level">THÊM THẮT CHO CAY</div>
+  <div class="card">
+    <button class="copy-btn" data-clipboard="Có cái lồn gì mà lên đây sủa bậy, địt con bà mày cái loại như mày">Copy</button>
+    <div class="phrase">
+      "Có cái lồn gì mà lên đây sủa bậy, địt con bà mày cái loại như mày"
+    </div>
+  </div>
+
+  <!-- Level 4 -->
+  <div class="level">KINH ĐIỂN - ĐẦY ĐỦ NHẤT (max căng)</div>
+  <div class="card">
+    <button class="copy-btn" data-clipboard="Có cái lồn gì mà đòi lên đây dạy đời? Địt mẹ con bà mày cái thằng/đứa đê tiện">Copy</button>
+    <div class="phrase">
+      "Có cái lồn gì mà đòi lên đây dạy đời?<br>Địt mẹ con bà mày cái thằng/đứa đê tiện"
+    </div>
+  </div>
+
+  <!-- Level 5 -->
+  <div class="level">COMBO ĐẦU BUỒI (full combo)</div>
+  <div class="card">
+    <button class="copy-btn" data-clipboard="Có cái lồn + đầu buồi gì mà lên đây sủa? Địt con bà mày luôn">Copy</button>
+    <div class="phrase">
+      "Có cái lồn + đầu buồi gì mà lên đây sủa?<br>Địt con bà mày luôn"
+    </div>
+  </div>
+
+  <footer>
+    Tùy mức độ "chơi tới bến" mà chọn phiên bản nhé • 2026
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.getAttribute('data-clipboard');
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Đã copy!';
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
