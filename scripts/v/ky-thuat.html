@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kỹ Thuật - Engineering Là Gì?</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #0066cc;
+      --primary-dark: #004c99;
+      --light: #f8f9fa;
+      --dark: #1d2530;
+      --gray: #6c757d;
+      --success: #28a745;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      color: var(--primary-dark);
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--gray);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary);
+      padding-left: 15px;
+    }
+
+    .definition {
+      font-size: 1.15rem;
+      background: #f1f8ff;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      margin: 20px 0;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .card-compare {
+      background: #f8f9fa;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .card-compare:hover {
+      background: #e9f3ff;
+      transform: translateY(-5px);
+    }
+
+    .card-compare i {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .card-compare h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 1.02rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fbff;
+    }
+
+    tr:hover {
+      background: #edf5ff;
+      transition: background 0.2s;
+    }
+
+    .hot-trends {
+      background: linear-gradient(135deg, #28a74522 0%, #20c99722 100%);
+      border: 2px solid #28a745;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .hot-trends h3 {
+      color: #1e7e34;
+      margin-bottom: 15px;
+    }
+
+    .hot-trends ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .hot-trends li {
+      padding: 10px 0;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hot-trends li::before {
+      content: "▶";
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1.3rem;
+      color: #444;
+    }
+
+    .cta a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .cta a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      .section { padding: 24px; }
+      table { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Kỹ Thuật (Engineering)</h1>
+      <p class="subtitle">Ứng dụng khoa học và sáng tạo để giải quyết vấn đề thực tế một cách hiệu quả, an toàn và kinh tế</p>
+    </header>
+
+    <div class="section">
+      <h2>Định nghĩa</h2>
+      <div class="definition">
+        Kỹ thuật là việc <strong>ứng dụng sáng tạo</strong> các nguyên lý khoa học cùng với kiến thức toán học, kinh nghiệm thực tiễn để <strong>thiết kế, chế tạo, vận hành, bảo trì và cải tiến</strong> các máy móc, công trình, hệ thống, quy trình... nhằm giải quyết các vấn đề thực tế một cách <strong>hiệu quả, an toàn và kinh tế nhất</strong>.
+      </div>
+
+      <p style="font-size: 1.1rem; margin-top: 20px;">
+        <strong>Định nghĩa phổ biến hiện đại ở Việt Nam (2025–2026):</strong><br>
+        Kỹ thuật là việc ứng dụng các nguyên lý khoa học vào việc thiết kế hay phát triển các cấu trúc, máy móc, công cụ, quy trình chế tạo, hay công trình... một cách <strong>sáng tạo và hiệu quả</strong>.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Kỹ thuật khác gì với...</h2>
+      <div class="comparison">
+        <div class="card-compare">
+          <i class="fas fa-flask"></i>
+          <h3>Khoa học</h3>
+          <p>Tìm hiểu bản chất, quy luật của tự nhiên<br><strong>Hỏi "Tại sao?"</strong></p>
+        </div>
+
+        <div class="card-compare">
+          <i class="fas fa-cogs"></i>
+          <h3>Kỹ thuật</h3>
+          <p>Ứng dụng khoa học để tạo ra giải pháp thực tế<br><strong>Hỏi "Làm thế nào?"</strong></p>
+        </div>
+
+        <div class="card-compare">
+          <i class="fas fa-rocket"></i>
+          <h3>Công nghệ</h3>
+          <p>Kết quả cụ thể, sản phẩm/dịch vụ đã được áp dụng rộng rãi & thương mại hóa</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Các ngành kỹ thuật phổ biến hiện nay (2025–2026)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Ngành kỹ thuật</th>
+            <th>Công việc chính</th>
+            <th>Ví dụ sản phẩm/công trình</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Kỹ thuật cơ khí</td><td>Thiết kế, chế tạo máy móc, robot, ô tô, máy bay</td><td>Xe hơi, robot công nghiệp, động cơ</td></tr>
+          <tr><td>2</td><td>Kỹ thuật điện - điện tử</td><td>Thiết kế mạch điện, chip, hệ thống điều khiển</td><td>Điện thoại, chip AI, lưới điện thông minh</td></tr>
+          <tr><td>3</td><td>Kỹ thuật xây dựng / dân dụng</td><td>Thiết kế, thi công cầu đường, tòa nhà, hạ tầng</td><td>Cầu vượt, chung cư, đập thủy điện</td></tr>
+          <tr><td>4</td><td>Kỹ thuật phần mềm / CNTT</td><td>Lập trình, phát triển phần mềm, AI, an ninh mạng</td><td>App, website, hệ thống AI, blockchain</td></tr>
+          <tr><td>5</td><td>Kỹ thuật hóa học</td><td>Quy trình sản xuất hóa chất, vật liệu mới, xử lý môi trường</td><td>Nhựa, phân bón, pin lithium, nhiên liệu sạch</td></tr>
+          <tr><td>6</td><td>Kỹ thuật ô tô</td><td>Thiết kế xe, xe điện, xe tự hành</td><td>Xe Tesla, VinFast, xe tự lái</td></tr>
+          <tr><td>7</td><td>Kỹ thuật hàng không - vũ trụ</td><td>Thiết kế máy bay, vệ tinh, tên lửa</td><td>Máy bay Boeing, vệ tinh Viettel, Starship</td></tr>
+          <tr><td>8</td><td>Kỹ thuật y sinh</td><td>Thiết bị y tế, robot phẫu thuật, in 3D cơ quan</td><td>Máy MRI, tay robot phẫu thuật, chân giả thông minh</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section hot-trends">
+      <h3>Lĩnh vực "hot" & thiếu người nhất ở Việt Nam (2026)</h3>
+      <ul>
+        <li>Kỹ thuật phần mềm & AI</li>
+        <li>Kỹ thuật điện tử & bán dẫn</li>
+        <li>Kỹ thuật cơ điện tử & robot</li>
+        <li>Kỹ thuật năng lượng tái tạo & xe điện</li>
+      </ul>
+    </div>
+
+    <div class="cta">
+      Bạn đang quan tâm đến ngành nào nhất?<br>
+      Cơ khí, Điện – Điện tử, IT/AI, Xây dựng, Ô tô, Năng lượng tái tạo...?<br>
+      <br>Nói thêm để mình hỗ trợ chi tiết hơn nhé! 🚀
+    </div>
+  </div>
+
+</body>
+</html>
