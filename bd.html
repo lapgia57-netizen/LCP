@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lý Sự Level Max</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f 0%, #2a1a3a 100%);
+      color: #f0f0ff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 520px;
+      background: rgba(30, 30, 50, 0.75);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 32px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin: 0 0 8px;
+      background: linear-gradient(90deg, #ff6bcb, #c758ff, #7b5eff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #a0a0ff;
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+    }
+
+    .lysu-item {
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 16px;
+      border-left: 5px solid #ff6bcb;
+      transition: all 0.3s ease;
+    }
+
+    .lysu-item:hover {
+      transform: translateX(8px);
+      background: rgba(255,107,203,0.15);
+    }
+
+    .lysu-item strong {
+      color: #ff9edb;
+      font-weight: 700;
+    }
+
+    .level-text {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #c758ff;
+    }
+
+    .ending {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #a78bfa;
+      padding: 20px;
+      border-top: 1px solid rgba(167,139,250,0.3);
+    }
+
+    .ending span {
+      color: #ff6bcb;
+      font-weight: bold;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>LÝ SỰ</h1>
+  <div class="subtitle">Nghệ thuật cãi dù biết mình sai</div>
+
+  <div class="lysu-item">
+    <div class="level-text">Level Max</div>
+    <strong>"Em không có ghen đâu, em chỉ... hỏi cho rõ thôi"</strong>
+  </div>
+
+  <div class="lysu-item">
+    <div class="level-text">Cấp quốc gia</div>
+    <strong>"Anh không say, anh chỉ... hơi bị nhiều men thôi"</strong>
+  </div>
+
+  <div class="lysu-item">
+    <div class="level-text">Cảnh giới thượng thừa</div>
+    <strong>"Em im lặng không phải giận, em chỉ đang... sắp xếp lại từ ngữ để nói cho lịch sự hơn"</strong>
+  </div>
+
+  <div class="ending">
+    Người bình thường → cãi vì tin là đúng<br>
+    Người <span>lý sự</span> → cãi vì... đã lỡ cãi rồi, giờ phải cãi cho xong<br><br>
+    Mày đang kể tội ai hay đang <span>tự kiểm điểm</span> bản thân vậy? 😏
+  </div>
+</div>
+
+</body>
+</html>
