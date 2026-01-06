@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tại sao không có danh sách công nhân công khai?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --red-600: #dc2626;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--gray-50);
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .alert-box {
+      background-color: #fef2f2;
+      border-left: 5px solid var(--red-600);
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      font-weight: 500;
+      color: #7f1d1d;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    h3 {
+      color: var(--gray-800);
+      font-size: 1.25rem;
+      margin: 1.75rem 0 1rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    ul li {
+      padding-left: 1.75rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+
+    ul li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .company-item {
+      background: var(--gray-50);
+      padding: 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .company-item strong {
+      color: var(--primary-dark);
+    }
+
+    .highlight {
+      background-color: #eff6ff;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      color: #1e40af;
+    }
+
+    .section-footer {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.875rem; }
+      .container { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Tại sao không có danh sách công nhân công khai?</h1>
+    <p class="subtitle">Thông tin nhân viên là dữ liệu cá nhân nhạy cảm được pháp luật Việt Nam bảo vệ nghiêm ngặt</p>
+  </header>
+
+  <div class="alert-box">
+    <strong>Không công ty nào được phép công khai danh sách toàn bộ công nhân/cán bộ nhân viên</strong> — dù là Samsung, Intel, Murata hay bất kỳ doanh nghiệp FDI nào tại Việt Nam.
+  </div>
+
+  <div class="card">
+    <h2>Lý do chính</h2>
+    <ul>
+      <li>Bảo vệ <strong>quyền riêng tư</strong> cá nhân theo Luật An ninh mạng & Luật Bảo vệ dữ liệu cá nhân</li>
+      <li>Là <strong>tài liệu nội bộ</strong> nghiêm ngặt, chỉ HR và Ban lãnh đạo được truy cập</li>
+      <li>Việc rò rỉ/công khai có thể bị xử lý <strong>hành chính hoặc hình sự</strong></li>
+      <li>Các nhà máy lớn có quy mô <strong>hàng chục đến hàng trăm nghìn</strong> người → không khả thi và không cần thiết để công khai</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Quy mô nhân sự ước tính (cập nhật gần nhất 2024–2025)</h2>
+    
+    <div class="company-grid">
+      <div class="company-item">
+        <strong>Samsung Việt Nam</strong><br>
+        <span class="highlight">~150.000 – 200.000 người</span><br>
+        (lớn nhất trong ngành điện tử tại Việt Nam)
+      </div>
+      
+      <div class="company-item">
+        <strong>Murata Electronics Việt Nam</strong><br>
+        <span class="highlight">> 10.000 công nhân</span>
+      </div>
+      
+      <div class="company-item">
+        <strong>Samsung Electro-Mechanics Việt Nam (SEMV)</strong><br>
+        <span class="highlight">Hàng chục nghìn người</span>
+      </div>
+      
+      <div class="company-item">
+        <strong>Intel Việt Nam</strong><br>
+        <span class="highlight">Hàng nghìn</span> (chủ yếu kỹ sư & kỹ thuật cao)
+      </div>
+      
+      <div class="company-item">
+        <strong>TDK & Kyocera Việt Nam</strong><br>
+        <span class="highlight">~3.000 – 4.000 người mỗi công ty</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Nếu bạn cần thông tin thay thế, hãy tham khảo:</h2>
+    
+    <h3>→ Tìm việc làm / Tuyển dụng</h3>
+    <p>VietnamWorks • TopCV • JobStreet • Trang tuyển dụng chính thức của từng công ty (Samsung Careers, Murata, TDK…)</p>
+
+    <h3>→ Thống kê ngành điện tử Việt Nam</h3>
+    <p>Tổng ngành hiện sử dụng <strong>hàng triệu lao động</strong>, tập trung mạnh ở:<br>
+    Bắc Ninh • Thái Nguyên • Bình Dương • Đồng Nai • TP. Hồ Chí Minh</p>
+
+    <h3>→ Danh sách công ty (không có danh sách nhân viên)</h3>
+    <p>Cổng thông tin quốc gia về đăng ký doanh nghiệp • Trang Vàng Việt Nam</p>
+
+    <a href="https://dangkykinhdoanh.gov.vn" target="_blank" class="btn">Tra cứu doanh nghiệp ngay →</a>
+  </div>
+
+  <div class="section-footer">
+    <p>Nếu bạn đang tìm thông tin để <strong>tuyển dụng</strong>, <strong>nghiên cứu ngành</strong> hoặc <strong>tìm việc làm</strong>,<br>
+    hãy cho mình biết cụ thể hơn để hỗ trợ chi tiết nhé!</p>
+  </div>
+</div>
+
+</body>
+</html>
