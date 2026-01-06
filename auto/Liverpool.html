@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Living Standard - Tiêu chuẩn "sống" của Web 2026</title>
+  <meta name="description" content="Tìm hiểu HTML Living Standard - cách tiêu chuẩn HTML được phát triển liên tục bởi WHATWG"/>
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --primary: #0066cc;
+      --secondary: #0052a3;
+      --card: #f8f9fa;
+      --border: #ddd;
+      --code-bg: #f4f4f4;
+    }
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --primary: #4da6ff;
+      --secondary: #3399ff;
+      --card: #1e1e1e;
+      --border: #333;
+      --code-bg: #2d2d2d;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.4s, color 0.4s;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 0 2rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+    .theme-toggle:hover { transform: scale(1.05); }
+    section {
+      margin: 4rem 0;
+      padding: 2.5rem;
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-size: 2.2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.98rem;
+    }
+    th, td {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    th {
+      background: var(--primary);
+      color: white;
+    }
+    tr:nth-child(even) { background: rgba(0,0,0,0.03); }
+    .highlight {
+      background: var(--primary);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1.2rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    .gallery img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.03); }
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: #888;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      section { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+  <header>
+    <div class="container">
+      <h1>HTML Living Standard</h1>
+      <p class="subtitle">Tiêu chuẩn "sống" của Web hiện đại – 2026</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Living Standard là gì?</h2>
+      <p>
+        <strong>Living Standard</strong> nghĩa là tiêu chuẩn HTML luôn "sống", được cập nhật <strong>liên tục</strong> mà không có phiên bản cố định (không còn HTML5.1, HTML5.2...).
+      </p>
+      <p>Chỉ có <span class="highlight">một HTML duy nhất</span>, luôn phát triển hàng ngày/tuần/tháng bởi <strong>WHATWG</strong>.</p>
+      <p>Trang chính thức: <a href="https://html.spec.whatwg.org/" target="_blank">html.spec.whatwg.org</a></p>
+
+      <!-- Minh họa giao diện spec WHATWG -->
+      <div class="gallery">
+        <img src="https://i0.wp.com/frontendmasters.com/blog/wp-content/uploads/2025/04/Screenshot-2025-04-29-at-11.34.15%E2%80%AFAM.png?resize=1024%2C551&ssl=1" alt="Giao diện HTML Living Standard WHATWG" />
+        <img src="https://images.netpeak.net/blog/image51738838564png.webp" alt="Semantic HTML documentation example" />
+      </div>
+    </section>
+
+    <section>
+      <h2>So sánh Living Standard vs Cách cũ (W3C)</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Tiêu chí</th>
+            <th>Cách cũ (W3C trước 2019)</th>
+            <th>Living Standard (WHATWG hiện tại)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tên phiên bản</td>
+            <td>HTML4.01, XHTML, HTML5, HTML5.1…</td>
+            <td>Chỉ gọi là <strong>HTML</strong> (không số phiên bản)</td>
+          </tr>
+          <tr>
+            <td>Tần suất cập nhật</td>
+            <td>Rất chậm, vài năm mới ra 1 phiên bản</td>
+            <td>Liên tục, hàng ngày/tuần/tháng</td>
+          </tr>
+          <tr>
+            <td>Trạng thái</td>
+            <td>"Hoàn thành" rồi đóng băng</td>
+            <td>Luôn đang phát triển ("living")</td>
+          </tr>
+          <tr>
+            <td>Ai làm chính</td>
+            <td>W3C</td>
+            <td>WHATWG (Apple, Google, Mozilla, Microsoft)</td>
+          </tr>
+          <tr>
+            <td>Tài liệu tham khảo</td>
+            <td>Nhiều bản riêng lẻ</td>
+            <td>Một tài liệu duy nhất & luôn mới nhất</td>
+          </tr>
+          <tr>
+            <td>Tính thực tế</td>
+            <td>Thường lạc hậu so với trình duyệt</td>
+            <td>Gần sát nhất với trình duyệt thực tế</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Minh họa so sánh -->
+      <div class="gallery">
+        <img src="https://www.wscubetech.com/blog/wp-content/uploads/2024/02/html-and-html5.webp" alt="So sánh HTML vs HTML5" style="max-width: 780px;" />
+      </div>
+    </section>
+
+    <section>
+      <h2>Tại sao lại chuyển sang Living Standard?</h2>
+      <ul>
+        <li>Web phát triển cực nhanh → trình duyệt thêm tính năng liên tục</li>
+        <li>Developer cần dùng ngay tính năng mới</li>
+        <li>Chờ phiên bản "chính thức" mất nhiều năm → không theo kịp</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">
+        → <strong>Giải pháp</strong>: Tiêu chuẩn chính là những gì trình duyệt <strong>đang thực sự triển khai</strong> và cập nhật mỗi ngày!
+      </p>
+    </section>
+
+    <section>
+      <h2>Tóm tắt cho người mới (2026)</h2>
+      <div style="font-size: 1.3rem; font-weight: bold; text-align: center; padding: 2rem; background: rgba(0,102,204,0.1); border-radius: 12px;">
+        Khi học HTML năm 2026:<br>
+        → Bạn đang học <span class="highlight">HTML Living Standard</span><br>
+        → Không cần nhớ phiên bản số nữa<br>
+        → Chỉ cần theo <a href="https://html.spec.whatwg.org/" target="_blank">WHATWG spec</a> là đủ!
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 - HTML Living Standard • Thiết kế UI/UX đơn giản & hiện đại</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      
+      const btn = document.querySelector('.theme-toggle');
+      btn.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+  </script>
+</body>
+</html>
