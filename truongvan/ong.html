@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mù Cang Chải - Thiên đường ruộng bậc thang Tây Bắc</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #4caf50;
+      --text: #333;
+      --light: #f5f5f5;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/shutterstock2246073829-1701309980693.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    .intro {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section {
+      padding: 60px 0;
+    }
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.4rem;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .meaning {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin: 0 auto;
+      max-width: 900px;
+    }
+    .meaning p {
+      font-size: 1.15rem;
+    }
+    .highlight {
+      color: #d81b60;
+      font-weight: bold;
+    }
+    .carousel {
+      margin: 40px 0;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+    }
+    .season-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin: 40px 0;
+    }
+    .season-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .season-card:hover {
+      transform: translateY(-8px);
+    }
+    .season-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+    }
+    .places {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .place-item {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .place-item strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+    .note {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin: 40px 0;
+      font-size: 1.1rem;
+    }
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+    @media (max-width: 768px) {
+      header { padding: 90px 15px 60px; }
+      header h1 { font-size: 2.4rem; }
+      .carousel-item img { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Mù Cang Chải</h1>
+      <p class="intro">Thiên đường ruộng bậc thang hùng vĩ • Tây Bắc Việt Nam</p>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="meaning">
+      <h2>Ý nghĩa tên gọi "Mù Cang Chải"</h2>
+      <p>Trong tiếng dân tộc <strong>H'Mông</strong>:</p>
+      <ul style="margin: 20px 0 20px 30px; font-size: 1.15rem;">
+        <li><strong>Mù (Mồ)</strong> → rừng, gỗ</li>
+        <li><strong>Cang (Căng)</strong> → khô</li>
+        <li><strong>Chải</strong> → đất, làng</li>
+      </ul>
+      <p style="font-size: 1.3rem; text-align: center; margin-top: 25px;">
+        → <span class="highlight">"Đất gỗ khô" hoặc "Làng cây khô"</span><br>
+        Tên gọi phản ánh phần nào sự khắc nghiệt của thiên nhiên nơi đây: núi cao, địa hình hiểm trở, khí hậu lạnh giá mùa đông & khô hanh mùa hè.
+      </p>
+    </div>
+  </section>
+
+  <section style="background:#f9f9f9;">
+    <div class="container">
+      <h2>Vẻ đẹp <span style="color:#e65100;">đốn tim</span> du khách quanh năm</h2>
+      
+      <div class="carousel">
+        <div class="carousel-inner" id="carouselInner">
+          <!-- Mùa lúa chín đẹp nhất - carousel -->
+          <div class="carousel-item"><img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/shutterstock2246073829-1701309980693.jpg" alt="Ruộng bậc thang Mù Cang Chải mùa lúa chín"></div>
+          <div class="carousel-item"><img src="https://media.vov.vn/sites/default/files/styles/large_watermark/public/2022-10/dsc_3081_1.jpg" alt="Mùa vàng rực rỡ"></div>
+          <div class="carousel-item"><img src="https://hoidisanvanhoa.vn/wp-content/uploads/2025/10/mu-cang-chai-mua-lua-chin.jpeg" alt="Mùa lúa chín tuyệt đẹp"></div>
+        </div>
+      </div>
+
+      <div class="season-grid">
+        <div class="season-card">
+          <img src="https://vj-prod-website-cms.s3.ap-southeast-1.amazonaws.com/shutterstock2246073829-1701309980693.jpg" alt="Mùa lúa chín">
+          <div class="card-content">
+            <h3>Mùa lúa chín (tháng 9 – đầu tháng 10)</h3>
+            <p>Ruộng bậc thang vàng rực rỡ như những tấm thảm khổng lồ. Thời điểm đông khách nhất!</p>
+          </div>
+        </div>
+
+        <div class="season-card">
+          <img src="https://zonitrip.com/wp-content/uploads/2020/06/3-1591080710.jpg.webp" alt="Mùa nước đổ">
+          <div class="card-content">
+            <h3>Mùa nước đổ (tháng 5–6)</h3>
+            <p>Thửa ruộng lấp lánh nước, xanh mướt mạ non, cực kỳ sống động.</p>
+          </div>
+        </div>
+
+        <div class="season-card">
+          <img src="https://i.ex-cdn.com/nongnghiepmoitruong.vn/files/content/2025/12/27/a-2-114237_739-144642.jpg" alt="Mùa đông hoa Tớ Dày">
+          <div class="card-content">
+            <h3>Mùa đông & cuối năm (tháng 12–1)</h3>
+            <p>Sương mù giăng lối, hoa Tớ Dày hồng phấn nở rộ, lãng mạn huyền ảo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Những địa điểm "must-visit" kinh điển</h2>
+    <div class="places">
+      <div class="place-item">
+        <strong>La Pán Tẩn</strong>
+        Ruộng bậc thang đẹp bậc nhất – được gọi là <em>"dấu vân tay của trời"</em>.
+        <img src="https://booking.muongthanh.com/upload_images/images/2024%20-%20Nh/H%C3%A0/kham-pha-la-pan-tan-mua-lua-chin.jpg" alt="La Pán Tẩn" style="width:100%; border-radius:8px; margin-top:12px;">
+      </div>
+
+      <div class="place-item">
+        <strong>Đồi Mâm Xôi</strong>
+        Hình dáng uốn lượn độc đáo, check-in sống ảo cực chất!
+        <img src="https://www.kynghidongduong.vn/userfiles/images/Vietnam/mu%20cang%20chai/la-pan-tan-ruong-bac-thang-mu-cang-chai-yen-bai-kynghidongduong.vn%20(01).jpg" alt="Đồi Mâm Xôi" style="width:100%; border-radius:8px; margin-top:12px;">
+      </div>
+
+      <div class="place-item">
+        <strong>Đèo Khau Phạ</strong>
+        Một trong "tứ đại đỉnh đèo" Tây Bắc, có thể bay dù lượn ngắm toàn cảnh.
+        <img src="https://namthientravel.com.vn/wp-content/uploads/2025/10/Deo-Khau-Pha-1.webp" alt="Đèo Khau Phạ" style="width:100%; border-radius:8px; margin-top:12px;">
+      </div>
+
+      <div class="place-item">
+        <strong>Khác:</strong> Thác Mơ, bản Thái Tú Lệ, suối khoáng nóng...
+      </div>
+    </div>
+
+    <p class="note">Nếu bạn đang tính đi Mù Cang Chải thì nhớ chuẩn bị sức khỏe tốt vì đường đèo dốc nhiều nhé! Bạn định đi mùa nào vậy? Hay chỉ đang "ngắm nghía" online thôi? 🌾✨</p>
+  </section>
+
+  <footer>
+    <p>Mù Cang Chải – Nơi thiên nhiên vẽ nên những bức tranh tuyệt mỹ nhất Tây Bắc Việt Nam</p>
+  </footer>
+
+  <!-- Carousel đơn giản (tự chạy) -->
+  <script>
+    const inner = document.getElementById('carouselInner');
+    let index = 0;
+    const total = inner.children.length;
+
+    setInterval(() => {
+      index = (index + 1) % total;
+      inner.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000);
+  </script>
+
+</body>
+</html>
