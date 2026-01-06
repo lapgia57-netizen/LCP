@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mối Quan Hệ Xã Hội - Độ Phức Tạp Kinh Hoàng</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --text: #1f2937;
+      --text-light: #4b5563;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .dunbar-highlight {
+      background: linear-gradient(135deg, #f3e8ff, #e0e7ff);
+      padding: 1.4rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      margin: 1.5rem 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.8rem 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    tr:hover {
+      background: #f1f5f9;
+    }
+
+    .level-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .level-list li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .level-list li::before {
+      content: attr(data-level);
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .conclusion {
+      background: #fef3f2;
+      padding: 1.6rem;
+      border-radius: 12px;
+      border-left: 5px solid #ef4444;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      table, th, td {
+        font-size: 0.92rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Mối quan hệ xã hội phức tạp đến mức… kinh khủng</h1>
+  
+  <p class="intro">Phức tạp hơn rất nhiều so với những gì hầu hết chúng ta nghĩ hàng ngày.</p>
+
+  <div class="section">
+    <h2>1. Giới hạn sinh học – Não bộ có "dung lượng" giới hạn</h2>
+    <p>Nhà nhân chủng học Robin Dunbar đã nghiên cứu rất kỹ và đưa ra khái niệm nổi tiếng:</p>
+    
+    <div class="dunbar-highlight">
+      Dunbar's Number ≈ 150
+    </div>
+    
+    <p>Đây là số lượng người trung bình mà một người có thể duy trì mối quan hệ <strong>ổn định, có ý nghĩa</strong>.</p>
+  </div>
+
+  <div class="section">
+    <h3>Mạng lưới xã hội được tổ chức theo các lớp (layers) gần như là quy luật tự nhiên</h3>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Số lượng trung bình</th>
+          <th>Ý nghĩa phổ biến</th>
+          <th>Thời gian & cảm xúc đầu tư</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Intimate support</td>
+          <td>3–5 người</td>
+          <td>Người thân nhất, có thể "khóc cùng"</td>
+          <td>Rất cao</td>
+        </tr>
+        <tr>
+          <td>Close friends</td>
+          <td>10–15 người</td>
+          <td>Bạn thân, hay tâm sự</td>
+          <td>Cao</td>
+        </tr>
+        <tr>
+          <td>Good friends</td>
+          <td>~50 người</td>
+          <td>Bạn khá thân, hay gặp, đi chơi</td>
+          <td>Trung bình – cao</td>
+        </tr>
+        <tr>
+          <td>Meaningful contacts</td>
+          <td>~150 người</td>
+          <td>Người quen biết rõ, chào hỏi, quan tâm</td>
+          <td>Trung bình</td>
+        </tr>
+        <tr>
+          <td>Weak ties / Acquaintances</td>
+          <td>~500 người</td>
+          <td>Người quen mặt, chào hỏi xã giao</td>
+          <td>Thấp</td>
+        </tr>
+        <tr>
+          <td>People you recognize</td>
+          <td>~1500 người</td>
+          <td>Nhận ra mặt, biết tên</td>
+          <td>Rất thấp</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>2. Phức tạp không chỉ ở số lượng, mà ở chất lượng tương tác</h2>
+    <p>Mỗi mối quan hệ là một hệ thống động chứa đựng:</p>
+    <ul>
+      <li>Kỳ vọng hai chiều (thường không khớp nhau)</li>
+      <li>Lịch sử tương tác (lời nói, hành động, tổn thương, ơn nghĩa)</li>
+      <li>Vai trò xã hội thay đổi theo ngữ cảnh</li>
+      <li>Tầng ẩn: ghen tị, cạnh tranh ngầm, thao túng cảm xúc, "mind-reading"</li>
+      <li>Ảnh hưởng của bên thứ ba (bạn của bạn là bạn → hoặc là kẻ thù của bạn)</li>
+    </ul>
+    <p style="margin-top:1rem; font-weight:600;">
+      → Một nhóm chỉ 5 người thân thiết đã có thể tạo ra hàng chục nghìn tương tác tiềm năng.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>3. Thời đại mạng xã hội: Phức tạp hơn chứ không đơn giản hơn</h2>
+    <ul>
+      <li>Chúng ta có thể "kết bạn" hàng nghìn, thậm chí hàng chục nghìn người</li>
+      <li>Nhưng lớp 150 vẫn giữ nguyên → phần còn lại chủ yếu là weak ties hoặc "khán giả"</li>
+      <li>Drama, toxic, ghosting, cancel culture, FOMO… tăng theo cấp số nhân</li>
+      <li>Một status / story / bình luận có thể làm sụp đổ hàng chục mối quan hệ cùng lúc</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Tóm lại – Mức độ "thấm" hàng ngày</h2>
+    <ul class="level-list">
+      <li data-level="5/10">Mối quan hệ gia đình + vài người yêu cũ → đã đủ drama cho cả đời</li>
+      <li data-level="8/10">Làm việc nhóm 10–15 người trong môi trường cạnh tranh</li>
+      <li data-level="9.5/10">Duy trì mạng lưới bạn bè, đồng nghiệp, đối tác, gia đình hai bên… ở tuổi 30+</li>
+      <li data-level="10/10">Làm lãnh đạo, influencer, người của công chúng → quản lý hàng trăm mối quan hệ "ảo" + thật</li>
+    </ul>
+  </div>
+
+  <div class="conclusion">
+    <strong>Nói một cách rất đời thường:</strong><br>
+    Mối quan hệ xã hội phức tạp đến mức… đôi khi chỉ cần một câu nói sai thời điểm là đủ để mất bạn, mất người yêu, mất cơ hội, thậm chí mất luôn cả danh tiếng.
+  </div>
+
+</div>
+
+</body>
+</html>
