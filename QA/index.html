@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA trong Công ty Phần mềm Việt Nam 2026</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --light-bg: #f8fafc;
+            --card-bg: white;
+            --text: #1f2937;
+            --text-light: #4b5563;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--light-bg);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: var(--primary-dark);
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 12px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        h2 {
+            color: var(--primary);
+            margin-top: 2.5em;
+            border-left: 5px solid var(--primary);
+            padding-left: 12px;
+        }
+        h3 {
+            color: #c026d3;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            padding: 28px;
+            margin-bottom: 32px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 28px 0;
+            font-size: 0.98em;
+        }
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #f1f5f9;
+        }
+        tr:hover {
+            background: #e0f2fe;
+        }
+        .salary-level {
+            font-weight: bold;
+            color: #c026d3;
+        }
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            margin: 28px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        ul {
+            padding-left: 22px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: var(--primary-dark);
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            th { display: none; }
+            tr { margin-bottom: 18px; border: 1px solid #ddd; border-radius: 8px; }
+            td { 
+                display: flex; 
+                justify-content: space-between; 
+                padding: 12px 16px; 
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+            td:before {
+                content: attr(data-label);
+                font-weight: bold;
+                width: 45%;
+                color: var(--primary-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vị trí QA (Quality Assurance) trong các công ty phần mềm<br>Thực tế Việt Nam đầu năm 2026</h1>
+
+        <div class="card">
+            <h2>QA là gì trong công ty phần mềm?</h2>
+            <p>
+                QA (Quality Assurance) chịu trách nhiệm <strong>đảm bảo chất lượng phần mềm</strong> từ giai đoạn đầu đến khi sản phẩm đến tay người dùng.
+            </p>
+            <p>
+                Khác với QC (Quality Control) chỉ tập trung kiểm tra sản phẩm cuối, QA thường tham gia xây dựng quy trình, ngăn ngừa lỗi ngay từ sớm và làm việc chặt chẽ với team Dev, BA, PO.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Các cấp bậc phổ biến của QA/Tester ở Việt Nam (2025–2026)</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cấp bậc</th>
+                        <th>Kinh nghiệm</th>
+                        <th>Mức lương trung bình (VNĐ/tháng)</th>
+                        <th>Công việc chính</th>
+                        <th>Ghi chú phổ biến</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Fresher / Manual Tester</td>
+                        <td data-label="Kinh nghiệm">0–1 năm</td>
+                        <td data-label="Lương">8 – 13 triệu</td>
+                        <td data-label="Công việc">Test thủ công cơ bản, viết test case đơn giản, báo lỗi</td>
+                        <td data-label="Ghi chú">Nhiều công ty outsource tuyển rất nhiều fresher</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Junior QA / Tester</td>
+                        <td data-label="Kinh nghiệm">1–3 năm</td>
+                        <td data-label="Lương">13 – 20 triệu</td>
+                        <td data-label="Công việc">Test thủ công nâng cao, bắt đầu học automation, tham gia Agile/Scrum</td>
+                        <td data-label="Ghi chú">Cầu rất cao, dễ nhảy việc</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Mid-level / QA Engineer</td>
+                        <td data-label="Kinh nghiệm">3–5 năm</td>
+                        <td data-label="Lương">20 – 30 triệu</td>
+                        <td data-label="Công việc">Làm automation test (≥60%), API testing, performance testing cơ bản</td>
+                        <td data-label="Ghi chú">Chuyển hẳn sang automation là bước ngoặt lớn</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Senior QA Engineer</td>
+                        <td data-label="Kinh nghiệm">5–8+ năm</td>
+                        <td data-label="Lương">30 – 50+ triệu</td>
+                        <td data-label="Công việc">Automation framework, test strategy, mentoring, security/performance testing</td>
+                        <td data-label="Ghi chú">Nhiều người remote cho nước ngoài lương 2.000–4.500$</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Test Lead / QA Lead</td>
+                        <td data-label="Kinh nghiệm">6–10+ năm</td>
+                        <td data-label="Lương">40 – 70 triệu</td>
+                        <td data-label="Công việc">Quản lý team 4–12 người, lập kế hoạch test, báo cáo chất lượng dự án</td>
+                        <td data-label="Ghi chú">Thường ở product company hoặc công ty lớn</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Test Manager / QA Manager</td>
+                        <td data-label="Kinh nghiệm">8–12+ năm</td>
+                        <td data-label="Lương">60 – 120+ triệu</td>
+                        <td data-label="Công việc">Xây dựng quy trình QA toàn công ty, quản lý ngân sách, chiến lược chất lượng</td>
+                        <td data-label="Ghi chú">Thường ở công ty lớn hoặc scale-up</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Cấp bậc" class="salary-level">Test Architect / SDET Lead</td>
+                        <td data-label="Kinh nghiệm">8+ năm</td>
+                        <td data-label="Lương">70 – 150+ triệu (hoặc hơn)</td>
+                        <td data-label="Công việc">Thiết kế automation framework phức tạp, tích hợp CI/CD, test ở scale lớn</td>
+                        <td data-label="Ghi chú">Rất hiếm, lương cao nhất trong ngành QA</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="font-size: 0.92em; color: var(--text-light); margin-top: 18px;">
+                * Mức lương mang tính tham khảo, tùy công ty (product/outsource/remote), kỹ năng & tiếng Anh. 
+                Dữ liệu từ ITviec, TopDev, VietnamWorks và báo cáo lương 2025–2026.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Phân loại theo loại công ty (thực tế Việt Nam 2026)</h2>
+            <ul>
+                <li><strong>Công ty Outsourcing</strong> (FPT, TMA, KMS, Axon, NashTech, Global CyberSoft...)<br>
+                    → Tuyển rất nhiều Manual Tester & Junior → Mid<br>
+                    → Làm theo dự án khách nước ngoài → Nhịp độ nhanh, áp lực deadline cao<br>
+                    → Cơ hội học domain phong phú (finance, healthcare, logistics...)</li>
+                <li><strong>Product company Việt Nam</strong> (Tiki, Shopee, MoMo, VNPAY, Misa, Topica, Haravan...)<br>
+                    → Ưu tiên Automation Tester từ Junior trở lên<br>
+                    → Làm sản phẩm dài hạn → Chú trọng chất lượng người dùng thật</li>
+                <li><strong>Công ty nước ngoài / Remote cho US/EU</strong> (từ Việt Nam)<br>
+                    → Senior & Lead rất được săn đón<br>
+                    → Lương thường 2.000 – 5.000 USD/tháng (net)<br>
+                    → Yêu cầu automation mạnh + tiếng Anh tốt</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Xu hướng QA năm 2026 tại Việt Nam</h2>
+            <ul>
+                <li><strong>Automation là bắt buộc</strong> từ Junior trở lên (Playwright, Selenium, Cypress, Appium, Robot Framework...)</li>
+                <li>Shift-left testing → QA tham gia ngay từ requirement, code review</li>
+                <li>AI in Testing đang hot dần (test case generation, tự động fix flaky test)</li>
+                <li>Performance & Security Testing ngày càng được chú trọng</li>
+                <li>Kỹ năng mềm + domain knowledge đang quan trọng ngang kỹ thuật</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Tóm lại</h3>
+            <p>Nếu bạn <strong>mới bắt đầu</strong> → làm Manual Tester Fresher/Junior là con đường dễ nhất để vào ngành IT.</p>
+            <p>Nếu muốn <strong>phát triển lâu dài và lương cao</strong> → nên chuyển sớm sang Automation và nhắm đến Senior → Test Lead hoặc remote cho nước ngoài.</p>
+        </div>
+
+        <div class="footer-note">
+            Bạn đang ở level nào hoặc đang nhắm vị trí cụ thể nào trong QA?<br>
+            Mình có thể tư vấn chi tiết lộ trình + kỹ năng cần học thêm nhé!
+        </div>
+    </div>
+</body>
+</html>
