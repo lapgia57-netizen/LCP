@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generative AI Hot Trends • Đầu năm 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --card: #161b2e;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #7c3aed;
+      --accent-dark: #5b21b6;
+      --green: #10b981;
+      --yellow: #f59e0b;
+      --border: #334155;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(124,58,237,0.12) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(16,185,129,0.08) 0%, transparent 40%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(90deg, #a78bfa, #7c3aed, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+
+    .intro {
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.35);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(124,58,237,0.15), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .category {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .stars {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+
+    .green { color: var(--green); }
+    .yellow { color: var(--yellow); }
+
+    .models {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #c084fc;
+      font-weight: 500;
+    }
+
+    .trends-section {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .trends-title {
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .question {
+      margin-top: 3.5rem;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .btn-option {
+      background: rgba(124,58,237,0.15);
+      color: #d6bcfa;
+      border: 1px solid rgba(124,58,237,0.4);
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-option:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.3rem; }
+      .grid { gap: 1.2rem; }
+      .card { padding: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Generative AI — Hot Trends 2026</h1>
+    <div class="subtitle">Các nhánh AI tạo sinh đang "bùng nổ" nhất đầu năm 2026</div>
+
+    <p class="intro">
+      Generative AI giờ không chỉ phân tích hay dự đoán, mà đã thực sự <strong>tạo ra nội dung mới</strong> ngang tầm hoặc thậm chí vượt qua con người ở nhiều lĩnh vực.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="category">Văn bản</div>
+          <div class="stars green">★★★★★</div>
+        </div>
+        <div class="models">
+          GPT-4o • o1 • o3<br>
+          Claude 3.7/4 • Gemini 2.0/2.5<br>
+          Grok-3 • DeepSeek-R1 • Llama 4 • Qwen 2.5-Max
+        </div>
+        <strong class="highlight">Rất mạnh</strong> — đang dẫn đầu toàn ngành
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="category">Hình ảnh</div>
+          <div class="stars green">★★★★½ – ★★★★★</div>
+        </div>
+        <div class="models">
+          Flux.1 [pro/ultra] <span class="highlight">→ vẫn dẫn đầu thương mại</span><br>
+          Midjourney v7 • SD3.5 • Imagen 4<br>
+          DALL·E 4 • Ideogram 2.0 • Recraft V3
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="category">Video</div>
+          <div class="stars yellow">★★★½ – ★★★★½</div>
+        </div>
+        <div class="models">
+          Kling 2.0 • Runway Gen-4 • Veo 2/3<br>
+          Luma Ray 2 • Pika 2.1 • Sora • Haiper 2
+        </div>
+        <em>Đang tiến cực nhanh</em>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="category">Âm thanh / Nhạc</div>
+          <div class="stars green">★★★★ – ★★★★½</div>
+        </div>
+        <div class="models">
+          ElevenLabs Turbo v2.5<br>
+          Suno v4 • Udio v2 • Stable Audio 2.0
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="category">3D / Mesh / Texture</div>
+          <div class="stars yellow">★★★ – ★★★★</div>
+        </div>
+        <div class="models">
+          Meshy-4 • Tripo 2 • Luma Genie<br>
+          Rodin • CSM-1B • 3D AI Studio
+        </div>
+        <em>Phát triển cực nhanh</em>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="category">Code Generation</div>
+          <div class="stars green">★★★★★</div>
+        </div>
+        <div class="models">
+          Cursor + Claude 3.7/4 • o1/o3<br>
+          GitHub Copilot X • DeepSeek-Coder-V3<br>
+          Qwen2.5-Coder
+        </div>
+        <strong class="highlight">Đã thay đổi cách code mãi mãi</strong>
+      </div>
+
+    </div>
+
+    <div class="trends-section">
+      <h2 class="trends-title">Xu hướng đang cực nóng đầu 2026</h2>
+      <ul>
+        <li><strong>Reasoning + Generation</strong> (o1/o3, Claude 3.7 Thinking, DeepSeek-R1, Gemini 2.5) → chất lượng vượt trội</li>
+        <li><strong>Flux.1 pro/ultra + LoRA</strong> vẫn đè bẹp hầu hết đối thủ về hình ảnh thương mại</li>
+        <li>Video 5–10s gần thực tế đã phổ biến (Kling 2.0, Runway Gen-4, Veo 2 dẫn đầu)</li>
+        <li>AI tạo game + asset 3D bùng nổ (Meshy + Luma + Unity/Unreal)</li>
+        <li>Local / Open-source vẫn cực mạnh: Flux.1-dev, SD3.5, Llama 4, Qwen 2.5, DeepSeek-R1, Phi-4...</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      Bạn đang quan tâm nhất đến mảng nào của Generative AI?
+    </div>
+
+    <div class="options">
+      <button class="btn-option">Viết lách / Chat / Trợ lý</button>
+      <button class="btn-option">Vẽ tranh, thiết kế, concept art</button>
+      <button class="btn-option">Làm video, TikTok, quảng cáo</button>
+      <button class="btn-option">Làm nhạc, lồng tiếng</button>
+      <button class="btn-option">Code, tự động hóa công việc</button>
+      <button class="btn-option">3D, game asset</button>
+      <button class="btn-option">Chạy local trên máy cá nhân</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
