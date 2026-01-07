@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Immunefi - Security OS for the Onchain Economy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f17;
+      --card: #161b22;
+      --text: #e6e6ff;
+      --accent: #00d4ff;
+      --accent-dark: #0099cc;
+      --green: #00ff9d;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+    }
+    .logo {
+      max-width: 320px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(0,212,255,0.4));
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #00d4ff, #00ff9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #a0a0ff;
+      margin-bottom: 40px;
+    }
+    .section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      border: 1px solid #2a2a40;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    h2 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #2a2a40;
+      padding-bottom: 12px;
+    }
+    p, li {
+      font-size: 1.1rem;
+      color: #d0d0ff;
+      margin-bottom: 16px;
+    }
+    .highlight {
+      color: var(--green);
+      font-weight: 600;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #1a1f2e, #121728);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #333366;
+    }
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #2a2a40;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 25px rgba(0,212,255,0.3);
+    }
+    .cta {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      .section { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <img src="https://immunefi.com/opengraph-image.png?b405d7aed11b547a" alt="Immunefi Logo" class="logo">
+      <h1>Immunefi</h1>
+      <div class="subtitle">Security OS for the Onchain Economy</div>
+    </header>
+
+    <div class="section">
+      <h2>Immunefi là gì và hoạt động như thế nào?</h2>
+      <p><strong>Immunefi</strong> là nền tảng bug bounty và bảo mật hàng đầu dành cho <span class="highlight">Web3</span> (còn gọi là "Security OS for the Onchain Economy").</p>
+      <p>Nền tảng chuyên bảo vệ các dự án blockchain, smart contract, DeFi, crypto và các giao thức onchain.</p>
+      <p>Đây là nơi các <strong>security researcher</strong> (whitehat hacker, ethical hacker) săn bug, tìm lỗ hổng bảo mật và nhận thưởng tiền cực lớn — có chương trình lên đến <strong>hàng triệu USD</strong> cho một bug nghiêm trọng!</p>
+    </div>
+
+    <div class="section">
+      <h2>Immunefi giúp gì?</h2>
+      <ul>
+        <li>Các dự án crypto/Web3 ra mắt chương trình bug bounty để mời gọi cộng đồng whitehat tìm và báo cáo lỗ hổng <strong>trước khi hacker xấu khai thác</strong>.</li>
+        <li>Whitehat nhận thưởng tiền (thường bằng crypto) khi báo cáo thành công các lỗ hổng nghiêm trọng.</li>
+        <li>Ngoài bug bounty, nền tảng còn cung cấp nhiều dịch vụ bảo mật khác: audit, audit competitions, onchain monitoring, PR/code review, AI-powered security agents, multisig tx review, managed triage, v.v.</li>
+      </ul>
+      <p>Nền tảng được coi là "<strong>trung tâm điều hành bảo mật</strong>" thống nhất cho Web3, kết hợp con người + AI + dataset lỗ hổng lớn nhất ngành để ngăn chặn hack.</p>
+    </div>
+
+    <div class="section">
+      <h2>Con số ấn tượng (đầu 2026)</h2>
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number">$180 tỷ+</div>
+          <p>Giá trị Web3 được bảo vệ</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">$25 tỷ</div>
+          <p>Thiệt hại từ hack đã được ngăn chặn</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">60.000+</div>
+          <p>Security researcher tham gia</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">650+</div>
+          <p>Giao thức đã được bảo vệ</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Tình hình hiện tại</h2>
+      <p>Trên trang explore, Immunefi đang có <strong>hơn 270 chương trình bug bounty đang active</strong>, với mức thưởng cao nhất lên đến <strong>$1.000.000</strong> cho một số dự án lớn như SSV Network, Scroll, ENS, Injective, LayerZero, v.v.</p>
+    </div>
+
+    <div class="gallery">
+      <img src="https://miro.medium.com/v2/resize:fit:1400/0*x3SpjYCA6HuocXMn" alt="Immunefi Bug Bounty Dashboard">
+      <img src="https://www.dlnews.com/resizer/WzoJQbkY1ehF6Q5yZ8fEYs_rA0c=/arc-photo-dlnews/eu-central-1-prod/public/D4A2XMZ67NBJXLOQ4UWZCTEOIM.jpg" alt="Whitehat Hacker in Action">
+      <img src="https://coinlaw.io/wp-content/uploads/2025/09/largest-bug-bounty-payouts-in-history.jpg" alt="Million Dollar Bug Bounty Rewards">
+      <img src="https://blog.heytaco.com/hubfs/Immunefi%20logo.png" alt="Immunefi Brand">
+    </div>
+
+    <div class="section">
+      <h2>Đối tượng chính</h2>
+      <ul>
+        <li><strong>Dự án/Web3 protocol</strong>: Các team muốn bảo vệ sản phẩm, tránh mất hàng trăm triệu như các vụ hack lớn trước đây.</li>
+        <li><strong>Whitehat / Bug hunter</strong>: Người đam mê bảo mật, muốn kiếm tiền thưởng lớn từ việc tìm bug (có leaderboard, Hall of Fame, All Stars program, awards).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <p>Immunefi hiện được xem là <strong>nền tảng bug bounty lớn nhất và thưởng cao nhất</strong> trong lĩnh vực Web3/crypto, được nhiều dự án hàng đầu tin dùng như Polygon, Aave, Chainlink, v.v.</p>
+      <p>Nếu bạn quan tâm đến bug bounty Web3, <strong>đây là nơi đáng để bắt đầu khám phá nhất hiện nay!</strong></p>
+    </div>
+
+    <div class="cta">
+      <a href="https://immunefi.com/" target="_blank" class="btn">Khám phá Immunefi ngay →</a>
+    </div>
+  </div>
+
+</body>
+</html>
