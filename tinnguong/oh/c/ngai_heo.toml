@@ -1,0 +1,41 @@
+# ngai_heo.toml
+# Thông tin về từ lóng "Ngải heo" - trend siêu viral Việt Nam
+
+[ngai_heo]
+title = "Ngải Heo - Từ lóng siêu viral của giới trẻ Việt Nam"
+description = """
+Ngải heo là một từ lóng cực kỳ phổ biến trên mạng xã hội Việt Nam, đặc biệt từ khoảng năm 2019 trở đi. 
+Nó được dùng để nói đùa về việc tăng cân, béo lên một cách "bí ẩn" và khó kiểm soát, kiểu như bị trúng bùa ngải vậy!
+"""
+
+origin = """
+Từ "ngải" ám chỉ bùa ngải (thuật dân gian miền Nam), còn "heo" liên quan đến hình ảnh heo béo mũm mĩm, ăn no ngủ kỹ. 
+Ghép lại thành "ngải heo" cực kỳ hài hước và dễ lan tỏa.
+"""
+
+year_popular = "khoảng 2019 trở đi"
+
+[ngai_heo.meanings]
+"Bị ngải heo nhập" = "Béo lên dù không làm gì nhiều, chỉ ăn + ngủ là tự nhiên mũm mĩm"
+"Giải ngải heo" = "Giảm cân, lấy lại body"
+"Ngải heo không chừa một ai" = "Ai cũng có thể dính (kể cả động vật luôn, ví dụ cá lóc béo ú, chim cánh cụt mũm mĩm nằm một chỗ...)"
+
+[ngai_heo.common_phrases]
+phrase1 = "Trời ơi dạo này tui bị ngải heo nhập nặng quá rồi huhu"
+phrase2 = "Năm nay quyết tâm giải ngải heo nha các chế ơi!"
+phrase3 = "Ngải heo xâm lấn cả cá lóc luôn kìa mọi người ơi"
+phrase4 = "Ngải heo không tha cho ai hết áaaa 😭🐷"
+
+[ngai_heo.notes]
+note1 = "Cách nói vui, body shaming nhẹ nhàng kiểu tự trào của giới trẻ Việt"
+note2 = "Không phải bùa ngải thật đâu nhé! Chỉ là meme và trend hài hước thôi"
+note3 = "Càng ngày càng lan rộng sang cả động vật và đồ ăn (cá lóc béo, bánh mì pate mũm mĩm...)"
+
+related_memes = [
+  "cá lóc béo ú",
+  "chim cánh cụt mũm mĩm",
+  "heo con ăn no ngủ kỹ",
+  "bị nhập heo",
+  "giải ngải"
+  
+]
