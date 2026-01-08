@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuộc đời Steve Jobs</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 40px 15px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #000;
+            margin-bottom: 10px;
+            font-size: 2.6em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 5px;
+            background: linear-gradient(to bottom, #000, #333);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2.5px;
+            border-radius: 5px;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+        .content {
+            position: relative;
+            background: white;
+            padding: 28px 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.35s ease;
+        }
+        .content:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+        }
+        .year-tag {
+            position: absolute;
+            top: -18px;
+            font-size: 1.4em;
+            font-weight: bold;
+            background: #000;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+        .timeline-item:nth-child(odd) .year-tag {
+            right: -30px;
+        }
+        .timeline-item:nth-child(even) .year-tag {
+            left: -30px;
+        }
+        .dot {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border: 5px solid #000;
+            border-radius: 50%;
+            top: 35px;
+            z-index: 10;
+        }
+        .timeline-item:nth-child(odd) .dot {
+            right: -11px;
+        }
+        .timeline-item:nth-child(even) .dot {
+            left: -11px;
+        }
+        .highlight {
+            color: #0066cc;
+            font-weight: 700;
+        }
+        .image-box {
+            background: #f0f2f5;
+            height: 220px;
+            margin: 20px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #777;
+            border: 1px dashed #ccc;
+            text-align: center;
+            padding: 15px;
+        }
+        .quote {
+            margin: 45px auto;
+            max-width: 700px;
+            font-size: 1.45em;
+            font-style: italic;
+            text-align: center;
+            padding: 35px;
+            background: #f0f4f8;
+            border-left: 6px solid #0066cc;
+            border-radius: 10px;
+            color: #222;
+        }
+        .ending {
+            text-align: center;
+            font-size: 1.25em;
+            margin-top: 70px;
+            color: #333;
+        }
+
+        @media (max-width: 900px) {
+            .timeline::before { left: 40px; }
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding-left: 80px;
+                padding-right: 20px;
+            }
+            .year-tag {
+                left: 15px !important;
+            }
+            .dot {
+                left: 29px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cuộc đời Steve Jobs</h1>
+    <p class="subtitle">Nhân vật truyền cảm hứng và gây tranh cãi nhất lịch sử công nghệ</p>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="content">
+                <span class="year-tag">1955 – 1974</span>
+                <div class="dot"></div>
+                <h2>Thời thơ ấu và tuổi trẻ</h2>
+                <p>24/02/1955: Sinh ra tại San Francisco, được cho làm con nuôi bởi Paul và Clara Jobs.</p>
+                <p>Lớn lên ở Cupertino (Silicon Valley), tò mò về điện tử từ nhỏ. Gặp <strong>Steve Wozniak</strong> lúc 13 tuổi.</p>
+                <p>Học Reed College nhưng bỏ sau 6 tháng (1972), vẫn lén học lớp thư pháp – ảnh hưởng lớn đến font chữ Macintosh sau này.</p>
+                <div class="image-box">[Ảnh Steve Jobs thời trẻ cùng Apple I – nguồn: allaboutstevejobs.com / nbcnews.com]</div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="content">
+                <span class="year-tag">1974 – 1985</span>
+                <div class="dot"></div>
+                <h2>Khởi nghiệp – Apple I & Apple II</h2>
+                <p>1976: Thành lập Apple Computer trong gara nhà bố mẹ nuôi cùng Wozniak.</p>
+                <p>Apple II (1977) → thành công thương mại lớn đầu tiên của máy tính cá nhân.</p>
+                <p class="highlight">1980: Apple IPO – Steve Jobs thành triệu phú ở tuổi 25.</p>
+                <p>1984: Ra mắt Macintosh – máy tính đầu tiên phổ biến giao diện đồ họa + chuột.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="content">
+                <span class="year-tag">1985 – 1996</span>
+                <div class="dot"></div>
+                <h2>Bị sa thải & giai đoạn đen tối</h2>
+                <p>1985: Bị hội đồng quản trị (và John Sculley) sa thải khỏi chính Apple.</p>
+                <p>Thành lập NeXT Computer – thất bại thương mại nhưng công nghệ rất tiên tiến.</p>
+                <div class="image-box">[Ảnh NeXTcube – nguồn: appleinsider.com]</div>
+                <p>1986: Mua lại The Graphics Group → đổi tên <span class="highlight">Pixar</span>.<br>Toy Story (1995) – phim 3D đầu tiên thế giới.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="content">
+                <span class="year-tag">1997 – 2011</span>
+                <div class="dot"></div>
+                <h2>Trở lại & thời kỳ hoàng kim</h2>
+                <p>1997: Apple mua NeXT → Steve quay lại, cứu công ty khỏi phá sản.</p>
+                <p class="highlight">1998: iMac G3 – biểu tượng thiết kế, cứu Apple.</p>
+                <p>2001: iPod → cách mạng hóa ngành âm nhạc.</p>
+                <p class="highlight">2007: iPhone – thay đổi lịch sử nhân loại.</p>
+                <div class="image-box">[Khoảnh khắc giới thiệu iPhone 2007 – nguồn: 9to5mac.com / youtube.com]</div>
+                <p>2010: iPad – tạo ra thị trường tablet.<br>2006: Pixar bán cho Disney 7.4 tỷ USD.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="content">
+                <span class="year-tag">2011</span>
+                <div class="dot"></div>
+                <h2>Cuối đời và di sản</h2>
+                <p>2003: Chẩn đoán ung thư tụy. Vẫn lãnh đạo Apple đến gần cuối đời.</p>
+                <p>05/10/2011: Qua đời ở tuổi 56 tại Palo Alto.</p>
+                <p class="highlight">Di sản: Đưa Apple từ bờ vực phá sản thành công ty giá trị nhất thế giới.</p>
+                <p>Thay đổi cách con người nghe nhạc, liên lạc, giải trí, sử dụng công nghệ.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="quote">
+        “Stay hungry, stay foolish”<br>
+        <small>— Bài phát biểu tốt nghiệp Stanford năm 2005</small>
+    </div>
+
+    <p class="ending">
+        Steve Jobs không chỉ là doanh nhân, mà còn là biểu tượng của sự sáng tạo, kiên trì và tầm nhìn xa.<br>
+        <strong>“Những người điên rồ nghĩ mình có thể thay đổi thế giới… chính là những người thực sự làm được.”</strong>
+    </p>
+</div>
+
+</body>
+</html>
