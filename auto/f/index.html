@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Công nghiệp hóa - Hiện đại hóa Đất nước</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #b22222;           /* Đỏ cờ */
+      --primary-dark: #8b1a1a;
+      --accent: #ffd700;            /* Vàng sao */
+      --secondary: #003366;         /* Xanh navy */
+      --bg-light: #fdfdfd;
+      --text: #1a1a1a;
+      --gray: #555;
+      --light-gold: #fff8e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      color: var(--text);
+      line-height: 1.8;
+      padding: 20px 12px;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,215,0,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(178,34,34,0.06) 0%, transparent 50%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.14);
+      border: 1px solid rgba(178,34,34,0.12);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 70%, var(--secondary) 100%);
+      color: white;
+      padding: 70px 30px 55px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "CNH - HĐH ĐẤT NƯỚC";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      font-size: 7.2rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.10);
+      pointer-events: none;
+      font-family: 'Playfair Display', serif;
+      white-space: nowrap;
+      letter-spacing: 8px;
+    }
+
+    .title-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.1rem;
+      margin-bottom: 14px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    }
+
+    .subtitle {
+      font-size: 1.32rem;
+      opacity: 0.94;
+      font-weight: 400;
+      letter-spacing: 0.8px;
+    }
+
+    .content {
+      padding: 45px 38px;
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.65rem;
+      margin: 45px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .highlight-box {
+      background: var(--light-gold);
+      border-left: 6px solid var(--accent);
+      border-radius: 10px;
+      padding: 26px 30px;
+      margin: 32px 0;
+      font-size: 1.08rem;
+      box-shadow: 0 4px 18px rgba(255,215,0,0.15);
+    }
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin: 38px 0;
+    }
+
+    .goal-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(178,34,34,0.15);
+      border-color: var(--accent);
+    }
+
+    .goal-card h3 {
+      color: var(--primary);
+      margin-bottom: 14px;
+      font-size: 1.38rem;
+    }
+
+    .important {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .gold-text {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .conclusion {
+      text-align: center;
+      font-size: 1.45rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin: 60px 0 40px;
+      line-height: 1.6;
+      font-weight: 700;
+      padding: 0 20px;
+    }
+
+    .flag-line {
+      height: 6px;
+      background: linear-gradient(to right, var(--primary), var(--accent), var(--primary));
+      margin: 40px 0;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 680px) {
+      .title-main { font-size: 2.5rem; }
+      .content { padding: 35px 25px; }
+      .header { padding: 60px 25px 50px; }
+      .goal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1 class="title-main">CÔNG NGHIỆP HÓA – HIỆN ĐẠI HÓA ĐẤT NƯỚC</h1>
+    <p class="subtitle">Chủ trương lớn – Khát vọng dân tộc</p>
+  </div>
+
+  <div class="content">
+
+    <div class="highlight-box">
+      <strong>“Công nghiệp hoá – hiện đại hoá đất nước hoá”</strong> là cách nói nhấn mạnh, rút gọn phổ biến trong văn nói và khẩu hiệu, thể hiện quyết tâm biến Việt Nam thành một quốc gia công nghiệp hiện đại, giàu mạnh.
+    </div>
+
+    <h2 class="section-title">Định nghĩa chính thức</h2>
+    <p>Quá trình chuyển đổi căn bản, toàn diện nền kinh tế – xã hội, dựa chủ yếu vào <strong>công nghiệp</strong> và <strong>dịch vụ</strong> trên nền tảng <strong>khoa học – công nghệ</strong>, <strong>đổi mới sáng tạo</strong>, hướng tới nền kinh tế <strong>độc lập, tự chủ</strong>, hội nhập sâu rộng, phát triển nhanh, bền vững theo định hướng xã hội chủ nghĩa.</p>
+
+    <h2 class="section-title">Mục tiêu cụ thể (theo Nghị quyết Trung ương 6 khóa XIII)</h2>
+    
+    <div class="goal-grid">
+      <div class="goal-card">
+        <h3>Đến năm 2030</h3>
+        <ul>
+          <li>Nước đang phát triển có <span class="important">công nghiệp hiện đại</span>, thu nhập trung bình cao</li>
+          <li>Tỷ trọng công nghiệp trong GDP <span class="gold-text">> 40%</span></li>
+          <li>Công nghiệp chế biến, chế tạo ~ <span class="gold-text">30% GDP</span></li>
+          <li>GDP bình quân ~ <span class="gold-text">7.500 USD</span></li>
+          <li>Top 3 ASEAN về năng lực cạnh tranh công nghiệp</li>
+        </ul>
+      </div>
+
+      <div class="goal-card">
+        <h3>Tầm nhìn 2045</h3>
+        <ul>
+          <li>Trở thành <span class="important">nước phát triển</span>, <strong>thu nhập cao</strong></li>
+          <li>Thuộc nhóm các nước <strong>công nghiệp phát triển hàng đầu châu Á</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flag-line"></div>
+
+    <h2 class="section-title">Thành tựu & Thách thức (tính đến 2026)</h2>
+    <p><strong>Thành tựu:</strong> Tăng trưởng cao liên tục, cơ cấu kinh tế chuyển dịch tích cực, xuất khẩu mạnh mẽ, FDI lớn, nhiều tập đoàn công nghệ cao hiện diện (Samsung, Intel, Apple, VinFast…).</p>
+    <p><strong>Thách thức:</strong> Năng suất lao động thấp, phụ thuộc công nghệ ngoại, công nghiệp hỗ trợ còn yếu, chuyển đổi số chưa đồng đều, ô nhiễm môi trường, chênh lệch phát triển vùng miền.</p>
+
+    <div class="highlight-box" style="background:#e3f2fd; border-left-color:var(--primary);">
+      <strong>Hướng đi hiện nay:</strong> Tập trung mạnh mẽ vào <strong>Cách mạng công nghiệp 4.0</strong>, <strong>chuyển đổi số</strong>, <strong>kinh tế xanh</strong>, <strong>công nghiệp công nghệ cao</strong> để “<span class="important">đi tắt đón đầu</span>”, rút ngắn lộ trình công nghiệp hóa.
+    </div>
+
+    <div class="conclusion">
+      Công nghiệp hóa – Hiện đại hóa đất nước<br>
+      là khát vọng lớn, là con đường tất yếu<br>
+      để Việt Nam vươn mình trở thành quốc gia mạnh mẽ,<br>
+      thịnh vượng trong thế kỷ 21!
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
