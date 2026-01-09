@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trẻ Hóa Dân Số Việt Nam 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a5276;
+      --primary-dark: #154360;
+      --accent: #e67e22;
+      --light-blue: #e8f4f8;
+      --text: #1e2a44;
+      --gray: #5a6a7f;
+      --success: #27ae60;
+      --warning: #e74c3c;
+      --bg: #f8fafc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+      border: 1px solid #e0e7ff;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 70px 35px 55px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "DÂN SỐ";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      font-size: 9rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.08);
+      pointer-events: none;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .title-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.1rem;
+      margin-bottom: 14px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+      opacity: 0.94;
+      font-weight: 400;
+    }
+
+    .content {
+      padding: 45px 40px;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1.95rem;
+      margin: 50px 0 22px;
+      border-left: 5px solid var(--accent);
+      padding-left: 18px;
+    }
+
+    .highlight-box {
+      background: var(--light-blue);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 35px 0;
+      border-left: 5px solid var(--primary);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 26px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border: 1px solid #e0e7ff;
+    }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 1.05rem;
+      color: var(--gray);
+    }
+
+    .warning {
+      color: var(--warning);
+      font-weight: 600;
+    }
+
+    .success {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .policy-list {
+      margin: 25px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .policy-list li {
+      margin-bottom: 18px;
+      padding-left: 32px;
+      position: relative;
+      font-size: 1.05rem;
+    }
+
+    .policy-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .conclusion {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 60px 0 40px;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .decoration-line {
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      margin: 45px 0;
+    }
+
+    @media (max-width: 768px) {
+      .title-main { font-size: 2.5rem; }
+      .content { padding: 35px 25px; }
+      .header { padding: 55px 25px 45px; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1 class="title-main">TRẺ HÓA DÂN SỐ VIỆT NAM 2026</h1>
+    <p class="subtitle">Chiến lược ứng phó với già hóa dân số nhanh nhất thế giới</p>
+  </div>
+
+  <div class="content">
+
+    <div class="highlight-box">
+      <strong>"Trẻ hóa dân số"</strong> không phải tăng dân số trẻ ồ ạt, mà là <strong>giảm tốc độ già hóa</strong>, duy trì mức sinh hợp lý và kéo dài giai đoạn <strong>dân số vàng</strong> càng lâu càng tốt.
+    </div>
+
+    <h2>Thực trạng dân số Việt Nam năm 2026</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">~102 triệu</div>
+        <div class="stat-label">Dân số dự kiến</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number warning">1,93 con</div>
+        <div class="stat-label">Tổng tỷ suất sinh (2025)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~14–15%</div>
+        <div class="stat-label">Người ≥60 tuổi (hiện tại)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number warning">~20%</div>
+        <div class="stat-label">Dự báo năm 2035–2036</div>
+      </div>
+    </div>
+
+    <p style="font-size:1.08rem; margin:30px 0;">
+      Việt Nam đang già hóa với <strong>tốc độ thuộc nhóm nhanh nhất thế giới</strong>.<br>
+      Hậu quả: thiếu lao động trẻ, áp lực an sinh xã hội, gánh nặng lên thế hệ trẻ.
+    </p>
+
+    <h2>Giải pháp & Chính sách trẻ hóa dân số</h2>
+
+    <ul class="policy-list">
+      <li>Khuyến khích sinh đủ 2 con ở vùng sinh thấp (Đông Nam Bộ, ĐBSCL, TP.HCM…)</li>
+      <li>Ưu tiên nhà ở xã hội, hỗ trợ chi phí nuôi con, chăm sóc sức khỏe sinh sản</li>
+      <li>Khuyến khích kết hôn và sinh con sớm hơn (trước 30 tuổi)</li>
+      <li>Bỏ quy định cứng nhắc "sinh 1-2 con", chuyển sang tôn trọng quyền tự quyết</li>
+      <li>Giảm mất cân bằng giới tính khi sinh (hiện ~111 bé trai / 100 bé gái)</li>
+      <li>Tăng tuổi nghỉ hưu linh hoạt ở một số ngành</li>
+      <li>Phát triển bảo hiểm xã hội tự nguyện, chuẩn bị tài chính tuổi già từ sớm</li>
+      <li>Thúc đẩy "tuổi già tích cực", phát huy kinh nghiệm của người cao tuổi</li>
+    </ul>
+
+    <div class="decoration-line"></div>
+
+    <div class="conclusion">
+      Mục tiêu không phải đảo ngược hoàn toàn già hóa<br>
+      mà là <span class="success">ngăn mức sinh giảm quá sâu</span> – <span class="success">cân bằng cơ cấu dân số</span><br>
+      để Việt Nam vẫn giữ được sức sống trẻ trung, năng động trong nhiều thập kỷ tới.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
