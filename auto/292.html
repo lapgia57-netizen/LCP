@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vài con AI đang ngon 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #e0e0ff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(90deg, #00d4ff, #ff00aa, #7c00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 3rem;
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .ai-card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .ai-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.25);
+      border-color: rgba(0, 212, 255, 0.4);
+    }
+
+    .card-header {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .ai-card:hover .card-header img {
+      transform: scale(1.12);
+    }
+
+    .card-body {
+      padding: 1.6rem 1.8rem;
+    }
+
+    .card-title {
+      font-size: 1.45rem;
+      margin-bottom: 0.6rem;
+      color: #00f0ff;
+    }
+
+    .card-desc {
+      font-size: 1rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .number-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: linear-gradient(45deg, #ff00aa, #7c00ff);
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 15px rgba(124, 0, 255, 0.6);
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.4rem; }
+      .ai-grid { gap: 1.6rem; }
+      .card-header { height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Vài con AI đang ngon</h1>
+    <p class="subtitle">Những công cụ AI xịn sò đáng dùng nhất hiện nay (2026)</p>
+
+    <div class="ai-grid">
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">1</div>
+          <img src="https://learnprompting.org/blog/grok-interface.png" alt="Grok AI">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Grok.ai</h3>
+          <p class="card-desc">Giải quyết truy vấn</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">2</div>
+          <img src="https://img.freepik.com/premium-photo/modern-colorful-user-interface-dashboard-design-futuristic-aesthetic-desktop-layout-concept-professional-user-interface-web-design_551826-34527.jpg" alt="AI Dashboard">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">LightPDF.com</h3>
+          <p class="card-desc">Chỉnh sửa PDF</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">3</div>
+          <img src="https://cdn.prod.website-files.com/59deb588800ae30001ec19c9/654bc23ad21ade59b1837fd1_slides%20header_v2.webp" alt="AI Presentation">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">SlidesAl.io</h3>
+          <p class="card-desc">Tạo bài thuyết trình</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">4</div>
+          <img src="https://cdn.dribbble.com/userupload/44118966/file/original-922f67db0e4fb0070c106d95b7402115.png?resize=752x&vertical=center" alt="AI Video Editor">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">InVideo.io</h3>
+          <p class="card-desc">Video</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">5</div>
+          <img src="https://img.freepik.com/premium-photo/colorful-dashboard-uiuxkit-modern-presentation-with-infographics-hud-diagrams-clean-simple_1241023-2057.jpg" alt="AI Design">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Visme.co</h3>
+          <p class="card-desc">Thiết kế tài liệu</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">6</div>
+          <img src="https://www.altexsoft.com/static/blog-post/2024/4/0d7c6e56-f95c-43ff-a828-89239c6aa2a5.png" alt="AI Music">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">AmperMusic.com</h3>
+          <p class="card-desc">Sáng tác nhạc</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">7</div>
+          <img src="https://cdn.dribbble.com/userupload/16296804/file/original-1dfb07cff3ad847daa02492c76d0afa7.png?resize=400x0" alt="AI Interface">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Fotor.com</h3>
+          <p class="card-desc">Chỉnh sửa hình ảnh</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">8</div>
+          <img src="https://www.maginative.com/content/images/2023/12/Grok_AI.png" alt="AI Research">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Claude.ai</h3>
+          <p class="card-desc">Trợ lý nghiên cứu</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">9</div>
+          <img src="https://img.freepik.com/premium-photo/modern-colorful-user-interface-dashboard-design-futuristic-aesthetic-desktop-layout-concept-professional-user-interface-web-design_551826-34527.jpg" alt="AI Design">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">LogoAl.com</h3>
+          <p class="card-desc">Thiết kế logo</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">10</div>
+          <img src="https://www.shutterstock.com/image-vector/futuristic-sound-wave-concept-frequency-260nw-1998789908.jpg" alt="Voice AI">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Murf.ai</h3>
+          <p class="card-desc">Lồng tiếng</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">11</div>
+          <img src="https://framerusercontent.com/images/o4NJrAmFyKS85LBCgjeXWGkYO0.png?width=1400&height=950" alt="Framer Web Design">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Framer.com</h3>
+          <p class="card-desc">Thiết kế web</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">12</div>
+          <img src="https://cdn.dribbble.com/userupload/11922718/file/still-61c548b1255427e71e900948413a50c8.png?format=webp&resize=400x300&vertical=center" alt="AI 3D">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">DreamStudio.ai</h3>
+          <p class="card-desc">Mô hình 3D</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">13</div>
+          <img src="https://cdn.prod.website-files.com/685be7dcd32275d383065239/685be7ddd32275d38306aa84_Feature%20Tool%20page_2025_04_Podcast%20Editor.webp" alt="Audio AI">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Riverside.fm</h3>
+          <p class="card-desc">Chỉnh sửa âm thanh</p>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="card-header">
+          <div class="number-badge">14</div>
+          <img src="https://www.aiplusinfo.com/wp-content/uploads/2021/02/music_small_reduced.gif" alt="Voice Mod">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Voicemod.ai</h3>
+          <p class="card-desc">Giọng nói</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
