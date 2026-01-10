@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Miến Sợi To - Đặc Sản Tây Bắc Việt Nam</title>
+    <style>
+        :root {
+            --primary: #d35400;
+            --secondary: #e67e22;
+            --light: #fff9e6;
+            --dark: #333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: #f9f7f3;
+            padding: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        header {
+            background: linear-gradient(to right, #f39c12, #d35400);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 1.9rem;
+            margin: 45px 0 20px;
+            border-left: 6px solid var(--secondary);
+            padding-left: 15px;
+        }
+        .highlight-box {
+            background: var(--light);
+            border-left: 5px solid #f1c40f;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-size: 1.05em;
+        }
+        .highlight-box ul {
+            list-style: none;
+        }
+        .highlight-box li {
+            margin: 12px 0;
+            position: relative;
+            padding-left: 28px;
+        }
+        .highlight-box li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        .image-wrapper {
+            margin: 30px 0;
+            text-align: center;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+        .steps {
+            background: #fffef7;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid #f0e8d0;
+        }
+        .steps ol {
+            counter-reset: step;
+            list-style: none;
+            padding-left: 0;
+        }
+        .steps li {
+            position: relative;
+            padding: 15px 15px 15px 60px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+        .steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        .dish-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .dish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        .dish-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .dish-info {
+            padding: 20px;
+        }
+        .price-box {
+            background: #e8f5fb;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 40px 0;
+            font-size: 1.1em;
+        }
+        .price-box strong {
+            color: #c0392b;
+            font-size: 1.4em;
+        }
+        .ending {
+            text-align: center;
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin: 50px 0 30px;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            header { padding: 50px 20px; }
+            .content { padding: 30px 20px; }
+            header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Miến Sợi To<br>Đặc Sản Tây Bắc Việt Nam</h1>
+    </header>
+
+    <div class="content">
+        <p>Miến sợi to (hay còn gọi là miến dong sợi to) là một loại đặc sản rất được ưa chuộng ở Việt Nam, đặc biệt từ vùng Tây Bắc như <strong>Điện Biên, Cao Bằng, Sơn La</strong>. Đây là loại miến được làm hoàn toàn từ tinh bột củ dong riềng (khoai đao, củ chóc), sản xuất thủ công, sợi to dày hơn miến thông thường (giống như sợi phở), nhìn lạ mắt và rất dai ngon.</p>
+
+        <h2>Đặc điểm nổi bật</h2>
+        <div class="highlight-box">
+            <ul>
+                <li>Sợi to, dai tự nhiên, không bị nát, không dính, không trương nở quá mức khi nấu</li>
+                <li>Màu sắc thường ngà trắng, nâu nhạt hoặc đen trong veo tùy loại và cách phơi</li>
+                <li>Ít calo, giàu chất xơ, không chứa tinh bột đường → rất phù hợp cho người ăn kiêng, tiểu đường, tim mạch, giảm cân</li>
+                <li>Hương vị thơm đặc trưng của củ dong riềng vùng núi</li>
+            </ul>
+        </div>
+
+        <h3>Hình ảnh miến sợi to khô</h3>
+        <div class="image-wrapper">
+            <img src="https://biggreen.com.vn/wp-content/uploads/miendongsoito.jpg" alt="Miến dong sợi to khô">
+            <div class="caption">Miến sợi to thủ công – sợi dày, dai ngon đặc trưng</div>
+        </div>
+
+        <div class="steps">
+            <h2>Cách sơ chế & nấu miến sợi to</h2>
+            <p>Vì sợi to nên cần ngâm lâu hơn miến thường:</p>
+            <ol>
+                <li>Ngâm trong nước lạnh khoảng <strong>20–45 phút</strong> cho mềm (tùy độ dày sợi).</li>
+                <li>Trụng qua nước sôi <strong>3–5 phút</strong> (hoặc luộc 5–7 phút), sau đó xả ngay nước lạnh để giữ độ dai.</li>
+                <li>Trộn chút dầu ăn nếu cần để sợi không dính nhau.</li>
+            </ol>
+            <p style="color:#c0392b; font-weight:bold; margin-top:20px;">Không ngâm/nấu quá lâu kẻo miến bị nhũn nhé!</p>
+        </div>
+
+        <h2>Một số món ngon từ miến sợi to</h2>
+        <p>Loại này rất hợp với các món xào, nấu canh, lẩu, trộn vì sợi dai thấm gia vị tốt.</p>
+
+        <div class="dishes-grid">
+            <div class="dish-card">
+                <img src="https://tabfarm.vn/wp-content/uploads/mien-xao-thap-cam.jpg" alt="Miến xào thập cẩm">
+                <div class="dish-info">
+                    <h3>Miến xào thập cẩm</h3>
+                    <p>Với thịt, tôm, rau củ, trứng – thơm lừng, no bụng</p>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://dohafood.vn/wp-content/uploads/mien-nuoc-canh-xuong.jpg" alt="Miến nấu canh">
+                <div class="dish-info">
+                    <h3>Miến nấu canh xương/gà</h3>
+                    <p>Nước trong, ngọt thanh, sợi miến dai giòn</p>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <img src="https://via.placeholder.com/600x400/eeeeee/333333?text=Miến+Thả+Lẩu" alt="Miến thả lẩu">
+                <div class="dish-info">
+                    <h3>Miến xào lòng/cua hoặc miến thả lẩu</h3>
+                    <p>Món hot trend hiện nay!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="price-box">
+            <p>Bạn có thể mua miến sợi to chất lượng tốt ở các shop đặc sản Tây Bắc trên <strong>Shopee, Lazada</strong> hoặc cửa hàng nông sản sạch.</p>
+            <p>Giá tham khảo: <strong>80.000 – 150.000đ/kg</strong> (tùy loại thủ công/thái tay)</p>
+        </div>
+
+        <div class="ending">
+            Bạn đang định nấu món gì với miến sợi to vậy?<br>
+            Hay cần công thức chi tiết món nào? Mình hướng dẫn thêm nhé! 🍜✨
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
