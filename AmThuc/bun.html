@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Các Món Bún "Quốc Dân" Của Ẩm Thực Việt Nam</title>
+  <style>
+    :root {
+      --primary: #d32f2f;     /* Đỏ gạch truyền thống */
+      --secondary: #f57c00;   /* Cam ấm */
+      --text: #333;
+      --light: #fff;
+      --bg: #fef8f4;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 2.6rem;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #555;
+    }
+    h2 {
+      color: var(--primary);
+      border-left: 6px solid var(--secondary);
+      padding-left: 12px;
+      margin-top: 50px;
+      font-size: 2rem;
+    }
+    h3 {
+      color: #c62828;
+      margin-top: 35px;
+      font-size: 1.6rem;
+    }
+    .section-intro {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 15px 0;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+    .gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 10px;
+    }
+    .gallery img {
+      width: 320px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .dish-list {
+      margin: 30px 0;
+      padding-left: 20px;
+    }
+    .dish-list li {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 1.3rem;
+      color: #444;
+      background: rgba(255,235,238,0.6);
+      padding: 25px;
+      border-radius: 16px;
+      border: 2px dashed var(--primary);
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+      .gallery img { width: 280px; height: 210px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Các Món Bún "Quốc Dân" Của Ẩm Thực Việt Nam</h1>
+    <p class="intro">Từ Bắc vào Nam, bún là linh hồn của hàng chục món ăn dân dã nhưng đầy hương vị đặc trưng. Dưới đây là những món được yêu thích nhất, kèm hình ảnh siêu thèm!</p>
+
+    <h2>Các món bún nước kinh điển</h2>
+    <p class="section-intro">Nước dùng nóng hổi, đậm đà, ăn kèm rau sống, chanh ớt – đúng chuẩn tinh hoa Việt!</p>
+
+    <h3>1. Bún bò Huế</h3>
+    <p>Món "đỉnh cao" của miền Trung với nước dùng cay nồng, thơm sả, mắm ruốc, topping đầy đặn: bò, giò heo, chả cua, huyết...</p>
+    <div class="gallery">
+      <img src="https://i.ytimg.com/vi/kJAKjvsyS6E/maxresdefault.jpg" alt="Bún bò Huế chuẩn vị">
+      <img src="https://i0.wp.com/vickypham.com/wp-content/uploads/2022/06/43225-eosm50_9635-edit.jpg" alt="Bún bò Huế đậm đà">
+      <img src="https://myvietkitchen.com/wp-content/uploads/2025/11/bun-bo-hue-recipe-780x470.png" alt="Tô bún bò Huế hấp dẫn">
+      <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=10223469167697623" alt="Bún bò Huế topping đầy đặn">
+    </div>
+
+    <h3>2. Bún riêu cua</h3>
+    <p>Nước dùng chua thanh từ riêu cua, ăn kèm đậu phụ, thịt bò/rau muống – cực hợp ngày nóng!</p>
+    <div class="gallery">
+      <img src="https://myvietkitchen.com/wp-content/uploads/2025/12/Vietnamese-Crab-Noodle-Soup-scaled.png" alt="Bún riêu cua miền Bắc">
+      <img src="https://www.hungryhuy.com/wp-content/uploads/homemade-bowl-bun-rieu.jpg" alt="Tô bún riêu cua hấp dẫn">
+      <img src="https://myvietkitchen.com/wp-content/uploads/2025/12/Step-10-Serve-scaled.png" alt="Bún riêu cua đậm vị">
+    </div>
+
+    <h3>3. Bún mọc (bún viên mọc)</h3>
+    <p>Nước dùng ngọt thanh từ xương, topping viên mọc giòn dai – món ăn dân dã Hà Nội!</p>
+    <div class="gallery">
+      <img src="https://savourthepho.com/wp-content/uploads/2024/02/Bun-moc-1-edited-500x375.jpg" alt="Bún mọc Hà Nội">
+      <img src="https://azcuisines.com/wp-content/uploads/2023/10/bun-moc.jpg" alt="Tô bún mọc truyền thống">
+      <img src="https://izitour.com/media/ckeditor/bun-moc-meatball-noodles-soup.webp" alt="Bún mọc ngon miệng">
+    </div>
+
+    <h2>Các món bún trộn / bún khô nổi tiếng</h2>
+    <p class="section-intro">Không chan nước dùng, trộn nước mắm chua ngọt – siêu hợp ăn trưa hoặc ngày hè mát lạnh!</p>
+
+    <h3>4. Bún chả (Hà Nội)</h3>
+    <p>Chả nướng thơm lừng, ăn kèm bún, rau sống, nước mắm – món nổi tiếng toàn cầu nhờ bác Obama!</p>
+    <div class="gallery">
+      <img src="https://www.seriouseats.com/thmb/eF08dIUavnPajC5DAb_Qz_lIS3c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-VyTran-BunChaHanoi-21-e03d76ed609349c9aa0ed4a7385c87da.jpg" alt="Bún chả Hà Nội chuẩn vị">
+      <img src="https://beyondsweetandsavory.com/wp-content/uploads/2021/09/Vietnamese-grilled-pork-patties-noodles-bun-cha-Hanoi-Vy-Tran-9-of-13-853x1280-1-500x375.jpg" alt="Bún chả thơm lừng">
+      <img src="https://www.seriouseats.com/thmb/J0g7JWjk9r6CHESo1CIrD1BfGd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-VyTran-BunChaHanoi-19-f623913c6ef34a9185bcd6e5680c545f.jpg" alt="Tô bún chả kinh điển">
+    </div>
+
+    <h3>5. Bún thịt nướng (miền Nam)</h3>
+    <p>Thịt heo nướng sả thơm, bún + rau sống + đậu phộng rang, hành phi – siêu ngon miệng!</p>
+    <div class="gallery">
+      <img src="https://beyondsweetandsavory.com/wp-content/uploads/2021/09/Vietnamese-grilled-pork-noodle-bowl-Vy-Tran-5-of-8-853x1280-1-500x375.jpg" alt="Bún thịt nướng miền Nam">
+      <img src="https://tarasmulticulturaltable.com/wp-content/uploads/2015/01/Bun-Thit-Nuong-1-of-3-1024x680.jpg" alt="Bún thịt nướng hấp dẫn">
+      <img src="https://takestwoeggs.com/wp-content/uploads/2021/08/Bu%CC%81n-Thi%CC%A3t-Nu%CC%9Bo%CC%9B%CC%81ng-Vietnamese-Grilled-Pork-Takestwoeggs-Final-1-500x375.jpg" alt="Tô bún thịt nướng đầy màu sắc">
+    </div>
+
+    <h2>Một số món bún đặc sản khác đáng thử</h2>
+    <ul class="dish-list">
+      <li><strong>Bún ốc</strong> – Hà Nội: nước dùng chua cay, nhiều ốc béo ngậy</li>
+      <li><strong>Bún mắm</strong> – miền Tây: nồng nàn mùi mắm, topping hải sản và thịt heo quay</li>
+      <li><strong>Bún nước lèo</strong> – miền Tây: thơm mắm cá lóc/cá sặc, rất đặc trưng</li>
+      <li><strong>Bún cá</strong> – nhiều vùng (cá rô đồng, cá lăng, cá thu...)</li>
+      <li><strong>Bún đậu mắm tôm</strong> – miền Bắc: đơn giản nhưng "gây nghiện"</li>
+      <li><strong>Bún thang</strong> – Hà Nội: cầu kỳ, nhiều topping như trứng rán, giò lụa, gà xé...</li>
+    </ul>
+
+    <div class="cta">
+      <strong>Bạn thích kiểu bún nào nhất?</strong><br>
+      Nước lèo đậm đà miền Trung hay bún trộn khô mát lạnh? <br>
+      Hay đang muốn thử nấu món nào ở nhà? Kể mình nghe để mình gợi ý công thức chi tiết nhé! 🍜🔥
+    </div>
+  </div>
+
+</body>
+</html>
