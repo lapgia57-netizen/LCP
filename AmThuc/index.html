@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cơm Rang – Món Cứu Cánh Siêu Ngon Từ Cơm Nguội</title>
+  <style>
+    :root {
+      --primary: #e67e22;    /* cam vàng cơm rang */
+      --secondary: #27ae60;  /* xanh lá */
+      --text: #2c3e50;
+      --bg: #fffef7;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    h1, h2 {
+      color: var(--primary);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.4em;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: #555;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    .tips {
+      background: #fff8e1;
+      padding: 20px;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 1.5em;
+      border-radius: 50%;
+    }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+    .recipe-steps {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    ul {
+      padding-left: 25px;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Cơm Rang – Món "Cứu Cánh" Siêu Ngon Từ Cơm Nguội</h1>
+  <p class="intro">Nhanh gọn, dễ biến tấu, lại cực kỳ hợp khẩu vị người Việt. Hãy cùng thử 2 phiên bản phổ biến nhất: <strong>Cơm rang dưa bò chuẩn vị Hà Nội</strong> và <strong>Cơm rang thập cẩm nhiều màu sắc</strong> nhé!</p>
+
+  <div class="section">
+    <h2>1. Cơm Rang Dưa Bò – Chuẩn Vị Hà Nội, Thơm Nức, Giòn Sần Sật</h2>
+    <p>Món "huyền thoại" đường phố Hà Nội: chua nhẹ, béo ngậy, ăn hoài không ngán!</p>
+
+    <div class="carousel">
+      <div class="slides" id="slides1">
+        <div class="slide"><img src="https://i-giadinh.vnecdn.net/2023/10/17/Bc8Thnhphm18-1697527744-8879-1697527935.jpg" alt="Cơm rang dưa bò vàng ươm"></div>
+        <div class="slide"><img src="https://giadinh.mediacdn.vn/296230595582509056/2023/12/21/avatar1703148742985-1703148743610249294886.jpg" alt="Cơm rang dưa bò đẹp mắt"></div>
+        <div class="slide"><img src="https://statics.vinpearl.com/com-rang-dua-bo-ha-noi-1_1693118366.jpg" alt="Cơm rang dưa bò Hà Nội"></div>
+        <div class="slide"><img src="https://andemkom9.com/wp-content/uploads/2023/05/cach-lam-mon-com-rang-dua-bo-don-gian.jpg" alt="Cơm rang dưa bò giòn ngon"></div>
+      </div>
+      <button class="nav-btn prev" onclick="moveSlide('slides1', -1)">❮</button>
+      <button class="nav-btn next" onclick="moveSlide('slides1', 1)">❯</button>
+    </div>
+
+    <div class="recipe-steps">
+      <strong>Nguyên liệu (cho 2 người):</strong>
+      <ul>
+        <li>Cơm nguội: 2–3 chén (tốt nhất để tủ lạnh qua đêm)</li>
+        <li>Thịt bò: 150–200g thái mỏng</li>
+        <li>Dưa cải chua: 150–200g (rửa bớt mặn, cắt nhỏ)</li>
+        <li>Trứng gà: 1–2 quả</li>
+        <li>Tỏi băm, hành lá, gia vị: dầu ăn, hạt nêm, nước mắm, dầu hào, tiêu...</li>
+      </ul>
+
+      <strong>Cách làm:</strong>
+      <ol>
+        <li>Ướp thịt bò 10 phút.</li>
+        <li>Trộn trứng vào cơm nguội.</li>
+        <li>Xào thịt bò tái, múc ra.</li>
+        <li>Xào dưa cải, múc ra.</li>
+        <li>Rang cơm lửa lớn cho vàng giòn.</li>
+        <li>Cho thịt + dưa trở lại, nêm nếm, rắc hành lá. Xong!</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Cơm Rang Thập Cẩm – Nhiều Màu, Bắt Mắt, Hợp Cả Nhà</h2>
+
+    <div class="carousel">
+      <div class="slides" id="slides2">
+        <div class="slide"><img src="http://maynauan.com.vn/wp-content/uploads/2025/05/cach-lam-com-rang-thap-cam.jpg" alt="Cơm rang thập cẩm đẹp mắt"></div>
+        <div class="slide"><img src="https://tunaucom.com.vn/wp-content/uploads/2024/02/com-chien-thap-cam-9.jpg" alt="Cơm rang thập cẩm nhiều màu"></div>
+        <div class="slide"><img src="https://i.ytimg.com/vi/xoij1giZN10/hq720.jpg" alt="Cơm rang thập cẩm thơm lừng"></div>
+      </div>
+      <button class="nav-btn prev" onclick="moveSlide('slides2', -1)">❮</button>
+      <button class="nav-btn next" onclick="moveSlide('slides2', 1)">❯</button>
+    </div>
+
+    <div class="recipe-steps">
+      <strong>Nguyên liệu:</strong>
+      <ul>
+        <li>Cơm nguội: 3 chén</li>
+        <li>Trứng: 2 quả</li>
+        <li>Xúc xích/lạp xưởng, rau củ (cà rốt, đậu Hà Lan, bắp...)</li>
+        <li>Gia vị: nước tương, dầu hào, hạt nêm...</li>
+      </ul>
+      <p><strong>Cách làm ngắn gọn:</strong> Phi tỏi → xào xúc xích + rau → làm trứng → rang cơm → trộn tất cả → nêm gia vị → rắc hành lá. Xong trong 10 phút!</p>
+    </div>
+  </div>
+
+  <div class="tips">
+    <h3>Mẹo nhỏ để cơm rang ngon như ngoài hàng</h3>
+    <ul>
+      <li>Dùng cơm nguội tủ lạnh → hạt khô, rang mới tơi giòn</li>
+      <li>Rang lửa lớn, đảo liên tục</li>
+      <li>Trộn trứng trước → hạt cơm vàng ruộm, bóng đẹp</li>
+      <li>Thích biến tấu? Thử thêm kim chi kiểu Hàn (cay chua cực hợp!)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Bonus: Cơm Rang Kim Chi – Cay Cay Chua Chua Siêu Hấp Dẫn</h2>
+    <div class="carousel">
+      <div class="slides" id="slides3">
+        <div class="slide"><img src="https://www.huongnghiepaau.com/wp-content/uploads/2019/01/com-rang-kim-chi.jpg" alt="Cơm rang kim chi hấp dẫn"></div>
+        <div class="slide"><img src="http://www.savourydays.com/wp-content/uploads/2011/11/ComRangKimChi1.jpg" alt="Cơm rang kim chi Hàn Quốc"></div>
+      </div>
+      <button class="nav-btn prev" onclick="moveSlide('slides3', -1)">❮</button>
+      <button class="nav-btn next" onclick="moveSlide('slides3', 1)">❯</button>
+    </div>
+  </div>
+
+  <p style="text-align:center; font-size:1.3em; margin-top:40px;">
+    Bạn thích kiểu nào nhất? Nhà bạn hay rang kiểu gì? Comment bên dưới để mình gợi ý thêm nhaaa! 🍚🔥
+  </p>
+</div>
+
+<script>
+  function moveSlide(slidesId, direction) {
+    const slides = document.getElementById(slidesId);
+    let current = parseInt(slides.dataset.current || '0');
+    const total = slides.children.length;
+    current = (current + direction + total) % total;
+    slides.style.transform = `translateX(-${current * 100}%)`;
+    slides.dataset.current = current;
+  }
+</script>
+
+</body>
+</html>
