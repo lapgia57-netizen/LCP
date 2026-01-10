@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hành chính Sơn Động & Xã An Bá</title>
+
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#151a33;
+  --accent1:#ff6a00;
+  --accent2:#00e0ff;
+  --accent3:#7cff00;
+  --accent4:#ff3cac;
+  --text:#eaeaff;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  background:
+    radial-gradient(circle at top left,#1b1f4b,transparent 40%),
+    radial-gradient(circle at bottom right,#32003b,transparent 40%),
+    var(--bg);
+  color:var(--text);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px 60px;
+}
+
+.header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.header h1{
+  font-size:2.4rem;
+  background:linear-gradient(90deg,var(--accent1),var(--accent4),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.header p{
+  opacity:.85;
+  max-width:700px;
+  margin:10px auto 0;
+}
+
+.section{
+  margin-bottom:40px;
+}
+
+.section-title{
+  font-size:1.6rem;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.section-title span{
+  padding:6px 12px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent2),var(--accent3));
+  color:#000;
+  font-weight:600;
+  font-size:.85rem;
+}
+
+.card{
+  background:linear-gradient(180deg,#1a1f3f,#10142c);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.badge{
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:600;
+  letter-spacing:.3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  background:linear-gradient(135deg,var(--accent1),var(--accent4));
+  color:#000;
+  box-shadow:0 6px 18px rgba(255,60,172,.35);
+}
+
+.badge.blue{
+  background:linear-gradient(135deg,var(--accent2),#4facfe);
+}
+
+.badge.green{
+  background:linear-gradient(135deg,var(--accent3),#d4ff00);
+}
+
+.badge.pink{
+  background:linear-gradient(135deg,#ff3cac,#784ba0);
+}
+
+.sub-info{
+  margin-top:16px;
+  font-size:.95rem;
+  opacity:.85;
+}
+
+.note{
+  margin-top:18px;
+  padding:14px 18px;
+  border-left:4px solid var(--accent1);
+  background:rgba(255,106,0,.08);
+  border-radius:10px;
+  font-size:.95rem;
+}
+
+.footer{
+  text-align:center;
+  margin-top:50px;
+  opacity:.6;
+  font-size:.85rem;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Hành chính huyện Sơn Động</h1>
+    <p>Thông tin đơn vị hành chính và thôn/xóm truyền thống trước các sắp xếp mới (trước năm 2024)</p>
+  </div>
+
+  <!-- ĐƠN VỊ HÀNH CHÍNH -->
+  <div class="section">
+    <div class="section-title">
+      Đơn vị hành chính cấp xã
+      <span>Trước 2024</span>
+    </div>
+
+    <div class="card">
+      <h3>Thị trấn</h3>
+      <div class="grid">
+        <div class="badge blue">Thị trấn An Châu</div>
+        <div class="badge blue">Thị trấn Tây Yên Tử</div>
+      </div>
+
+      <div class="sub-info">Trung tâm hành chính – dịch vụ của huyện Sơn Động</div>
+
+      <h3 style="margin-top:28px">Xã</h3>
+      <div class="grid">
+        <div class="badge">An Bá</div>
+        <div class="badge">An Lạc</div>
+        <div class="badge">Cẩm Đàn</div>
+        <div class="badge">Đại Sơn</div>
+        <div class="badge">Dương Hưu</div>
+        <div class="badge">Giáo Liêm</div>
+        <div class="badge">Hữu Sản</div>
+        <div class="badge">Lệ Viễn</div>
+        <div class="badge">Long Sơn</div>
+        <div class="badge">Phúc Sơn</div>
+        <div class="badge">Tuấn Đạo</div>
+        <div class="badge">Thanh Luận</div>
+        <div class="badge">Vân Sơn</div>
+        <div class="badge">Vĩnh An</div>
+        <div class="badge">Yên Định</div>
+      </div>
+
+      <div class="note">
+        Danh sách áp dụng cho giai đoạn trước khi các phương án sáp nhập đơn vị hành chính có hiệu lực từ 1/7/2025.
+      </div>
+    </div>
+  </div>
+
+  <!-- XÃ AN BÁ -->
+  <div class="section">
+    <div class="section-title">
+      Xã An Bá
+      <span>Thôn truyền thống</span>
+    </div>
+
+    <div class="card">
+      <div class="grid">
+        <div class="badge green">Thôn An Bá</div>
+        <div class="badge green">Thôn Lái</div>
+        <div class="badge green">Thôn Hai</div>
+        <div class="badge green">Thôn Vá</div>
+        <div class="badge green">Thôn Đồng Dầu</div>
+        <div class="badge green">Thôn Đồng Tàn</div>
+      </div>
+
+      <div class="note">
+        Các thôn/xóm trên là đơn vị cư trú truyền thống, được ghi nhận trong thống kê dân cư và chương trình vùng đặc biệt khó khăn.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © Thông tin hành chính – Sơn Động, Bắc Giang
+  </div>
+
+</div>
+</body>
+</html>
