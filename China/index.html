@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bảng Chữ Hán Tiếng Trung - Học cùng Reel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #e63946;
+      --dark: #1d3557;
+      --light: #f1faee;
+      --gray: #a8dadc;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    }
+    
+    .header {
+      background: var(--primary);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .content {
+      padding: 2rem;
+    }
+    
+    .source-link {
+      text-align: center;
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .source-link a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .source-link a:hover {
+      text-decoration: underline;
+    }
+    
+    h2 {
+      color: var(--primary);
+      margin: 2rem 0 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .hanzi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .hanzi-table th, .hanzi-table td {
+      padding: 14px 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .hanzi-table th {
+      background: var(--dark);
+      color: white;
+      font-weight: 600;
+    }
+    
+    .hanzi {
+      font-size: 2.4rem;
+      font-family: 'Noto Sans SC', 'Segoe UI Emoji', sans-serif;
+      color: #000;
+      margin-bottom: 6px;
+      display: block;
+    }
+    
+    .pinyin {
+      color: #d00000;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .meaning {
+      color: #333;
+      font-size: 0.95rem;
+    }
+    
+    .example {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 6px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hanzi-table {
+        font-size: 1rem;
+      }
+      .hanzi {
+        font-size: 2rem;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Học Tiếng Trung - Bảng Lượng Từ & Chữ Hán</h1>
+      <p>Học cùng video Reel siêu hay trên Facebook!</p>
+    </div>
+
+    <!-- VIDEO (thay link nếu bạn tải video về hoặc dùng link khác) -->
+    <div class="video-wrapper">
+      <!-- Cách 1: Nhúng Facebook Reel (thường hoạt động tốt trên web) -->
+      <iframe 
+        src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F16xhMorME7%2F&show_text=0&width=560"
+        width="100%" 
+        height="100%" 
+        style="border:none;overflow:hidden" 
+        scrolling="no" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+
+      <!-- Cách 2: Nếu bạn tải video về thì dùng thẻ video thay thế -->
+      <!-- 
+      <video controls>
+        <source src="duong-dan-video-cua-ban.mp4" type="video/mp4">
+        Trình duyệt không hỗ trợ video.
+      </video>
+      -->
+    </div>
+
+    <div class="content">
+      <div class="source-link">
+        📌 Link gốc của Reel: 
+        <a href="https://www.facebook.com/share/r/16xhMorME7/" target="_blank">
+          Xem video gốc trên Facebook →
+        </a>
+      </div>
+
+      <h2>Bảng Chữ Hán & Lượng Từ Phổ Biến</h2>
+      <p style="text-align:center; margin-bottom:1.5rem;">
+        (Dựa theo nội dung thường thấy trong các reel học tiếng Trung cơ bản)
+      </p>
+
+      <table class="hanzi-table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Hán Tự (Hanzi)</th>
+            <th>Pinyin</th>
+            <th>Nghĩa tiếng Việt</th>
+            <th>Ví dụ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><span class="hanzi">个</span></td>
+            <td><span class="pinyin">gè</span></td>
+            <td class="meaning">cái / người (dùng nhiều nhất)</td>
+            <td class="example">一个人 (yī gè rén) - một người</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><span class="hanzi">只</span></td>
+            <td><span class="pinyin">zhī</span></td>
+            <td class="meaning">con (động vật nhỏ)</td>
+            <td class="example">一只猫 (yī zhī māo) - một con mèo</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><span class="hanzi">条</span></td>
+            <td><span class="pinyin">tiáo</span></td>
+            <td class="meaning">con (động vật dài), cái (dài mỏng)</td>
+            <td class="example">一条鱼 (yī tiáo yú) - một con cá</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><span class="hanzi">本</span></td>
+            <td><span class="pinyin">běn</span></td>
+            <td class="meaning">quyển, cuốn (sách)</td>
+            <td class="example">三本书 (sān běn shū) - ba cuốn sách</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><span class="hanzi">张</span></td>
+            <td><span class="pinyin">zhāng</span></td>
+            <td class="meaning">tờ, cái (phẳng)</td>
+            <td class="example">一张纸 (yī zhāng zhǐ) - một tờ giấy</td>
+          </tr>
+          <!-- Thêm nhiều dòng nữa tùy theo nội dung video của bạn -->
+          <tr>
+            <td>6</td>
+            <td><span class="hanzi">辆</span></td>
+            <td><span class="pinyin">liàng</span></td>
+            <td class="meaning">chiếc (xe)</td>
+            <td class="example">一辆车 (yī liàng chē) - một chiếc xe</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><span class="hanzi">件</span></td>
+            <td><span class="pinyin">jiàn</span></td>
+            <td class="meaning">cái (quần áo)</td>
+            <td class="example">一件衣服 (yī jiàn yīfu) - một bộ quần áo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="text-align:center; margin-top:2rem; font-style:italic;">
+        Bạn có thể thêm nhiều lượng từ & ví dụ khác từ video vào bảng này nhé!<br>
+        Chúc bạn học tiếng Trung thật vui và tiến bộ nhanh! 🚀
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
