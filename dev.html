@@ -18,7 +18,8 @@
       --text-muted: #94a3b8;
       --online: #00ff9d;
       --border: #334155;
-      --hover: rgba(255,46,99,0.15);
+      --hover: rgba(255,46,99,0.18);
+      --card: #17212f;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -31,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* Loading */
     .loading {
       position: fixed;
       inset: 0;
@@ -46,8 +46,8 @@
     }
 
     .spinner {
-      width: 60px;
-      height: 60px;
+      width: 64px;
+      height: 64px;
       border: 6px solid #334155;
       border-top: 6px solid var(--accent);
       border-radius: 50%;
@@ -56,60 +56,55 @@
 
     @keyframes spin { to { transform: rotate(360deg) } }
 
-    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10,14,23,0.85);
+      background: rgba(10,14,23,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 1rem;
+      padding: 1rem 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 900;
       color: var(--accent);
-      text-shadow: 0 0 10px var(--accent-glow);
-      letter-spacing: -1px;
+      text-shadow: 0 0 12px var(--accent-glow);
     }
 
     .status-bar {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      font-size: 0.85rem;
+      gap: 1.1rem;
+      font-size: 0.9rem;
     }
 
     .online-badge {
-      background: rgba(0,255,157,0.2);
+      background: rgba(0,255,157,0.18);
       color: var(--online);
-      padding: 0.4rem 0.9rem;
+      padding: 0.45rem 1rem;
       border-radius: 999px;
       font-weight: 700;
       border: 1px solid var(--online);
-      text-shadow: 0 0 8px var(--online);
     }
 
-    /* Main Layout */
     .main-layout {
       display: flex;
       flex-direction: column;
       height: calc(100vh - 64px);
     }
 
-    /* Sidebar (Bottom Sheet) */
     .sidebar {
       position: fixed;
       inset: 0;
       z-index: 200;
       background: var(--bg-alt);
       transform: translateY(100%);
-      transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+      transition: transform 0.4s cubic-bezier(0.32,0.72,0,1);
       display: flex;
       flex-direction: column;
     }
@@ -117,8 +112,8 @@
     .sidebar.open { transform: translateY(0); }
 
     .sidebar-header {
-      padding: 1.2rem 1rem;
-      background: rgba(30,41,59,0.7);
+      padding: 1.2rem 1.2rem;
+      background: rgba(30,41,59,0.6);
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -127,156 +122,138 @@
 
     .search-input {
       width: 100%;
-      padding: 0.8rem 1rem 0.8rem 2.8rem;
-      background: rgba(15,23,42,0.6);
+      padding: 0.9rem 1rem 0.9rem 3rem;
+      background: rgba(15,23,42,0.65);
       border: 1px solid var(--border);
       border-radius: 12px;
       color: var(--text);
-      font-size: 0.95rem;
-      transition: all 0.2s;
+      font-size: 0.97rem;
     }
 
     .search-input:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255,46,99,0.25);
+      box-shadow: 0 0 0 3px rgba(255,46,99,0.22);
       outline: none;
     }
 
-    .tree-container { flex: 1; overflow-y: auto; padding: 0.5rem 0; }
+    .tree-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.6rem 0;
+    }
 
-    .tree li {
-      padding: 0.8rem 1.3rem;
-      margin: 0.2rem 0.5rem;
-      border-radius: 10px;
+    .html-files-list {
+      padding: 1rem 1.2rem;
+    }
+
+    .html-files-list h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .file-item {
+      padding: 1rem 1.2rem;
+      margin: 0.5rem 0;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
       cursor: pointer;
       transition: all 0.2s;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      font-size: 0.97rem;
+      gap: 1rem;
     }
 
-    .tree li:hover { background: var(--hover); }
+    .file-item:hover {
+      background: var(--hover);
+      transform: translateX(4px);
+      border-color: var(--accent);
+    }
 
-    .tree .folder { color: #c084fc; font-weight: 600; }
+    .file-item .icon {
+      font-size: 1.4rem;
+      color: #a78bfa;
+    }
 
-    .tree .collapsed > ul { display: none; }
+    .file-item .title {
+      font-weight: 600;
+      flex: 1;
+    }
 
-    /* Welcome Card - Phiên bản mới */
+    .file-item .path {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      opacity: 0.85;
+    }
+
     .welcome-card {
       background: linear-gradient(135deg, #1e293b 0%, #111827 100%);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 2.5rem 1.6rem;
+      padding: 2.8rem 1.8rem;
       width: 90%;
-      max-width: 420px;
+      max-width: 440px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(255,46,99,0.15),
-                  inset 0 0 20px rgba(255,46,99,0.08);
-      position: relative;
-      overflow: hidden;
-      animation: fadeIn 1.2s ease-out;
+      box-shadow: 0 12px 32px rgba(255,46,99,0.16);
+      animation: fadeIn 1s ease-out;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
-    .welcome-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 20%, rgba(255,46,99,0.12), transparent 60%);
-      pointer-events: none;
-    }
+    .welcome-icon { font-size: 4.5rem; margin-bottom: 1.2rem; color: var(--accent); filter: drop-shadow(0 0 18px var(--accent-glow)); }
 
-    .welcome-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-      filter: drop-shadow(0 0 15px var(--accent-glow));
-      animation: pulse 3s infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% { transform: scale(1); }
-      50%     { transform: scale(1.08); }
-    }
-
-    .welcome-card h2 {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-      text-shadow: 0 0 15px var(--accent-glow);
-      letter-spacing: -1px;
-    }
-
-    .welcome-card p {
-      font-size: 1.05rem;
-      opacity: 0.9;
-      margin-bottom: 1.5rem;
-    }
+    .welcome-card h2 { color: var(--accent); margin-bottom: 1rem; font-size: 2rem; font-weight: 900; }
 
     .explore-btn {
       background: var(--accent);
       color: white;
       border: none;
-      padding: 0.9rem 2rem;
+      padding: 1rem 2.2rem;
       border-radius: 50px;
       font-weight: bold;
-      font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255,46,99,0.5);
+      box-shadow: 0 5px 18px rgba(255,46,99,0.5);
       transition: all 0.25s;
-      margin-top: 1rem;
     }
 
-    .explore-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255,46,99,0.6);
-    }
+    .explore-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(255,46,99,0.65); }
 
-    /* FAB */
     .fab {
       position: fixed;
-      bottom: 28px;
-      right: 24px;
-      width: 64px;
-      height: 64px;
+      bottom: 32px;
+      right: 28px;
+      width: 68px;
+      height: 68px;
       background: var(--accent);
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 6px 20px rgba(255,46,99,0.5);
+      font-size: 1.8rem;
+      box-shadow: 0 8px 24px rgba(255,46,99,0.55);
       z-index: 150;
       border: none;
       cursor: pointer;
     }
 
-    .fab:active { transform: scale(0.9); }
-
     footer {
-      padding: 1rem;
+      padding: 1.2rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.78rem;
-      background: rgba(10,14,23,0.8);
+      font-size: 0.82rem;
+      background: rgba(10,14,23,0.85);
       border-top: 1px solid var(--border);
     }
 
-    /* Desktop */
     @media (min-width: 768px) {
       .main-layout { flex-direction: row; height: calc(100vh - 68px); }
-      .sidebar { position: static; width: 360px; transform: none !important; border-right: 1px solid var(--border); }
+      .sidebar { position: static; width: 380px; transform: none !important; border-right: 1px solid var(--border); }
       .sidebar-header, .fab { display: none; }
-      .welcome-card { width: 520px; padding: 3rem 2.5rem; }
-      .welcome-icon { font-size: 5.5rem; }
-      header { padding: 1.2rem 2rem; }
+      .welcome-card { width: 560px; padding: 3.5rem 3rem; }
+      header { padding: 1.3rem 2.5rem; }
     }
   </style>
 </head>
@@ -284,7 +261,7 @@
 
 <div class="loading" id="loading">
   <div class="spinner"></div>
-  <div>Đang vào quán net...</div>
+  <div>Đang load quán net & lấy title...</div>
 </div>
 
 <header>
@@ -300,53 +277,58 @@
 <div class="main-layout">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <h3 style="color:var(--accent);font-weight:900">FILE EXPLORER</h3>
-      <button style="background:none;border:none;color:var(--text);font-size:1.8rem;cursor:pointer" onclick="toggleSidebar()">×</button>
+      <h3 style="color:var(--accent);font-weight:900">DANH SÁCH PROFILE / FILE</h3>
+      <button style="background:none;border:none;color:var(--text);font-size:2rem;cursor:pointer" onclick="toggleSidebar()">×</button>
     </div>
 
-    <div style="padding:1rem;background:var(--surface);border-bottom:1px solid var(--border);">
-      <input type="text" class="search-input" id="search" placeholder="Tìm nick, file, tin nhắn...">
+    <div style="padding:1.1rem;background:var(--surface);border-bottom:1px solid var(--border);">
+      <div style="position:relative;">
+        <i class="fas fa-search" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+        <input type="text" class="search-input" id="search" placeholder="Tìm nick, title, file...">
+      </div>
     </div>
 
     <div class="tree-container">
-      <div class="tree" id="tree">Đang load repo...</div>
+      <!-- Danh sách title sẽ được render vào đây -->
+      <div class="html-files-list" id="htmlList">
+        <h3>Đang tải danh sách...</h3>
+      </div>
     </div>
   </aside>
 
-  <main class="content-area" style="flex:1; display:flex; align-items:center; justify-content:center; padding:1rem;">
+  <main class="content-area" style="flex:1; display:flex; align-items:center; justify-content:center; padding:1.5rem;">
     <div class="welcome-card" id="file-content">
       <div class="welcome-icon"><i class="fas fa-laptop-code"></i></div>
       <h2>LCP • Quán Net Chat Lan</h2>
-      <p>Chỗ chill đêm khuya, chat lan, share file, flex profile</p>
+      <p>Chỗ chill đêm khuya • chat lan • share file • flex profile cá nhân</p>
 
       <button class="explore-btn" onclick="toggleSidebar()">
-        <i class="fas fa-folder-open"></i> Khám phá ngay
+        <i class="fas fa-list-ul"></i> Xem tất cả profile
       </button>
 
-      <div style="margin-top:1.8rem; font-size:0.95rem; opacity:0.85;">
-        Mẹo: Tạo file <code>online/tênnick.html</code> → có profile riêng trong 5 giây
+      <div style="margin-top:2rem; font-size:0.97rem; opacity:0.9;">
+        Mẹo nhanh: Tạo file <code>online/tênnick.html</code> → tự động có profile riêng
       </div>
     </div>
   </main>
 </div>
 
 <button class="fab" id="fab" onclick="toggleSidebar()">
-  <i class="fas fa-folder-open"></i>
+  <i class="fas fa-list-ul"></i>
 </button>
 
 <footer>
-  Cập nhật: <span id="refreshTime">--</span> • Auto refresh 2 phút
+  Cập nhật lần cuối: <span id="refreshTime">--</span> • Tự động làm mới mỗi 2 phút
 </footer>
 
 <script>
-// Giữ nguyên toàn bộ logic cũ
 const owner = "lapgia57-netizen";
 const repo = "LCP";
 const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
 const domain = "https://lcp.lck.io.vn/";
 
 const loading = document.getElementById("loading");
-const tree = document.getElementById("tree");
+const htmlList = document.getElementById("htmlList");
 const onlineEl = document.getElementById("online");
 const clockEl = document.getElementById("clock");
 const refreshTimeEl = document.getElementById("refreshTime");
@@ -361,83 +343,98 @@ function toggleSidebar() {
   }
 }
 
+async function fetchTitle(url) {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return "Không lấy được title";
+    const text = await res.text();
+    const match = text.match(/<title>(.*?)<\/title>/i);
+    return match ? match[1].trim() : "Không có title";
+  } catch {
+    return "Lỗi khi lấy title";
+  }
+}
+
 async function loadRepo() {
   loading.style.display = "flex";
+  htmlList.innerHTML = "<h3>Đang tải danh sách...</h3>";
+
   try {
     const res = await fetch(api);
-    if (!res.ok) throw new Error();
+    if (!res.ok) throw new Error("GitHub API error");
     const data = await res.json();
 
     const files = data.tree.filter(f => f.type === "blob");
     const onlineCount = files.filter(f => f.path.startsWith("online/")).length;
-
     onlineEl.textContent = onlineCount;
-    refreshTimeEl.textContent = new Date().toLocaleString("vi-VN", {hour:"2-digit", minute:"2-digit"});
+    refreshTimeEl.textContent = new Date().toLocaleString("vi-VN", {hour:"2-digit", minute:"2-digit", second:"2-digit"});
 
-    renderTree(data.tree);
+    // Lọc file: chỉ giữ .html, ẩn CNAME, LICENSE, README, .git*, favicon, v.v.
+    const htmlFiles = files.filter(f => 
+      f.path.endsWith(".html") &&
+      !f.path.includes("CNAME") &&
+      !f.path.includes("LICENSE") &&
+      !f.path.includes("README") &&
+      !f.path.startsWith(".") &&
+      !f.path.includes("favicon")
+    );
+
+    htmlList.innerHTML = `<h3>Profile & Trang HTML (${htmlFiles.length})</h3>`;
+
+    // Render danh sách với title (lấy async)
+    for (const file of htmlFiles) {
+      const item = document.createElement("div");
+      item.className = "file-item";
+      item.innerHTML = `
+        <div class="icon"><i class="fas fa-file-lines"></i></div>
+        <div>
+          <div class="title">Đang lấy title...</div>
+          <div class="path">${file.path}</div>
+        </div>
+      `;
+
+      item.onclick = () => {
+        const url = `${domain}${file.path}`;
+        window.open(url, "_blank");
+        if (window.innerWidth < 768) toggleSidebar();
+      };
+
+      htmlList.appendChild(item);
+
+      // Lấy title async và cập nhật
+      fetchTitle(`https://raw.githubusercontent.com/${owner}/${repo}/main/${file.path}`)
+        .then(title => {
+          item.querySelector(".title").textContent = title;
+        });
+    }
+
+    if (htmlFiles.length === 0) {
+      htmlList.innerHTML += `<p style="padding:1.5rem;color:#ff6b6b">Chưa có file .html nào phù hợp</p>`;
+    }
+
   } catch (e) {
-    tree.innerHTML = `<div style="padding:2rem;color:#ff2e63">❌ Lỗi kết nối GitHub API</div>`;
+    htmlList.innerHTML = `<div style="padding:2rem;color:#ff2e63;text-align:center">❌ Lỗi kết nối GitHub API</div>`;
   } finally {
     loading.style.display = "none";
   }
 }
 
-function renderTree(items) {
-  const root = document.createElement("ul");
-  const folders = {};
-
-  items.filter(i => i.type === "blob").forEach(item => {
-    const parts = item.path.split("/");
-    let current = root;
-
-    for (let i = 0; i < parts.length - 1; i++) {
-      const path = parts.slice(0, i + 1).join("/");
-      if (!folders[path]) {
-        const li = document.createElement("li");
-        li.className = "folder";
-        li.innerHTML = `<i class="fas fa-folder"></i> ${parts[i]}/`;
-        const ul = document.createElement("ul");
-        ul.classList.add("collapsed");
-        li.appendChild(ul);
-        li.onclick = e => { e.stopPropagation(); ul.classList.toggle("collapsed"); };
-        folders[path] = ul;
-        current.appendChild(li);
-      }
-      current = folders[path];
-    }
-
-    const fileLi = document.createElement("li");
-    fileLi.innerHTML = `<i class="fas fa-file-code"></i> ${parts.at(-1)}`;
-    fileLi.onclick = e => {
-      e.stopPropagation();
-      const url = item.path.endsWith(".html")
-        ? `${domain}${item.path}`
-        : `https://raw.githubusercontent.com/${owner}/${repo}/main/${item.path}`;
-      window.open(url, "_blank");
-      if (window.innerWidth < 768) toggleSidebar();
-    };
-    current.appendChild(fileLi);
-  });
-
-  tree.innerHTML = "";
-  tree.appendChild(root);
-}
-
-// Clock
+// Clock realtime
 setInterval(() => {
   clockEl.textContent = new Date().toLocaleTimeString("vi-VN", {hour12:false});
 }, 1000);
 
-// Search
+// Tìm kiếm
 searchInput.addEventListener("input", e => {
   const term = e.target.value.toLowerCase().trim();
-  document.querySelectorAll(".tree li").forEach(li => {
-    li.style.display = li.textContent.toLowerCase().includes(term) ? "" : "none";
+  document.querySelectorAll(".file-item").forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(term) ? "" : "none";
   });
 });
 
 loadRepo();
-setInterval(loadRepo, 120000);
+setInterval(loadRepo, 120000); // refresh mỗi 2 phút
 </script>
 </body>
 </html>
